@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">jungle-widgets</string>
-    <string name="loading">正在加载…</string>
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
+
+    <string name="loading">正在加载…</string>
+    <string name="loading_now">加载中…</string>
+    <string name="loading_failed">加载失败</string>
+    <string name="loading_failed_tips">重新加载</string>
+    <string name="loading_result_empty">暂无结果</string>
 </resources>

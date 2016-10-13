@@ -10,4 +10,5 @@
     <color name="toast_msg_color">#fff</color>
     <color name="click_effect_color">#40000000</color>
     <color name="translucent_mask_color">#40000000</color>
+    <color name="crop_image_frame">#b0000000</color>
 </resources>

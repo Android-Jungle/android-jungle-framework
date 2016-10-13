@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jungle.widgets.view.JungleIndexIndicatorView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/default_indicator"
+    android:layout_gravity="right|bottom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    app:indicatorHeight="12dp"
+    app:indicatorHorzMargin="8dp"
+    app:indicatorWidth="12dp"
+    app:seledIndicatorDrawable="@drawable/index_indicator_seled"
+    app:unSeledIndicatorDrawable="@drawable/index_indicator_unseled"/>

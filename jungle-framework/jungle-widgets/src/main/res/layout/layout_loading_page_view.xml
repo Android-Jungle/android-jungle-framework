@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/loading_desc_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/loading_img_view"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/jungle_loading"/>
+
+            <TextView
+                android:id="@+id/loading_description_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="@string/loading_now"
+                android:textColor="#999"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/empty_desc_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.youngo.common.widgets.view.AdjustBoundsImageView
+                android:id="@+id/empty_page_image"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/no_result_img"
+                app:adjustType="horizontal"/>
+
+            <TextView
+                android:id="@+id/empty_page_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/loading_result_empty"
+                android:textSize="12sp"
+                android:textColor="#999"/>
+
+            <TextView
+                android:id="@+id/empty_btn"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:gravity="center"
+                android:text="@string/loading_result_empty"
+                android:textColor="@color/white"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loading_failed_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.youngo.common.widgets.view.AdjustBoundsImageView
+                android:id="@+id/loading_failed_img_view"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:src="@drawable/loading_error"
+                app:adjustType="horizontal"/>
+
+            <TextView
+                android:id="@+id/loading_failed_page_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/loading_failed"
+                android:textSize="12sp"
+                android:textColor="#999"/>
+
+            <TextView
+                android:id="@+id/loading_failed_btn"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:gravity="center"
+                android:text="@string/loading_failed_tips"
+                android:textSize="13sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+</LinearLayout>

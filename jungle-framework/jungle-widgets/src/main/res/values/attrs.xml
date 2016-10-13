@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AdjustBoundsImageView">
+        <attr name="adjustType" format="enum">
+            <enum name="horizontal" value="1"/>
+            <enum name="vertical" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="FixedScaleSupport">
+        <attr name="viewAspectRatio" format="float"/>
+        <attr name="fixOrientation" format="enum">
+            <enum name="horizontal" value="1"/>
+            <enum name="vertical" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="gravity" format="enum">
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="2"/>
+            <enum name="center_vertical" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="JungleLoadingLayout">
+        <attr name="emptyImg" format="reference"/>
+        <attr name="emptyDesc" format="reference|string"/>
+        <attr name="emptyButtonText" format="reference|string"/>
+        <attr name="loadingImgDrawable" format="reference"/>
+        <attr name="loadingDesc" format="reference|string"/>
+        <attr name="loadingTopMargin" format="dimension"/>
+        <attr name="loadingFailedImg" format="reference"/>
+        <attr name="loadingFailedDesc" format="reference|string"/>
+        <attr name="loadingFailedButtonText" format="reference|string"/>
+        <attr name="loadingFailedTopMargin" format="dimension"/>
+        <attr name="btnBackground" format="reference"/>
+        <attr name="showEmptyBtn" format="boolean|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="JungleIndexIndicatorView">
+        <attr name="indicatorCount" format="integer"/>
+        <attr name="indicatorHorzMargin" format="dimension"/>
+        <attr name="indicatorWidth" format="dimension"/>
+        <attr name="indicatorHeight" format="dimension"/>
+        <attr name="seledIndicatorWidth" format="dimension"/>
+        <attr name="seledIndicatorHeight" format="dimension"/>
+        <attr name="seledIndicatorDrawable" format="reference"/>
+        <attr name="unSeledIndicatorDrawable" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="JungleLanternView">
+        <attr name="autoScroll" format="boolean"/>
+        <attr name="switchIntervalMs" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ClearableEditText">
+        <attr name="clearIcon" format="reference"/>
+        <attr name="clearIconWidth" format="dimension"/>
+        <attr name="clearIconHeight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ImageCropLayout">
+        <attr name="cropFrameAspectRatio" format="float"/>
+        <attr name="showDashCircle" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ScaleableImageView">
+        <attr name="fitToParent" format="boolean"/>
+    </declare-styleable>
+</resources>

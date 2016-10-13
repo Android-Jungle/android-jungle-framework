@@ -15,7 +15,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/jundle_loading"/>
+        android:src="@drawable/jungle_loading"/>
 
     <TextView
         android:id="@+id/loading_text"

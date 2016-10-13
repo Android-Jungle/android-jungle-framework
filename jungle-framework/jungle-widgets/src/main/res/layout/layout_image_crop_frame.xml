@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jungle.widgets.layout.FixedScaleFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/crop_frame_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/image_crop_frame_rect"
+    app:viewAspectRatio="1.0">
+
+    <View
+        android:id="@+id/dash_circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:layout_gravity="center"
+        android:background="@drawable/dash_circle"/>
+</com.jungle.widgets.layout.FixedScaleFrameLayout>
