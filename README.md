@@ -3,7 +3,7 @@
 
 ### 1、简介
 
-`android-jungle-framework` 是一款 Android 上 App 开发的库集合。目标致力于作为一款 **`基础框架`**，将一些 Android 开发中常见的模式 & 功能集中实现，让 Android 的开发变得简单。
+**`android-jungle-framework`** 是一款 Android 上 App 开发的库集合。目标致力于作为一款 **`基础框架`**，将一些 Android 开发中常见的模式 & 功能集中实现，让 Android 的开发变得简单。
 
 ### 2、模块
 
@@ -15,3 +15,13 @@
 |[jungle-widgets](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-widgets)|提供各种基础的 Widgets——各种 MessageBox & Dialog、模拟的 ActionSheet 等等|
 |[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件|
 |android-jungle-framework-photos|基于上述库实现的一款图片浏览类 App|
+
+**计划中的模块**（未来有可能不会实现或者部分实现）：
+
+|library|功能|
+|---|---|
+|jungle-entity|提供 Java 对象的 SQLiteDatabase 存储|
+|jungle-webview|封装 WebView，可以通过类似 `jungle://ui/showMessageBox/Hello` 的 URI 来调用客户端接口|
+|jungle-share|封装提供 QQ、QZone、WX 等第三方分享接口|
+|jungle-pay|封装提供 WX、AliPay 等第三方支付接口|
+
