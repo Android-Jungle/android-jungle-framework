@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="@drawable/actionsheet_item_bkg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/actionsheet_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/actionsheet_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/actionsheet_item_text_normal_color"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/actionsheet_desc_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/place_holder_view"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/actionsheet_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/actionsheet_item_desc_text_color"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/actionsheet_divide_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/actionsheet_divide_line_color"
+        android:visibility="gone"/>
+</LinearLayout>

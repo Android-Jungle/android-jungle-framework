@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="actionsheet_item_pressed_color">#34808080</color>
+    <color name="actionsheet_item_text_normal_color">#0079ff</color>
+    <color name="actionsheet_item_text_disable_color">#777</color>
+    <color name="actionsheet_item_desc_text_color">#777</color>
+    <color name="actionsheet_divide_line_color">#eee</color>
+
+    <color name="dialog_gray">#808080</color>
+    <color name="toast_msg_color">#fff</color>
+    <color name="click_effect_color">#40000000</color>
+    <color name="translucent_mask_color">#40000000</color>
 </resources>

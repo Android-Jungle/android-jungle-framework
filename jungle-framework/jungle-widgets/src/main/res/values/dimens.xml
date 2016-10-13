@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actionsheet_separate_container_margin">10dp</dimen>
+    <dimen name="dialog_horz_margin">20dp</dimen>
+    <dimen name="toast_vert_offset">80dp</dimen>
+</resources>
