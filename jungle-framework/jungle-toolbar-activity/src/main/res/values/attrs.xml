@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="JungleBaseActivity">
+        <attr name="jungle_overlayToolbar" format="boolean"/>
+        <attr name="jungle_noToolbar" format="boolean"/>
+        <attr name="jungle_slideRightToFinish" format="boolean"/>
+    </declare-styleable>
+</resources>

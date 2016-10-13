@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="toolbar_title_color">#fff</color>
+    <color name="toolbar_title_color_clicked">#80ffffff</color>
+    <color name="jungle_base_theme">#343434</color>
+    <color name="translucent_mask_color">#40000000</color>
+</resources>

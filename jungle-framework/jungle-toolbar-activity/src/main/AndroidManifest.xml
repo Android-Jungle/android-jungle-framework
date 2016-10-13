@@ -1,6 +1,6 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jungle.toolbar">
+    package="com.jungle.toolbaractivity">
 
     <application
         android:allowBackup="true"
