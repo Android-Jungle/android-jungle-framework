@@ -145,7 +145,7 @@ public class GeneralToolBar extends JungleToolBar {
     public void setTitleClickable(boolean clickable) {
         if (clickable) {
             mTitleText.setTextColor(getResources().getColorStateList(
-                    R.color.tool_bar_title_color_clickable));
+                    R.color.toolbar_title_color_clickable));
         } else {
             mTitleText.setTextColor(getResources().getColor(
                     R.color.toolbar_title_color));
