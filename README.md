@@ -20,8 +20,11 @@
 
 |library|功能|
 |---|---|
-|jungle-entity|提供 Java 对象的 SQLiteDatabase 存储|
-|jungle-webview|封装 WebView，可以通过类似 `jungle://ui/showMessageBox/Hello` 的 URI 来调用客户端接口|
+|jungle-entity|提供 Java 对象的 SQLiteDatabase 存储 & 读取|
+|jungle-webview|封装 WebView，可以在 WebView 中通过类似 `jungle://ui/showMessageBox/Hello` 的 URI 来调用客户端接口|
 |jungle-share|封装提供 QQ、QZone、WX 等第三方分享接口|
 |jungle-pay|封装提供 WX、AliPay 等第三方支付接口|
+
+各模块具体功能及接口参考对应的文档。
+
 
