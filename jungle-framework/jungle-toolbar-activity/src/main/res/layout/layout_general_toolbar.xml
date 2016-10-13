@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jungle.toolbaractivity.toolbar.GeneralToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/straw_tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:minHeight="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:padding="0dp"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
