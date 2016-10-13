@@ -100,9 +100,6 @@ public class ImageUtils {
         return new JungleSize(options.outWidth, options.outHeight);
     }
 
-    /**
-     * 根据所要求的尺寸获取一个图片采样尺寸.
-     */
     public static int calcInSampleSize(
             BitmapFactory.Options options, int requestWidth, int requestHeight) {
 
@@ -133,9 +130,6 @@ public class ImageUtils {
         return decodeSampledBitmapFromResource(res, resId, 0, 0);
     }
 
-    /**
-     * 根据所要求宽高加载一张图片.
-     */
     public static Bitmap decodeSampledBitmapFromResource(
             Resources res, int resId, int requestWidth, int requestHeight) {
 
@@ -232,12 +226,12 @@ public class ImageUtils {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
 
-        // 绘制 mask.
+        // draw mask.
         Rect dstRc = new Rect(0, 0, width, height);
         Rect maskRc = new Rect(0, 0, mask.getWidth(), mask.getHeight());
         canvas.drawBitmap(mask, maskRc, dstRc, paint);
 
-        // 绘制底图.
+        // draw src.
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(src, dstRc, dstRc, paint);
 
@@ -262,14 +256,14 @@ public class ImageUtils {
         float bitmapRatio = (float) bitmapWidth / (float) bitmapHeight;
         Rect srcRc = new Rect();
         if (bitmapRatio >= ratio) {
-            // 以原图高为基准.
+            // use src-width as base.
             int mappedWidth = (int) (ratio * bitmapHeight);
             srcRc.top = 0;
             srcRc.bottom = bitmapHeight;
             srcRc.left = Math.abs((bitmapWidth - mappedWidth) / 2);
             srcRc.right = srcRc.left + mappedWidth;
         } else {
-            // 以原图宽为基准.
+            // use src-height as base.
             int mappedHeight = (int) (bitmapWidth / ratio);
             srcRc.left = 0;
             srcRc.right = bitmapWidth;
@@ -282,12 +276,12 @@ public class ImageUtils {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
 
-        // 绘制 mask.
+        // draw mask.
         Rect dstRc = new Rect(0, 0, width, height);
         maskDrawable.setBounds(dstRc);
         maskDrawable.draw(canvas);
 
-        // 绘制底图.
+        // draw src.
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(src, srcRc, dstRc, paint);
 
