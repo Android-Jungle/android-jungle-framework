@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BaseAppCore implements Component {
+public class AppCore implements Component {
 
     private static final String TAG = "BaseAppCore";
 
@@ -42,11 +42,11 @@ public class BaseAppCore implements Component {
             new HashMap<Class<? extends AppManager>, AppManager>();
 
 
-    public BaseAppCore(BaseApplication app) {
+    public AppCore(BaseApplication app) {
         mApplication = app;
     }
 
-    public static BaseAppCore getInstance() {
+    public static AppCore getInstance() {
         return mApplication != null ? mApplication.getAppCore() : null;
     }
 
@@ -163,7 +163,7 @@ public class BaseAppCore implements Component {
 
     private void restartInternal() {
         Intent intent = new Intent();
-        Context context = BaseAppCore.getApplicationContext();
+        Context context = AppCore.getApplicationContext();
         intent.setComponent(new ComponentName(
                 context, MiscUtils.getMainLauncherActivity()));
         int flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

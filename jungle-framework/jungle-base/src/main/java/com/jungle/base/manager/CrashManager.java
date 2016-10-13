@@ -11,7 +11,7 @@ package com.jungle.base.manager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.utils.FileUtils;
 import com.jungle.base.utils.MiscUtils;
 import com.jungle.base.utils.NetworkUtils;
@@ -36,7 +36,7 @@ public class CrashManager implements AppManager {
 
 
     public static CrashManager getInstance() {
-        return BaseAppCore.getInstance().getManager(CrashManager.class);
+        return AppCore.getInstance().getManager(CrashManager.class);
     }
 
 
@@ -75,7 +75,7 @@ public class CrashManager implements AppManager {
     }
 
     private boolean checkCanUpload() {
-        return !BaseAppCore.getInstance().isDebug() && NetworkUtils.isWifi();
+        return !AppCore.getInstance().isDebug() && NetworkUtils.isWifi();
     }
 
     public static String getDefaultDumpPath() {
@@ -117,7 +117,7 @@ public class CrashManager implements AppManager {
             new Thread.UncaughtExceptionHandler() {
                 @Override
                 public void uncaughtException(Thread thread, Throwable ex) {
-                    BaseAppCore core = BaseAppCore.getInstance();
+                    AppCore core = AppCore.getInstance();
                     if (!core.isDebug()) {
                         Log.e(TAG, "", ex);
                     }

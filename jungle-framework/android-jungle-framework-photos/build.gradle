@@ -102,6 +102,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile project(':jungle-toolbar-activity')
-    compile project(':jungle-imageloader')
     compile project(':jungle-widgets')
 }

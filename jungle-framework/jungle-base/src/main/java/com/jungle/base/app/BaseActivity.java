@@ -77,7 +77,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void initAppCore() {
-        BaseAppCore core = BaseAppCore.getInstance();
+        AppCore core = AppCore.getInstance();
         if (core.isStarted()) {
             return;
         }

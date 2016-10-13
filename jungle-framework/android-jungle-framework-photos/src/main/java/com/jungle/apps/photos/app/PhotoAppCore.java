@@ -8,10 +8,10 @@
 
 package com.jungle.apps.photos.app;
 
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseApplication;
 
-public class PhotoAppCore extends BaseAppCore {
+public class PhotoAppCore extends AppCore {
 
     public PhotoAppCore(BaseApplication app) {
         super(app);

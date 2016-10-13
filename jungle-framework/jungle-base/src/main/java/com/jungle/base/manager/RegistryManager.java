@@ -9,7 +9,7 @@
 package com.jungle.base.manager;
 
 import android.database.sqlite.SQLiteDatabase;
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.registry.Registry;
 import com.jungle.base.registry.SharedPreferencesRegistry;
 import com.jungle.base.utils.FileUtils;
@@ -20,7 +20,7 @@ public class RegistryManager implements AppManager {
 
 
     public static RegistryManager getInstance() {
-        return BaseAppCore.getInstance().getManager(RegistryManager.class);
+        return AppCore.getInstance().getManager(RegistryManager.class);
     }
 
 

@@ -18,7 +18,7 @@ public class BaseApplication extends Application {
 
     private static BaseApplication mApplication;
 
-    private BaseAppCore mAppCore;
+    private AppCore mAppCore;
 
 
     @Override
@@ -41,11 +41,11 @@ public class BaseApplication extends Application {
         mApplication = null;
     }
 
-    protected BaseAppCore createAppCore() {
-        return new BaseAppCore(this);
+    protected AppCore createAppCore() {
+        return new AppCore(this);
     }
 
-    public BaseAppCore getAppCore() {
+    public AppCore getAppCore() {
         return mAppCore;
     }
 

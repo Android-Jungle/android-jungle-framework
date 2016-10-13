@@ -11,7 +11,7 @@ package com.jungle.base.manager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 
 public class ThreadManager implements AppManager {
 
@@ -20,7 +20,7 @@ public class ThreadManager implements AppManager {
 
 
     public static ThreadManager getInstance() {
-        return BaseAppCore.getInstance().getManager(ThreadManager.class);
+        return AppCore.getInstance().getManager(ThreadManager.class);
     }
 
 

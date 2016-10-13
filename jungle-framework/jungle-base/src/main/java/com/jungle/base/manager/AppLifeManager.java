@@ -9,7 +9,7 @@
 package com.jungle.base.manager;
 
 import android.app.Activity;
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.common.DeepWeakReference;
 import com.jungle.base.event.JungleEvent;
 
@@ -20,7 +20,7 @@ import java.util.List;
 public class AppLifeManager implements AppManager {
 
     public static AppLifeManager getInstance() {
-        return BaseAppCore.getInstance().getManager(AppLifeManager.class);
+        return AppCore.getInstance().getManager(AppLifeManager.class);
     }
 
 
@@ -50,7 +50,7 @@ public class AppLifeManager implements AppManager {
 
         mValidActivityList.clear();
 
-        BaseAppCore.getApplication().doClean();
+        AppCore.getApplication().doClean();
         System.exit(0);
     }
 

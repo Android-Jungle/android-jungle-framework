@@ -8,7 +8,7 @@
 
 package com.jungle.base.manager;
 
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.common.HoldWeakRef;
 import com.jungle.base.event.Event;
 import com.jungle.base.event.EventListener;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class EventManager implements AppManager {
 
     public static EventManager getInstance() {
-        return BaseAppCore.getInstance().getManager(EventManager.class);
+        return AppCore.getInstance().getManager(EventManager.class);
     }
 
 

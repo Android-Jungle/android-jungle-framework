@@ -12,7 +12,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 
 public class SharedPreferencesRegistry implements Registry {
 
@@ -22,7 +22,7 @@ public class SharedPreferencesRegistry implements Registry {
 
     public SharedPreferencesRegistry(String name) {
         mPreferenceName = name;
-        init(BaseAppCore.getApplicationContext());
+        init(AppCore.getApplicationContext());
     }
 
 
@@ -50,7 +50,7 @@ public class SharedPreferencesRegistry implements Registry {
     @Override
     public void forceSave() {
         close();
-        init(BaseAppCore.getApplicationContext());
+        init(AppCore.getApplicationContext());
     }
 
     @Override

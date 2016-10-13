@@ -18,8 +18,8 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.jungle.base.R;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseActivity;
-import com.jungle.base.app.BaseAppCore;
 import com.jungle.base.common.OnActivityResultListener;
 import com.jungle.base.manager.ThreadManager;
 
@@ -103,7 +103,7 @@ public class FileExtUtils {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
         if (TextUtils.isEmpty(chooseTitle)) {
-            chooseTitle = BaseAppCore.getApplicationContext().getString(R.string.choose_file);
+            chooseTitle = AppCore.getApplicationContext().getString(R.string.choose_file);
         }
 
         Intent chooseIntent = Intent.createChooser(intent, chooseTitle);
@@ -147,7 +147,7 @@ public class FileExtUtils {
         if (ContentResolver.SCHEME_FILE.compareToIgnoreCase(scheme) == 0) {
             exist = FileUtils.isFileExist(uri.getPath());
         } else {
-            Cursor cursor = BaseAppCore.getApplicationContext().getContentResolver().query(
+            Cursor cursor = AppCore.getApplicationContext().getContentResolver().query(
                     uri, new String[]{MediaStore.Files.FileColumns.SIZE},
                     null, null, null);
 
@@ -189,7 +189,7 @@ public class FileExtUtils {
         if (ContentResolver.SCHEME_FILE.compareToIgnoreCase(scheme) == 0) {
             size = new File(uri.getPath()).length();
         } else {
-            Cursor cursor = BaseAppCore.getApplicationContext().getContentResolver().query(
+            Cursor cursor = AppCore.getApplicationContext().getContentResolver().query(
                     uri, new String[]{MediaStore.Files.FileColumns.SIZE},
                     null, null, null);
 
@@ -227,7 +227,7 @@ public class FileExtUtils {
             File file = new File(uri.getPath());
             fileName = file.getName();
         } else {
-            Cursor cursor = BaseAppCore.getApplicationContext().getContentResolver().query(
+            Cursor cursor = AppCore.getApplicationContext().getContentResolver().query(
                     uri, new String[]{MediaStore.Files.FileColumns.DISPLAY_NAME},
                     null, null, null);
 
@@ -268,7 +268,7 @@ public class FileExtUtils {
         if (ContentResolver.SCHEME_FILE.compareToIgnoreCase(scheme) == 0) {
             filePath = uri.getPath();
         } else if (ContentResolver.SCHEME_CONTENT.compareToIgnoreCase(scheme) == 0) {
-            Cursor cursor = BaseAppCore.getApplicationContext().getContentResolver().query(
+            Cursor cursor = AppCore.getApplicationContext().getContentResolver().query(
                     uri, new String[]{MediaStore.Files.FileColumns.DATA},
                     null, null, null);
 

@@ -16,7 +16,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import com.jungle.base.R;
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseApplication;
 
 import java.io.BufferedOutputStream;
@@ -170,7 +170,7 @@ public class FileUtils {
 
     public static void grantUriPermission(Uri uri, int permission) {
         try {
-            BaseAppCore.getApplicationContext().grantUriPermission(
+            AppCore.getApplicationContext().grantUriPermission(
                     MiscUtils.getPackageName(), uri, permission);
         } catch (Exception e) {
             e.printStackTrace();
@@ -455,7 +455,7 @@ public class FileUtils {
 
     public static String getSizeTextDescription(long sizeBytes) {
         String desc = null;
-        Context context = BaseAppCore.getApplicationContext();
+        Context context = AppCore.getApplicationContext();
         if (sizeBytes >= GB) {
             desc = context.getString(R.string.gb_format, (float) sizeBytes / (float) GB);
         } else if (sizeBytes >= MB) {

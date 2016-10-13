@@ -39,8 +39,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import com.jungle.base.R;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseActivity;
-import com.jungle.base.app.BaseAppCore;
 import com.jungle.base.app.BaseApplication;
 import com.jungle.base.common.OnRequestPermissionsResultListener;
 import com.jungle.base.misc.JungleSize;
@@ -692,11 +692,11 @@ public final class MiscUtils {
 
         Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         intent.setData(Uri.fromFile(new File(file)));
-        BaseAppCore.getApplicationContext().sendBroadcast(intent);
+        AppCore.getApplicationContext().sendBroadcast(intent);
     }
 
     public static JungleSize getScreenSize() {
-        DisplayMetrics metrics = BaseAppCore.getApplicationContext()
+        DisplayMetrics metrics = AppCore.getApplicationContext()
                 .getResources().getDisplayMetrics();
 
         return new JungleSize(metrics.widthPixels, metrics.heightPixels);
@@ -811,7 +811,7 @@ public final class MiscUtils {
     @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public static void copyTextToClipboard(String data) {
         ClipboardManager clipboardManager = (ClipboardManager)
-                BaseAppCore.getApplicationContext()
+                AppCore.getApplicationContext()
                         .getSystemService(Context.CLIPBOARD_SERVICE);
 
         ClipData clipData = ClipData.newPlainText("text", data);

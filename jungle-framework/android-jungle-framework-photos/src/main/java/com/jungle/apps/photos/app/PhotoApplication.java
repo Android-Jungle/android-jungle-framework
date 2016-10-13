@@ -8,7 +8,7 @@
 
 package com.jungle.apps.photos.app;
 
-import com.jungle.base.app.BaseAppCore;
+import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseApplication;
 
 public class PhotoApplication extends BaseApplication {
@@ -19,7 +19,7 @@ public class PhotoApplication extends BaseApplication {
     }
 
     @Override
-    protected BaseAppCore createAppCore() {
-        return new BaseAppCore(this);
+    protected AppCore createAppCore() {
+        return new AppCore(this);
     }
 }
