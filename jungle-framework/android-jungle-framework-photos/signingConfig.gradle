@@ -1,0 +1,142 @@
+import groovy.swing.SwingBuilder
+
+apply plugin: 'com.android.application'
+
+
+class Global {
+    static boolean hasReleaseSigning = false
+}
+
+
+def static hasReleaseSigning() {
+    return Global.hasReleaseSigning
+}
+
+def loadFromDebug(signing) {
+    println ' Will use **debug** signingConfigs for Release-Package!\n'
+
+    def debugConfigs = android.signingConfigs.debug
+    signing.storeFile = debugConfigs.storeFile
+    signing.keyAlias = debugConfigs.keyAlias
+    signing.storePassword = debugConfigs.storePassword
+    signing.keyPassword = debugConfigs.keyPassword
+}
+
+def loadFromConsole(console, signing) {
+    String input = console.readLine(' ** You want input by yourself(Y/N)?')
+
+    if (input != null && 'y'.equalsIgnoreCase(input.trim())) {
+        signing.storeFile = file(console.readLine("\n\t>> Enter keystore path: "))
+        signing.keyAlias = console.readLine("\n\t>> Enter key alias: ")
+        signing.storePassword = console.readPassword("\n\t>> Enter store password: ")
+        signing.keyPassword = console.readPassword("\n\t>> Enter key password: ")
+        return true
+    }
+
+    return false
+}
+
+def loadFromSwingDialog(signing) {
+    new SwingBuilder().edt {
+        def closing = {
+            if (!Global.hasReleaseSigning) {
+                loadFromDebug(signing)
+            }
+        }
+
+        dialog(modal: true, title: 'Enter signing keystore information...',
+                alwaysOnTop: true, locationRelativeTo: null,
+                resizable: false, pack: true, show: true, windowClosing: closing) {
+
+            panel() {
+                vbox() {
+                    label(text: 'Store File: ')
+                    def defaultStoreFile = 'youngo_app.keystore'
+                    def storeFile = textField(
+                            text: defaultStoreFile,
+                            selectionStart: 0,
+                            selectionEnd: defaultStoreFile.length())
+
+                    label(text: 'Key Alias: ')
+                    def keyAlias = textField()
+
+                    label(text: 'Store Password: ')
+                    def storePassword = passwordField()
+
+                    label(text: 'Key Password: ')
+                    def keyPassword = passwordField()
+
+                    button(text: 'OK', actionPerformed: {
+                        signing.storeFile = file(storeFile.getText())
+                        signing.keyAlias = keyAlias.getText()
+                        signing.storePassword = new String(storePassword.password)
+                        signing.keyPassword = new String(keyPassword.password)
+
+                        println signing
+                        Global.hasReleaseSigning = true
+                        dispose()
+                    })
+                }
+            }
+        }
+    }
+
+    return true
+}
+
+def loadSigningProperties() {
+    boolean isRelease = gradle.startParameter.taskNames.any {
+        it.contains('Release') || it.equals('assemble')
+    }
+
+    if (!isRelease) {
+        return
+    }
+
+    boolean loaded = false
+    def signing = android.signingConfigs.release
+
+    File configFile = file('signing.properties')
+    if (configFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(configFile))
+
+        if (props.containsKey('STORE_FILE')
+                && props.containsKey('KEY_ALIAS')
+                && props.containsKey('STORE_PASSWORD')
+                && props.containsKey('KEY_PASSWORD')) {
+
+            signing.storeFile = file(props['STORE_FILE'])
+            signing.keyAlias = props['KEY_ALIAS']
+            signing.storePassword = props['STORE_PASSWORD']
+            signing.keyPassword = props['KEY_PASSWORD']
+            loaded = true
+        }
+    }
+
+    if (!loaded) {
+        print '\n\n** signing.properties MISSING!!'
+
+        def console = System.console()
+        if (console != null) {
+            if (!loadFromConsole(console, signing)) {
+                loadFromDebug(signing)
+                loaded = true
+            }
+        } else {
+            loadFromSwingDialog(signing)
+        }
+    } else {
+        println '\nLoad signing properties SUCCESSFUL!\n'
+    }
+
+    Global.hasReleaseSigning = loaded
+}
+
+
+ext {
+    loadSigningProperties = this.&loadSigningProperties
+    hasReleaseSigning = {
+        return Global.hasReleaseSigning
+    }
+}

@@ -4,6 +4,51 @@
     <style name="Jungle.AppTheme.AppBarOverlay"
            parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
+    <style name="Jungle.AppTheme.NoToolbar"
+           parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <style name="Jungle.AppTheme.WithToolbar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionBarSize">@dimen/jungle_toolbar_height</item>
+
+        <item name="android:textColor">@color/micro_black</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/Jungle.Style.ActionBar</item>
+
+        <item name="colorPrimary">@color/jungle_base_theme</item>
+    </style>
+
+    <style name="Jungle.AppTheme.OverlayToolBar" parent="Jungle.AppTheme.WithToolbar">
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+
+    <style name="Jungle.AppTheme.Translucent" parent="Jungle.AppTheme.NoToolbar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation
+        </item>
+    </style>
+
+    <style name="Jungle.Style.ActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@color/jungle_base_theme</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:height">@dimen/jungle_toolbar_height</item>
+        <item name="android:displayOptions">showTitle</item>
+        <item name="android:titleTextStyle">
+            @style/Jungle.Style.ToolbarTitleText
+        </item>
+    </style>
+
+    <style name="Jungle.Style.ToolbarTitleText"
+           parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/toolbar_title_color</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+    </style>
+
     <style name="ToolbarTitle">
         <item name="android:clickable">true</item>
         <item name="android:textSize">16sp</item>

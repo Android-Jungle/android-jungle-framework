@@ -1,13 +1,14 @@
-package com.jungle.app.photos;
+package com.jungle.apps.photos;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import com.jungle.base.app.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
     }
 }

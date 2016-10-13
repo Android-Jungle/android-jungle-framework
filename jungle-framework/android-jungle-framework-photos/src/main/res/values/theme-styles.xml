@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="Photos.AppTheme.WithToolbar" parent="Jungle.AppTheme.WithToolbar">
+        <item name="actionBarSize">@dimen/app_toolbar_height</item>
+        <item name="android:itemBackground">@color/photos_tool_bar</item>
+        <item name="android:textColor">@color/micro_black</item>
+        <item name="android:windowBackground">@color/app_window_background
+        </item>
+        <item name="android:textColorPrimary">@color/micro_black</item>
+
+        <item name="toolbarStyle">@style/Photos.Style.ToolBar</item>
+        <item name="colorPrimary">@color/photos_tool_bar</item>
+
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate
+        </item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Photos.AppTheme.OverlayToolBar" parent="Photos.AppTheme.WithToolbar">
+        <item name="jungle_overlayToolbar">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Photos.AppTheme.NoToolbar" parent="Photos.AppTheme.WithToolbar">
+        <item name="jungle_noToolbar">true</item>
+    </style>
+
+    <style name="Photos.AppTheme.WithToolbar.Translucent" parent="Photos.AppTheme.WithToolbar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate.SlideOutRight
+        </item>
+    </style>
+
+    <style name="Photos.AppTheme.WithToolbar.SlideOutRight" parent="Photos.AppTheme.WithToolbar">
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate.SlideOutRight
+        </item>
+    </style>
+
+    <style name="Photos.AppTheme.NoToolbar.Translucent" parent="Photos.AppTheme.NoToolbar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate.SlideOutRight
+        </item>
+    </style>
+
+    <style name="Photos.AppTheme.OverlayToolBar.Translucent" parent="Photos.AppTheme.OverlayToolBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate.SlideOutRight
+        </item>
+    </style>
+
+    <style name="ActivityTransitionAnimate" parent="@android:style/Animation.Activity">
+    </style>
+
+    <style name="ActivityTransitionAnimate.SlideOutRight" parent="ActivityTransitionAnimate">
+        <item name="android:activityCloseExitAnimation">
+            @android:anim/slide_out_right
+        </item>
+    </style>
+
+    <style name="Photos.AppTheme.Splash" parent="Jungle.AppTheme.NoToolbar">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Photos.Style.ToolBar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetRight">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+    </style>
+
+    <dimen name="app_toolbar_height">48dp</dimen>
+    <color name="app_window_background">#fff</color>
+</resources>

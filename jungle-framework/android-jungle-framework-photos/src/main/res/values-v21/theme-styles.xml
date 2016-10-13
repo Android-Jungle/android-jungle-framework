@@ -1,0 +1,33 @@
+<resources>
+
+    <style name="School.AppTheme.WithToolbar" parent="Jungle.AppTheme.WithToolbar">
+        <item name="actionBarSize">@dimen/app_toolbar_height</item>
+        <item name="android:itemBackground">@color/photos_tool_bar</item>
+        <item name="android:textColor">@color/micro_black</item>
+        <item name="android:windowBackground">@color/app_window_background
+        </item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColorPrimary">@color/micro_black</item>
+
+        <item name="toolbarStyle">@style/Photos.Style.ToolBar</item>
+        <item name="colorPrimary">@color/photos_tool_bar</item>
+
+        <item name="android:colorPrimary">@color/photos_tool_bar</item>
+        <item name="android:navigationBarColor">@color/black</item>
+
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate
+        </item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="elevation">0dp</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="School.AppTheme.OverlayToolBar" parent="School.AppTheme.WithToolbar">
+        <item name="jungle_overlayToolbar">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+</resources>

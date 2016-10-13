@@ -1,10 +1,20 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
+apply from: 'signingConfig.gradle'
+
+
+def getBuildTime() {
+    SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd")
+    return format.format(new Date())
+}
+
 
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.jungle.app.photos"
+        applicationId "com.jungle.apps.photos"
         minSdkVersion 15
         targetSdkVersion 24
 
@@ -12,15 +22,84 @@ android {
         versionName "1.0"
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            // Debug No Config.
+        }
+
         release {
+            // will load signing properties from file.
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize '4G'
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+
             minifyEnabled false
+            zipAlignEnabled false
+
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    productFlavors {
+        develop {
+            manifestPlaceholders = [ChannelId: project.CHANNEL_ID_DEVELOP]
+        }
+
+        tencent {
+            manifestPlaceholders = [ChannelId: project.CHANNEL_ID_DEVELOP]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def parentDir = output.outputFile.parent
+                def variantName = null
+
+                def flavorName = variant.productFlavors[0].name
+                def buildType = variant.buildType.name
+                def signingType = hasReleaseSigning() ? "" : "_notsigning"
+
+                if (flavorName.equals('develop') && buildType.equals('debug')) {
+                    variantName = "${project.PROJECT_NAME}__${flavorName}_${buildType}.apk"
+                } else {
+                    variantName = "${project.PROJECT_NAME}_v${defaultConfig.versionName}" +
+                            "__${getBuildTime()}__${flavorName}_${buildType}${signingType}.apk"
+                }
+
+                output.outputFile = new File(parentDir, variantName)
+            }
         }
     }
 }
 
+
+//
+// Global process.
+//
+loadSigningProperties()
+
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.2.1'
+    compile project(':jungle-toolbar-activity')
 }
