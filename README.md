@@ -1,4 +1,4 @@
-# jungle-framework 简介
+# android-jungle-framework 简介
 
 
 ### 1、简介
@@ -9,7 +9,7 @@
 
 |library|功能|
 |---|---|
-|jungle-base|提供基础的模块——Application、AppCore、各种 Manager、各种 Utils 等等|
+|[jungle-base](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/jungle-base/README.md)|提供基础的模块——Application、AppCore、各种 Manager、各种 Utils 等等|
 |jungle-toolbaractivity|提供 Toolbar 样式的基础 Activity，包括可右滑返回的 Activity 实现|
 |jungle-imageloader|图片加载库——提供 ImageLoaderUtils 系列接口加载图片，目前图片加载引擎使用 Fresco。（可自由切换其他图片加载库）|
 |jungle-widgets|提供各种基础的 Widgets——各种 MessageBox & Dialog、模拟的 ActionSheet 等等|
