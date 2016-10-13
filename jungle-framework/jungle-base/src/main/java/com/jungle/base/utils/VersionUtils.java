@@ -113,15 +113,8 @@ public final class VersionUtils {
         return 0;
     }
 
-    public static int getAppId() {
-        String appId = MiscUtils.getMetaData("AppId");
-        try {
-            return Integer.parseInt(appId);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-
-        return 0;
+    public static String getAppId() {
+        return MiscUtils.getMetaData("AppId");
     }
 
     public static String getChannelId() {
