@@ -11,6 +11,7 @@ package com.jungle.imageloader;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.view.View;
 import android.widget.ImageView;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.common.util.UriUtil;
@@ -200,8 +201,10 @@ public class FrescoImageLoaderEngine implements ImageLoaderEngine {
                     return;
                 }
 
+                final int width = bitmap.getWidth();
+                final int height = bitmap.getHeight();
                 try {
-                    if (maxSize <= 0) {
+                    if (maxSize <= 0 || (width <= maxSize && height <= maxSize)) {
                         listener.onSuccess(uri, Bitmap.createBitmap(bitmap));
                     } else {
                         JungleSize size = ImageUtils.getMaxScaleSize(
@@ -209,9 +212,9 @@ public class FrescoImageLoaderEngine implements ImageLoaderEngine {
                         listener.onSuccess(uri, Bitmap.createScaledBitmap(
                                 bitmap, size.getWidth(), size.getHeight(), true));
                     }
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     e.printStackTrace();
-                    listener.onFailed(ImageLoaderUtils.ERROR_HANDLE_IMAGE);
+                    listener.onSuccess(uri, bitmap);
                 }
             }
 
@@ -240,5 +243,24 @@ public class FrescoImageLoaderEngine implements ImageLoaderEngine {
                 .setAutoPlayAnimations(true)
                 .setOldController(draweeView.getController())
                 .build();
+    }
+
+    @Override
+    public JungleSize getAppropriateSize(View view, int width, int height) {
+        if (!(view instanceof DraweeView)) {
+            return null;
+        }
+
+        DraweeView draweeView = (DraweeView) view;
+        float ratio = draweeView.getAspectRatio();
+        if (ratio > 0) {
+            if (width > 0) {
+                height = (int) (width / ratio);
+            } else if (height > 0) {
+                width = (int) (height * ratio);
+            }
+        }
+
+        return new JungleSize(width, height);
     }
 }

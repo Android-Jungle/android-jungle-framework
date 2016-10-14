@@ -9,7 +9,9 @@
 package com.jungle.imageloader;
 
 import android.net.Uri;
+import android.view.View;
 import android.widget.ImageView;
+import com.jungle.base.misc.JungleSize;
 
 public interface ImageLoaderEngine {
 
@@ -30,4 +32,6 @@ public interface ImageLoaderEngine {
     void loadImageInternal(
             Uri uri, int maxSize,
             ImageLoaderUtils.ImageLoadListener listener);
+
+    JungleSize getAppropriateSize(View view, int width, int height);
 }

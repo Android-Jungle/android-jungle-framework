@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.jungle.base.misc.JungleSize;
 import com.jungle.base.utils.MiscUtils;
@@ -127,15 +128,42 @@ public class ImageLoaderUtils {
         int width = view.getMeasuredWidth();
         int height = view.getMeasuredHeight();
 
-        if (width <= 0 || height <= 0) {
-            width = view.getWidth();
-            height = view.getHeight();
+        if (width > 0 && height > 0) {
+            return new JungleSize(width, height);
+        }
+
+        width = view.getWidth();
+        height = view.getHeight();
+        if (width > 0 && height > 0) {
+            return new JungleSize(width, height);
+        }
+
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params != null) {
+            width = params.width;
+            height = params.height;
+
+            if (width <= 0 || height <= 0) {
+                JungleSize size = mImageLoaderEngine.getAppropriateSize(view, width, height);
+                if (size != null) {
+                    width = size.mWidth;
+                    height = size.mHeight;
+                }
+            }
         }
 
         JungleSize size = MiscUtils.getScreenSize();
-        if (width <= 0 || height <= 0 || width > size.mWidth || height > size.mHeight) {
+        if (width <= 0 || height <= 0) {
             width = size.mWidth;
             height = size.mHeight;
+        } else {
+            if (width > size.mWidth) {
+                width = size.mWidth;
+            }
+
+            if (height > size.mHeight) {
+                height = size.mHeight;
+            }
         }
 
         return new JungleSize(width, height);
