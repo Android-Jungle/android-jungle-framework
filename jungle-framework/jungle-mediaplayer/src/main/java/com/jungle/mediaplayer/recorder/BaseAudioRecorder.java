@@ -12,29 +12,15 @@ import android.content.Context;
 
 public abstract class BaseAudioRecorder {
 
-    public interface OnRecorderListener {
-
-        enum Error {
-            StartFailed,
-            RecordInternalFailed,
-            NoRecordPermission,
-            NoAudioOutputFile
-        }
+    protected String mOutputFile;
+    protected RecorderListener mListener;
 
 
-        void onError(Error error);
-
-        void onStartRecord();
-
-        void onStopRecord();
+    public BaseAudioRecorder(RecorderListener listener) {
+        mListener = listener;
     }
 
-
-    protected String mOutputFile;
-    protected OnRecorderListener mListener;
-
-
-    public BaseAudioRecorder(OnRecorderListener listener) {
+    public void setListener(RecorderListener listener) {
         mListener = listener;
     }
 

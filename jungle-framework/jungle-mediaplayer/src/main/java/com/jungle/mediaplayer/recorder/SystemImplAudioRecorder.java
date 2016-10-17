@@ -24,7 +24,7 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder {
     protected boolean mIsRecording = false;
 
 
-    public SystemImplAudioRecorder(OnRecorderListener listener) {
+    public SystemImplAudioRecorder(RecorderListener listener) {
         super(listener);
     }
 
@@ -40,7 +40,7 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder {
                             if (grantedPermissions.contains(Manifest.permission.RECORD_AUDIO)) {
                                 startRecordInternal();
                             } else {
-                                mListener.onError(OnRecorderListener.Error.NoRecordPermission);
+                                mListener.onError(RecorderListener.Error.NoRecordPermission);
                             }
                         }
                     });
@@ -53,7 +53,7 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder {
 
     private boolean startRecordInternal() {
         if (!TextUtils.isEmpty(mOutputFile)) {
-            mListener.onError(OnRecorderListener.Error.NoAudioOutputFile);
+            mListener.onError(RecorderListener.Error.NoAudioOutputFile);
             return false;
         }
 
@@ -82,7 +82,7 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder {
             e.printStackTrace();
 
             if (mListener != null) {
-                mListener.onError(OnRecorderListener.Error.StartFailed);
+                mListener.onError(RecorderListener.Error.StartFailed);
             }
         }
 
@@ -101,7 +101,7 @@ public class SystemImplAudioRecorder extends BaseAudioRecorder {
                 mIsRecording = false;
 
                 if (mListener != null) {
-                    mListener.onError(OnRecorderListener.Error.RecordInternalFailed);
+                    mListener.onError(RecorderListener.Error.RecordInternalFailed);
                 }
             }
         });
