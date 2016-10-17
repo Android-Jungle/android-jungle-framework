@@ -57,15 +57,6 @@
         </item>
     </style>
 
-    <style name="ActivityTransitionAnimate" parent="@android:style/Animation.Activity">
-    </style>
-
-    <style name="ActivityTransitionAnimate.SlideOutRight" parent="ActivityTransitionAnimate">
-        <item name="android:activityCloseExitAnimation">
-            @android:anim/slide_out_right
-        </item>
-    </style>
-
     <style name="Photos.AppTheme.Splash" parent="Jungle.AppTheme.NoToolbar">
         <item name="android:windowBackground">@null</item>
         <item name="android:windowIsTranslucent">true</item>

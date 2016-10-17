@@ -30,7 +30,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:name=".app.PhotoApplication"
-        android:theme="@style/Photos.AppTheme.WithToolbar"
+        android:theme="@style/Photos.AppTheme.WithToolbar.Translucent"
         tools:replace="android:theme">
 
         <meta-data

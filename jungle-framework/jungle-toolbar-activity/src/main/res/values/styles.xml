@@ -5,7 +5,9 @@
            parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="Jungle.AppTheme.NoToolbar"
-           parent="Theme.AppCompat.Light.NoActionBar"/>
+           parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="jungle_noToolbar">true</item>
+    </style>
 
     <style name="Jungle.AppTheme.WithToolbar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
@@ -21,6 +23,7 @@
     </style>
 
     <style name="Jungle.AppTheme.OverlayToolBar" parent="Jungle.AppTheme.WithToolbar">
+        <item name="jungle_overlayToolbar">true</item>
         <item name="colorPrimary">@android:color/transparent</item>
     </style>
 
@@ -30,6 +33,22 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation
+        </item>
+    </style>
+
+    <style name="Jungle.AppTheme.OverlayToolBar.Translucent.SlideOutRight" parent="Jungle.AppTheme.WithToolbar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">
+            @style/ActivityTransitionAnimate.SlideOutRight
+        </item>
+    </style>
+
+    <style name="ActivityTransitionAnimate" parent="@android:style/Animation.Activity">
+    </style>
+
+    <style name="ActivityTransitionAnimate.SlideOutRight" parent="ActivityTransitionAnimate">
+        <item name="android:activityCloseExitAnimation">
+            @android:anim/slide_out_right
         </item>
     </style>
 
