@@ -20,6 +20,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -818,5 +819,16 @@ public final class MiscUtils {
         clipboardManager.setPrimaryClip(clipData);
     }
 
+    public static Bitmap takeViewScreenshot(View view) {
+        if (view == null) {
+            return null;
+        }
 
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
+
+        return bitmap;
+    }
 }

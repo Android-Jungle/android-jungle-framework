@@ -3,10 +3,10 @@
  *
  * @author  Arno Zhang
  * @email   zyfgood12@163.com
- * @date    2016/10/13
+ * @date    2016/10/17
  */
 
-package com.jungle.widgets.misc;
+package com.jungle.base.misc;
 
 import android.app.Activity;
 import android.content.Context;
