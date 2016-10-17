@@ -10,11 +10,6 @@ package com.jungle.widgets.dialog;
 
 import android.content.Context;
 
-/**
- * 对话框辅助接口.
- *
- * @author arnozhang
- */
 public class DialogUtils {
 
     private static JungleDialog createDialogInternal(Context context) {
@@ -23,7 +18,7 @@ public class DialogUtils {
 
 
     /**
-     * 创建有两个按钮的对话框.
+     * create a dialog with two buttons.
      */
     public static JungleDialog createDialog(
             Context context, String title, String msg,
@@ -92,7 +87,7 @@ public class DialogUtils {
     }
 
     /**
-     * 创建有一个按钮的对话框.
+     * create a dialog with only-one button.
      */
     public static JungleDialog createOneBtnDialog(
             Context context, String title,
@@ -142,9 +137,6 @@ public class DialogUtils {
                 btnListener);
     }
 
-    /**
-     * 创建有一个按钮的对话框.
-     */
     public static JungleDialog createOneBtnDialog(
             Context context, String title, String msg, String btnText) {
 
@@ -176,9 +168,9 @@ public class DialogUtils {
     }
 
     /**
-     * 创建一个自定义内容区域的对话框.
+     * create a dialog with content customized.
      * <p/>
-     * 拥有两个按钮和 title.
+     * but has two buttons and title-view.
      */
     public static JungleDialog createCustomizedDialog(
             Context context, int layoutResId,
@@ -214,9 +206,9 @@ public class DialogUtils {
     }
 
     /**
-     * 创建一个自定义内容区域的对话框.
+     * create a dialog with content customized.
      * <p/>
-     * 拥有两个按钮.没有 title.
+     * has two buttons.
      */
     public static JungleDialog createCustomizedDialog(
             Context context, int layoutResId,
@@ -243,11 +235,6 @@ public class DialogUtils {
                 leftListener, rightListener);
     }
 
-    /**
-     * 创建一个自定义内容区域的对话框.
-     * <p/>
-     * 只拥有一个按钮.拥有 title.
-     */
     public static JungleDialog createCustomizedOneBtnDialog(
             Context context, int layoutResId,
             String title, String btnText,
@@ -273,11 +260,6 @@ public class DialogUtils {
                 btnListener);
     }
 
-    /**
-     * 创建一个自定义内容区域的对话框.
-     * <p/>
-     * 只拥有一个按钮.没有 title.
-     */
     public static JungleDialog createCustomizedOneBtnDialog(
             Context context, int layoutResId, String btnText,
             JungleDialog.OnDialogBtnClickListener btnListener) {
@@ -295,10 +277,11 @@ public class DialogUtils {
     }
 
     /**
-     * 创建一个内容完全自定义的对话框.
+     * create a dialog with content fully customized.
      */
     public static JungleDialog createFullyCustomizedDialog(
             Context context, int layoutResId) {
+
         JungleDialog dialog = createDialogInternal(context);
         dialog.setFullyCustomized(layoutResId).setWidthWrapContent(true);
         return dialog;
