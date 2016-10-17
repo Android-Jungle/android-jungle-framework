@@ -20,7 +20,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:singleLine="true"
-        android:textColor="@color/micro_black"
+        android:textColor="@color/widgets_micro_black"
         android:textSize="18sp"/>
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_gravity="center_horizontal"
         android:ellipsize="end"
         android:singleLine="true"
-        android:textColor="@color/micro_black"
+        android:textColor="@color/widgets_micro_black"
         android:textSize="14sp"/>
 
     <LinearLayout

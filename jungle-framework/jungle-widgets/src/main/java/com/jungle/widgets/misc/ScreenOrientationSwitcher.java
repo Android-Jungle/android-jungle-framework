@@ -11,8 +11,8 @@ package com.jungle.widgets.misc;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.provider.Settings;
 import android.view.OrientationEventListener;
-import com.jungle.base.utils.MiscUtils;
 
 import java.lang.ref.WeakReference;
 
@@ -56,6 +56,23 @@ public class ScreenOrientationSwitcher extends OrientationEventListener {
         mEnableAutoRotation = enable;
     }
 
+    private boolean isScreenAutoRotate() {
+        Context context = mContextRef.get();
+        if (context == null) {
+            return false;
+        }
+
+        int gravity = 0;
+        try {
+            gravity = Settings.System.getInt(context.getContentResolver(),
+                    Settings.System.ACCELEROMETER_ROTATION);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return gravity == 1;
+    }
+
     @Override
     public void onOrientationChanged(int orientation) {
         if (!mEnableAutoRotation) {
@@ -69,7 +86,7 @@ public class ScreenOrientationSwitcher extends OrientationEventListener {
 
         long currTimestamp = System.currentTimeMillis();
         if (currTimestamp - mLastCheckTimestamp > MAX_CHECK_INTERVAL) {
-            mIsSupportGravity = MiscUtils.isScreenAutoRotate(context);
+            mIsSupportGravity = isScreenAutoRotate();
             mLastCheckTimestamp = currTimestamp;
         }
 

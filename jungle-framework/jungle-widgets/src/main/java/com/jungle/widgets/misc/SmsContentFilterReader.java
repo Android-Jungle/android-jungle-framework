@@ -14,7 +14,7 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
-import com.jungle.base.manager.ThreadManager;
+import android.os.Looper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,7 +37,7 @@ public class SmsContentFilterReader extends ContentObserver {
 
 
     public SmsContentFilterReader(Context context, OnFilterListener listener) {
-        this(context, ThreadManager.getInstance().getUIHandler(), FOUR_NUMBER_PATTERN, listener);
+        this(context, new Handler(Looper.getMainLooper()), FOUR_NUMBER_PATTERN, listener);
     }
 
     public SmsContentFilterReader(

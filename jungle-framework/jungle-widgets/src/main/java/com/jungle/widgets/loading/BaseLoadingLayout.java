@@ -12,7 +12,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.jungle.base.manager.ThreadManager;
 
 public abstract class BaseLoadingLayout extends FrameLayout {
 
@@ -93,7 +92,7 @@ public abstract class BaseLoadingLayout extends FrameLayout {
         setVisibility(state == PageState.Invisible ? View.GONE : View.VISIBLE);
 
         if (state == PageState.Loading) {
-            ThreadManager.getInstance().postOnUIHandlerDelayed(new Runnable() {
+            postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     updateLoadingPage(true);

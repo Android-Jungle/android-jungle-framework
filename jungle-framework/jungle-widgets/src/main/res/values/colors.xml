@@ -11,4 +11,5 @@
     <color name="click_effect_color">#40000000</color>
     <color name="translucent_mask_color">#40000000</color>
     <color name="crop_image_frame">#b0000000</color>
+    <color name="widgets_micro_black">#333</color>
 </resources>

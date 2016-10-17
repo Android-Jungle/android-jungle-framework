@@ -27,5 +27,5 @@
         android:ellipsize="end"
         android:text="@string/loading"
         android:textSize="14sp"
-        android:textColor="@color/micro_black"/>
+        android:textColor="@color/widgets_micro_black"/>
 </LinearLayout>

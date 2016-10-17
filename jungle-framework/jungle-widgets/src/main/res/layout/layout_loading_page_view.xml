@@ -76,7 +76,7 @@
                 android:layout_marginRight="60dp"
                 android:gravity="center"
                 android:text="@string/loading_result_empty"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textSize="13sp"/>
         </LinearLayout>
 
@@ -114,7 +114,7 @@
                 android:gravity="center"
                 android:text="@string/loading_failed_tips"
                 android:textSize="13sp"
-                android:textColor="@color/white"/>
+                android:textColor="@android:color/white"/>
         </LinearLayout>
     </RelativeLayout>
 

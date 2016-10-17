@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.ViewTreeObserver.OnPreDrawListener;
-import com.jungle.base.manager.ThreadManager;
 
 import java.util.LinkedList;
 
@@ -137,15 +136,15 @@ public class BlurProxy {
                 };
 
                 runnable.pushParam(bitmap);
-                ThreadManager.getInstance().postOnUIHandler(runnable);
+                parentView.post(runnable);
             }
         };
 
         runnable.pushParam(overlay);
-        ThreadManager.getInstance().getLogicHandler().post(runnable);
+        new Thread(runnable).start();
     }
 
-    public void blurredView(Bitmap bitmap, View view, int x, int y) {
+    public void blurredView(Bitmap bitmap, final View view, int x, int y) {
         if (bitmap == null) {
             return;
         }
@@ -191,12 +190,12 @@ public class BlurProxy {
                 };
 
                 runnable.pushParam(new Pair<View, Bitmap>(obj.first, bitmap));
-                ThreadManager.getInstance().postOnUIHandler(runnable);
+                view.post(runnable);
             }
         };
 
         runnable.pushParam(new Pair<View, Bitmap>(view, overlay));
-        ThreadManager.getInstance().getLogicHandler().post(runnable);
+        new Thread(runnable).start();
     }
 
 
