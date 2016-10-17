@@ -46,6 +46,7 @@ public class VideoInfo implements Parcelable {
     public static Creator<VideoInfo> CREATOR = new Creator<VideoInfo>() {
         public VideoInfo createFromParcel(Parcel source) {
             VideoInfo info = new VideoInfo(source.readString());
+            info.mStreamUrl = source.readString();
             info.mCurrentPosition = source.readInt();
             return info;
         }
