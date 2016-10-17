@@ -26,7 +26,7 @@ public class ImageLoaderUtils {
     public static final int ERROR_HANDLE_IMAGE = -3;
 
 
-    private static ImageLoaderEngine mImageLoaderEngine = new FrescoImageLoaderEngine();
+    private static ImageLoaderEngine mImageLoaderEngine;
 
 
     public interface ImageLoadListener {
@@ -35,16 +35,24 @@ public class ImageLoaderUtils {
         void onFailed(int retCode);
     }
 
+    private static ImageLoaderEngine getEngine() {
+        if (mImageLoaderEngine == null) {
+            mImageLoaderEngine = new FrescoImageLoaderEngine();
+        }
+
+        return mImageLoaderEngine;
+    }
+
     public static void setImageLoaderEngine(FrescoImageLoaderEngine engine) {
         mImageLoaderEngine = engine;
     }
 
     public static String getImageResUri(int resId) {
-        return mImageLoaderEngine.getImageResUri(resId);
+        return getEngine().getImageResUri(resId);
     }
 
     public static String getImageAssetUri(String assetPath) {
-        return mImageLoaderEngine.getImageAssetUri(assetPath);
+        return getEngine().getImageAssetUri(assetPath);
     }
 
     public static String getImageFileUri(String filePath) {
@@ -58,13 +66,13 @@ public class ImageLoaderUtils {
     public static void displayImageByDrawableResId(
             ImageView imageView, int drawableResId) {
 
-        mImageLoaderEngine.displayImageByDrawableResId(imageView, drawableResId);
+        getEngine().displayImageByDrawableResId(imageView, drawableResId);
     }
 
     public static void displayImageByBitmapResId(
             ImageView imageView, int bitmapResId) {
 
-        mImageLoaderEngine.displayImageByBitmapResId(imageView, bitmapResId);
+        getEngine().displayImageByBitmapResId(imageView, bitmapResId);
     }
 
     public static void displayImage(ImageView imageView, String imgUrl) {
@@ -80,7 +88,7 @@ public class ImageLoaderUtils {
     }
 
     public static void displayImage(ImageView imageView, Uri uri) {
-        mImageLoaderEngine.displayImage(imageView, uri);
+        getEngine().displayImage(imageView, uri);
     }
 
     public static void loadImageByResId(int resId, ImageLoadListener listener) {
@@ -109,19 +117,19 @@ public class ImageLoaderUtils {
     public static void loadImage(Uri uri, ImageLoadListener listener) {
         JungleSize size = MiscUtils.getScreenSize();
         int maxSize = Math.max(size.mWidth, size.mHeight);
-        mImageLoaderEngine.loadImageInternal(uri, maxSize, listener);
+        getEngine().loadImageInternal(uri, maxSize, listener);
     }
 
     public static void loadOrigImage(Uri uri, ImageLoadListener listener) {
-        mImageLoaderEngine.loadImageInternal(uri, 0, listener);
+        getEngine().loadImageInternal(uri, 0, listener);
     }
 
     public static void prefetchToDiskCache(Uri uri) {
-        mImageLoaderEngine.prefetchToDiskCache(uri);
+        getEngine().prefetchToDiskCache(uri);
     }
 
     public static void prefetchToMemoryCache(Uri uri) {
-        mImageLoaderEngine.prefetchToMemoryCache(uri);
+        getEngine().prefetchToMemoryCache(uri);
     }
 
     public static JungleSize getAppropriateSize(View view) {
@@ -144,7 +152,7 @@ public class ImageLoaderUtils {
             height = params.height;
 
             if (width <= 0 || height <= 0) {
-                JungleSize size = mImageLoaderEngine.getAppropriateSize(view, width, height);
+                JungleSize size = getEngine().getAppropriateSize(view, width, height);
                 if (size != null) {
                     width = size.mWidth;
                     height = size.mHeight;
