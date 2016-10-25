@@ -18,9 +18,11 @@
 |---|---|
 |[jungle-base](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-base)|提供基础的模块——Application、AppCore、各种 Manager、各种 Utils 等等|
 |[jungle-toolbaractivity](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-toolbaractivity)|提供 Toolbar 样式的基础 Activity，包括可右滑返回的 Activity 实现|
-|[jungle-imageloader](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-imageloader)|图片加载库——提供 ImageLoaderUtils 系列接口加载图片，目前图片加载引擎使用 [Fresco](https://github.com/facebook/fresco)。（可自由切换其他图片加载库）|
+|[jungle-imageloader](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-imageloader)|图片加载库——提供 ImageLoaderUtils 系列接口加载图片。<br>目前图片加载引擎使用 [Fresco](https://github.com/facebook/fresco)。（可自由切换其他图片加载库）|
 |[jungle-widgets](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-widgets)|提供各种基础的 Widgets——各种 MessageBox & Dialog、模拟的 ActionSheet 等等|
 |android-jungle-framework-photos|基于上述库实现的一款图片浏览类 App|
+
+<br>
 
 有些模块不是大多数业务需要的，它们不需要依赖 `jungle-base` 或 jungle 中的基础库。但它们仍然是整个 jungle framework 中的一部分。我将它们抽离出来，单独作为 library 独立发布更新。
 
@@ -28,8 +30,10 @@
 
 |library|功能|
 |---|---|
-|[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件。这个项目独立发布，请参考具体项目文档|
-|[jungle-easy-ORM](https://github.com/arnozhang/android-easy-ORM)|简易的 ORM 框架，利用**反射**机制来做数据 Load & Save。这个项目独立发布，请参考具体项目文档|
+|[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件。<br>这个项目独立发布，请参考具体项目文档|
+|[jungle-easy-ORM](https://github.com/arnozhang/android-easy-ORM)|简易的 ORM 框架，利用**反射**机制来做数据 Load & Save。<br>这个项目独立发布，请参考具体项目文档|
+
+<br>
 
 **计划中的模块**（未来有可能不会实现或者部分实现）：
 
