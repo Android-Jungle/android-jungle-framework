@@ -24,7 +24,8 @@
 
 有些模块不是大多数业务需要的，它们不需要依赖 `jungle-base` 或 jungle 中的基础库。但它们仍然是整个 jungle framework 中的一部分。我将它们抽离出来，单独作为 library 独立发布更新。
 
-**独立发布的模块**
+**独立发布的模块**：
+
 |library|功能|
 |---|---|
 |[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件。这个项目独立发布，请参考具体项目文档|
