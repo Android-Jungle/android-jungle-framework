@@ -1,1 +1,1 @@
-include ':android-jungle-framework-photos', ':jungle-base', ':jungle-imageloader', ':jungle-toolbar-activity', ':jungle-widgets', ':jungle-mediaplayer'
+include ':android-jungle-framework-photos', ':jungle-base', ':jungle-imageloader', ':jungle-toolbar-activity', ':jungle-widgets'
