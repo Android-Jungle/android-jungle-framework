@@ -8,8 +8,8 @@
 ### 2、目标
 
 - 提供基础框架，使 Android 开发简单快速；
-- 封装 & 实现 Android 开发中常见的功能等；
-- 可用来快速搭建一款 App，以达到实现 & 验证需求的目的；
+- 封装 & 实现 Android 开发中常见的功能、模块等；
+- 可用来**快速**搭建一款 App，以达到实现 & 验证需求的目的；
 - 也可作为较大项目 App 的基础组件。
 
 ### 3、模块
@@ -21,6 +21,7 @@
 |[jungle-imageloader](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-imageloader)|图片加载库——提供 ImageLoaderUtils 系列接口加载图片，目前图片加载引擎使用 [Fresco](https://github.com/facebook/fresco)。（可自由切换其他图片加载库）|
 |[jungle-widgets](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-widgets)|提供各种基础的 Widgets——各种 MessageBox & Dialog、模拟的 ActionSheet 等等|
 |[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件|
+|[jungle-easy-ORM](https://github.com/arnozhang/android-easy-ORM)|简易的 ORM 框架，利用**反射**机制来做数据 Load & Save。这个项目独立发布，请参考具体项目文档|
 |android-jungle-framework-photos|基于上述库实现的一款图片浏览类 App|
 
 **计划中的模块**（未来有可能不会实现或者部分实现）：
@@ -34,7 +35,7 @@
 各模块具体功能及接口参考对应的文档。
 
 
-### License
+## License
 
 ```
 /**
