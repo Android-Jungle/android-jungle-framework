@@ -1,7 +1,7 @@
 package com.jungle.apps.photos.module.favorite.data.tag;
 
 import android.text.TextUtils;
-import com.jungle.apps.photos.base.app.PhotosEntityManager;
+import com.jungle.apps.photos.base.manager.PhotosEntityManager;
 import com.jungle.simpleorm.supporter.ORMSupporter;
 
 import java.util.ArrayList;

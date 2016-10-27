@@ -382,6 +382,28 @@ public class FileUtils {
         return bRet;
     }
 
+    public static boolean writeToStorage(String filePath, byte[] data) {
+        if (TextUtils.isEmpty(filePath) || data == null) {
+            return false;
+        }
+
+        boolean bRet = false;
+        OutputStream outputStream = getFileOutputStream(filePath);
+        if (outputStream != null) {
+            outputStream = new BufferedOutputStream(outputStream);
+            try {
+                outputStream.write(data);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            closeStream(outputStream);
+            bRet = true;
+        }
+
+        return bRet;
+    }
+
     public static InputStream getFileInputStream(String filePath) {
         if (!isFileExist(filePath)) {
             return null;

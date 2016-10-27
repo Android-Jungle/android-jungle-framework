@@ -1,6 +1,6 @@
 package com.jungle.apps.photos.module.favorite.data.pic;
 
-import com.jungle.apps.photos.base.app.PhotosEntityManager;
+import com.jungle.apps.photos.base.manager.PhotosEntityManager;
 import com.jungle.simpleorm.supporter.ORMSupporter;
 
 public class GlobalFavoriteManager extends FavoriteManager {

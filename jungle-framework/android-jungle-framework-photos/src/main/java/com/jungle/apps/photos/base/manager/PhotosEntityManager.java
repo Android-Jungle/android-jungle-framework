@@ -1,4 +1,4 @@
-package com.jungle.apps.photos.base.app;
+package com.jungle.apps.photos.base.manager;
 
 import android.database.sqlite.SQLiteDatabase;
 import com.jungle.apps.photos.module.favorite.data.pic.FavoriteEntity;

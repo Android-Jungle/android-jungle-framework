@@ -13,17 +13,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:textSize="14sp"
         android:textColor="@color/micro_black"
         android:text="@string/wallpaper_downloading"/>
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:id="@+id/download_progress"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:progressDrawable="@drawable/progressbar"/>
-
 </LinearLayout>

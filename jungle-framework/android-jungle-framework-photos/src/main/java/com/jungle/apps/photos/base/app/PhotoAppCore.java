@@ -18,6 +18,7 @@
 
 package com.jungle.apps.photos.base.app;
 
+import com.jungle.apps.photos.base.manager.PhotosEntityManager;
 import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.base.app.AppCore;

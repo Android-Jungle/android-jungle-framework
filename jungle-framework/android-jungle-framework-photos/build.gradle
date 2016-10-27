@@ -104,6 +104,7 @@ dependencies {
     compile 'com.handmark.pulltorefresh.library:PullToRefreshLibrary:2.1.1'
     compile 'com.jungle.simpleorm:android-simple-ORM:1.0'
     compile 'com.alibaba:fastjson:1.1.54.android'
+    compile 'com.android.volley:volley:1.0.0'
     compile project(':jungle-base')
     compile project(':jungle-widgets')
     compile project(':jungle-imageloader')

@@ -88,4 +88,5 @@
     <string name="deveopment">开发者选项</string>
     <string name="open_development_tips">还剩%1$d次可进入开发者选项！</string>
     <string name="development_opened">已开启开发者选项！</string>
+    <string name="download_failed">下载失败</string>
 </resources>
