@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/tag_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="20sp"
+        android:textColor="@color/theme_purple"
+        android:singleLine="true"
+        android:ellipsize="end"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/gray"/>
+
+    <TextView
+        android:id="@+id/switch_favorite_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="@string/add_to_favorite_tag"
+        android:clickable="true"
+        android:background="@drawable/transparent_item_with_press_bkg"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_line_color"/>
+
+    <TextView
+        android:id="@+id/view_favorite_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="@string/view_tag"
+        android:clickable="true"
+        android:background="@drawable/transparent_item_with_press_bkg"/>
+
+</LinearLayout>

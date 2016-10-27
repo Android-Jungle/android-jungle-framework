@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/image_view_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <com.jungle.apps.photos.module.imgviewer.widget.ImageViewerLayoutView
+        android:id="@+id/image_viewer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/app_toolbar_height"/>
+
+    <View
+        android:id="@+id/image_operate_blur_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/app_toolbar_height"/>
+
+    <com.jungle.apps.photos.module.imgviewer.widget.ImageOperateLayoutView
+        android:id="@+id/image_operate_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="right|center_vertical"
+        android:clickable="true"/>
+</FrameLayout>

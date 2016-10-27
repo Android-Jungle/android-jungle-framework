@@ -1,2 +1,44 @@
 <resources>
+
+    <style name="TabPagerIndicatorText" parent="android:TextAppearance.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/tab_indicator_text_color</item>
+    </style>
+
+    <style name="image_operate_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">#eee</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SettingItemStyle">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">
+            @drawable/transparent_item_with_press_bkg
+        </item>
+    </style>
+
+    <style name="refresh_text">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="refresh_sub_text">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="RefreshViewStyle">
+        <item name="ptrHeaderTextColor">@color/white</item>
+        <item name="ptrHeaderSubTextColor">@color/white</item>
+        <item name="ptrHeaderBackground">@color/refresh_background</item>
+        <item name="ptrDrawable">@drawable/refresh_loading</item>
+        <item name="ptrMode">pullFromStart</item>
+        <item name="ptrHeaderTextAppearance">@style/refresh_text</item>
+        <item name="ptrSubHeaderTextAppearance">@style/refresh_sub_text</item>
+    </style>
 </resources>

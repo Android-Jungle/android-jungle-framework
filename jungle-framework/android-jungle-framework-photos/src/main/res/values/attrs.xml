@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingItemView">
+        <attr name="itemLeftIcon" format="reference"/>
+        <attr name="itemText" format="reference|string"/>
+        <attr name="showDetailIcon" format="boolean"/>
+        <attr name="showTopDivider" format="boolean"/>
+        <attr name="showBottomDivider" format="boolean"/>
+        <attr name="customizeLayout" format="reference"/>
+        <attr name="viewTextColor" format="reference|color"/>
+    </declare-styleable>
+</resources>

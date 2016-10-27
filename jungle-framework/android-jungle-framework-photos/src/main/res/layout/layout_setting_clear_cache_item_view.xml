@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_cache_size_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:textColor="#808080"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true">
+
+</TextView>

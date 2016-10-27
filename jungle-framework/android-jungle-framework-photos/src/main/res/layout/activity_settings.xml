@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bkg_gray_color">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.jungle.apps.photos.module.settings.SettingItemView
+            android:id="@+id/clear_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/setting_item_bkg"
+            app:showBottomDivider="true"
+            app:showDetailIcon="false"
+            app:customizeLayout="@layout/layout_setting_clear_cache_item_view"
+            app:itemText="@string/clean_app_cache"/>
+
+        <com.jungle.apps.photos.module.settings.SettingItemView
+            android:id="@+id/clear_favorites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_item_bkg"
+            app:showBottomDivider="true"
+            app:showDetailIcon="false"
+            app:customizeLayout="@layout/layout_setting_clear_favorites_item_view"
+            app:itemText="@string/clean_app_favorites"/>
+
+        <com.jungle.apps.photos.module.settings.SettingItemView
+            android:id="@+id/download_when_favorite_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_item_bkg"
+            android:layout_marginTop="16dp"
+            app:showBottomDivider="true"
+            app:showDetailIcon="false"
+            app:customizeLayout="@layout/layout_setting_toggle_item_view"
+            app:itemText="@string/download_when_favorite_pic"/>
+
+        <com.jungle.apps.photos.module.settings.SettingItemView
+            android:id="@+id/view_favorite_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_item_bkg"
+            app:showBottomDivider="false"
+            app:showDetailIcon="false"
+            app:itemText="@string/view_favorite_path"/>
+
+        <com.jungle.apps.photos.module.settings.SettingItemView
+            android:id="@+id/about_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_item_bkg"
+            app:showBottomDivider="false"
+            app:itemText="@string/about_app"/>
+    </LinearLayout>
+</ScrollView>

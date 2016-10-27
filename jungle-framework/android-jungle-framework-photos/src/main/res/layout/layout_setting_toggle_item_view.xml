@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ToggleButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SwitchStyleToggle"
+    android:id="@+id/setting_enable_switch"
+    android:layout_width="55dp"
+    android:layout_height="30dp"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:background="@drawable/toggle_btn_bkg">
+
+</ToggleButton>

@@ -1,5 +1,14 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="category_display_divider_height">15dp</dimen>
+    <dimen name="category_item_divider_offset">1.5dp</dimen>
+    <dimen name="category_item_tag_top_height">30dp</dimen>
+    <dimen name="category_item_bottom_left_margin">10dp</dimen>
+    <dimen name="hot_tag_horz_space">12dp</dimen>
+    <dimen name="hot_tag_vert_space">5dp</dimen>
+    <dimen name="search_tag_horz_space">9dp</dimen>
+    <dimen name="search_tag_vert_space">6dp</dimen>
+    <dimen name="search_tag_view_corner">8dp</dimen>
+    <dimen name="share_item_size">100dp</dimen>
+    <dimen name="fav_item_image_width">120dp</dimen>
+    <dimen name="fav_item_image_height">80dp</dimen>
 </resources>

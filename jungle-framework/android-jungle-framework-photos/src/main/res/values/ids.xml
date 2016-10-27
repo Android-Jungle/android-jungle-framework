@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="base_search_layout_content" type="id"/>
+    <item name="category_item_0" type="id"/>
+    <item name="category_item_1" type="id"/>
+    <item name="category_item_2" type="id"/>
+</resources>

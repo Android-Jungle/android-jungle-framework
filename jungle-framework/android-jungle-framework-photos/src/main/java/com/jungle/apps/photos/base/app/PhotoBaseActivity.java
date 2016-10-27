@@ -16,29 +16,17 @@
  * limitations under the License.
  */
 
-package com.jungle.apps.photos.app;
+package com.jungle.apps.photos.base.app;
 
-import com.jungle.base.app.AppCore;
-import com.jungle.base.app.BaseApplication;
+import android.os.Bundle;
+import com.jungle.toolbaractivity.activity.JungleSwipeBackBaseActivity;
 
-public class PhotoAppCore extends AppCore {
+public class PhotoBaseActivity extends JungleSwipeBackBaseActivity {
 
-    public PhotoAppCore(BaseApplication app) {
-        super(app);
-    }
+    protected static final String ACTIVITY_TITLE = "ActivityTitle";
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
-    }
-
-    @Override
-    protected void startInternal() {
-        super.startInternal();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 }

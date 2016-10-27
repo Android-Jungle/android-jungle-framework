@@ -16,12 +16,18 @@
  * limitations under the License.
  */
 
-package com.jungle.apps.photos.app;
+package com.jungle.apps.photos.base.app;
 
+import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
+import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseApplication;
 
-public class PhotoApplication extends BaseApplication {
+public class PhotoAppCore extends AppCore {
+
+    public PhotoAppCore(BaseApplication app) {
+        super(app);
+    }
 
     @Override
     public void onCreate() {
@@ -29,7 +35,16 @@ public class PhotoApplication extends BaseApplication {
     }
 
     @Override
-    protected AppCore createAppCore() {
-        return new AppCore(this);
+    public void onTerminate() {
+        super.onTerminate();
+    }
+
+    @Override
+    protected void startInternal() {
+        super.startInternal();
+
+        PhotosEntityManager.getInstance();
+        FavoriteManager.getInstance();
+        FavoriteTagManager.getInstance();
     }
 }

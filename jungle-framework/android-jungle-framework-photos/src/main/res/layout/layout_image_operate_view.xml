@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end">
+
+        <TextView
+            style="@style/image_operate_text"
+            android:id="@+id/set_to_wallpaper"
+            android:text="@string/set_to_wallpaper"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="#ee44c0f5"
+            android:clickable="true"/>
+
+        <LinearLayout
+            android:id="@+id/share_to_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#bc85aa40"
+            android:clickable="true">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_qq"/>
+
+            <TextView
+                style="@style/image_operate_text"
+                android:text="@string/share_to_qq"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/share_to_qzone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#ccf898be"
+            android:clickable="true">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_qzone"/>
+
+            <TextView
+                style="@style/image_operate_text"
+                android:text="@string/share_to_qzone"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/share_to_wx_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#ccf0b21e"
+            android:clickable="true">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_wx"/>
+
+            <TextView
+                style="@style/image_operate_text"
+                android:text="@string/share_to_wx_friend"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/share_to_wx_friend_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#bc18a455"
+            android:clickable="true">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_friends"/>
+
+            <TextView
+                style="@style/image_operate_text"
+                android:text="@string/share_to_wx_friend_group"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</merge>

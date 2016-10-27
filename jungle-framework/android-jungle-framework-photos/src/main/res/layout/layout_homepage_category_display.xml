@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:straw="http://schemas.android.com/apk/res-auto">
+
+    <com.jungle.apps.photos.module.homepage.widget.category.CategoryScrollView
+        android:id="@+id/category_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/RefreshViewStyle"
+        straw:ptrMode="pullFromStart">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.halfstraw.widget.NetworkTipsView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <com.jungle.widgets.view.JungleLanternView
+                android:id="@+id/homepage_lantern_view"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"/>
+
+            <LinearLayout
+                android:id="@+id/category_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </LinearLayout>
+    </com.jungle.apps.photos.module.homepage.widget.category.CategoryScrollView>
+
+    <com.jungle.widgets.loading.JungleLoadingLayout
+        android:id="@+id/loading_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</merge>

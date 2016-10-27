@@ -25,7 +25,7 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import com.jungle.apps.photos.homepage.HomepageActivity;
+import com.jungle.apps.photos.module.homepage.HomepageActivity;
 import com.jungle.base.app.BaseActivity;
 import com.jungle.base.manager.ThreadManager;
 

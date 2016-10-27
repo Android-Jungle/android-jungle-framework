@@ -101,6 +101,11 @@ loadSigningProperties()
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile project(':jungle-toolbar-activity')
+    compile 'com.handmark.pulltorefresh.library:PullToRefreshLibrary:2.1.1'
+    compile 'com.jungle.simpleorm:android-simple-ORM:1.0'
+    compile 'com.alibaba:fastjson:1.1.54.android'
+    compile project(':jungle-base')
     compile project(':jungle-widgets')
+    compile project(':jungle-imageloader')
+    compile project(':jungle-toolbar-activity')
 }
