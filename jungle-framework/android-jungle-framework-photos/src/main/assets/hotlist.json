@@ -1,0 +1,101 @@
+[
+	{
+		name: '惊艳性感',
+		url: 'http://qlimg1.meimei22.com/pic/qingliang/2014-8-11/1/2.jpg',
+		gravity: 'left',
+		tags: [
+			'美臀',
+			'美乳',
+			'翘臀',
+			'性感',
+			'长腿',
+			'比基尼',
+			'素颜',
+			'诱惑',
+			'美腿'
+		]
+	},
+	
+	{
+		name: '明星大全',
+		url: 'http://i5.download.fd.pchome.net//g1/M00/0B/0C/ooYBAFQb6cyINJACAAFsEiEjZCwAAB7-AE8Rv8AAWwq949.jpg',
+		click: '柳岩',
+		gravity: 'right',
+		tags: [
+			'范冰冰',
+			'汤唯',
+			'赵奕欢',
+			'柳岩',
+			'林志玲',
+			'杨幂',
+			'斯嘉丽·约翰逊',
+			'AngelaBaby'
+		]
+	},
+	
+	{
+		name: '日韩女神',
+		url: 'http://dl.bizhi.sogou.com/images/1920x1080/2014/10/17/921206.jpg',
+		click: '孙艺珍',
+		gravity: 'left',
+		tags: [
+			'金泰熙',
+			'孙艺珍',
+			'崔秀英',
+			'矢岛舞美',
+			'裴秀智',
+			'少女时代',
+			'全智贤',
+			'李孝利'
+		]
+	},
+	
+	{
+		name: '国民女神',
+		url: 'http://image.xinmin.cn/2011/05/09/20110509113726580996.jpg',
+		gravity: 'right',
+		tags: [
+			'高圆圆',
+			'张歆艺',
+			'周韦彤',
+			'唐嫣',
+			'郭碧婷',
+			'周迅',
+			'刘亦菲'
+		]
+	},
+	
+	{
+		name: '清纯清新',
+		url: 'http://images.55bbs.com/55shuoimg/pic/e5/d9/7d/e5d97df4f850f1cd244e32877aa2cd2e.jpg',
+		gravity: 'left',
+		tags: [
+			'萌妹子',
+			'清纯',
+			'好身材',
+			'女神',
+			'小清新',
+			'校花',
+			'嫩萝莉',
+			'纯情',
+			'劲爆美女'
+		]
+	},
+	
+	{
+		name: '其他',
+		url: 'http://imgtest-lx.meilishuo.net/pic/_o/68/b0/ec8cdfe73e3f7cab5e1d5c0e849c_520_581.jpeg',
+		gravity: 'right',
+		tags: [
+			'长发',
+			'足球宝贝',
+			'可爱',
+			'古典美女',
+			'短发',
+			'ShowGirl',
+			'时尚',
+			'车模',
+			'写真'
+		]
+	}
+]
