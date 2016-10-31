@@ -49,6 +49,15 @@
             android:name="WXAppId"
             android:value="wx85c8a7a54bc26607"/>
 
+
+        <activity android:name=".module.homepage.HomepageActivity"/>
+        <activity android:name=".module.imgviewer.ImageViewActivity"/>
+        <activity android:name=".module.settings.SettingActivity"/>
+        <activity android:name=".module.search.SearchActivity"/>
+        <activity android:name=".module.misc.AboutActivity"/>
+        <activity android:name=".module.category.CategoryActivity"/>
+        <activity android:name=".module.favorite.FavoriteActivity"/>
+
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
