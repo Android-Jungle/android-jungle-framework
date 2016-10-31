@@ -36,11 +36,6 @@ import com.jungle.widgets.layout.FixedSpeedViewPager;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 跑马灯控件.
- *
- * @author arnozhang
- */
 public class JungleLanternView extends FrameLayout {
 
     public interface IndicatorCreator {
