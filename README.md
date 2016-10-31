@@ -31,7 +31,7 @@
 |library|功能|
 |---|---|
 |[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件。<br>这个项目独立发布，请参考具体项目文档|
-|[jungle-easy-ORM](https://github.com/arnozhang/android-easy-ORM)|简易的 ORM 框架，利用**反射**机制来做数据 Load & Save。<br>这个项目独立发布，请参考具体项目文档|
+|[jungle-simple-ORM](https://github.com/arnozhang/android-simple-ORM)|简易的 ORM 框架，利用**反射**机制来做数据 Load & Save。<br>这个项目独立发布，请参考具体项目文档|
 |[jungle-share](https://github.com/arnozhang/android-jungle-share)|封装提供 QQ、QZone、WX、Weibo 等第三方分享接口|
 
 <br>
