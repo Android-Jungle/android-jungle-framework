@@ -30,6 +30,6 @@ public class PhotoApplication extends BaseApplication {
 
     @Override
     protected AppCore createAppCore() {
-        return new AppCore(this);
+        return new PhotoAppCore(this);
     }
 }

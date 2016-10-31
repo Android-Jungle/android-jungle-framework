@@ -24,6 +24,7 @@ import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseApplication;
 import com.jungle.base.utils.FileUtils;
+import com.jungle.base.utils.NetworkUtils;
 import com.jungle.imageloader.ImageLoaderUtils;
 
 public class PhotoAppCore extends AppCore {
@@ -46,6 +47,7 @@ public class PhotoAppCore extends AppCore {
     protected void startInternal() {
         super.startInternal();
 
+        NetworkUtils.getNetworkType();
         PhotosEntityManager.getInstance();
         FavoriteManager.getInstance();
         FavoriteTagManager.getInstance();

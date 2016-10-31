@@ -33,7 +33,7 @@ public class CategoryItem {
         Horz_LOne_3x1,              // |            |
 
         Horz_LOne_3x2,              // |            |
-                                    // |            |
+        // |            |
 
         Horz_LOne_SOne_3x1,         // |        |   |
 
@@ -42,23 +42,23 @@ public class CategoryItem {
         Horz_SThree_3x1,            // |    |   |   |
 
         Horz_SThree_3x2,            // |    |   |   |
-                                    // |    |   |   |
+        // |    |   |   |
 
         Vert_LOne_STwo_3x2,         // |        |   |
-                                    // |        |---|
-                                    // |        |   |
+        // |        |---|
+        // |        |   |
 
         Vert_STwo_LOne_3x2,         // |    |       |
-                                    // |----|       |
-                                    // |    |       |
+        // |----|       |
+        // |    |       |
 
         Vert_SOne_LTwo_3x2,         // |    |       |
-                                    // |    |-------|
-                                    // |    |       |
+        // |    |-------|
+        // |    |       |
 
         Vert_LTwo_SOne_3x2,         // |        |   |
-                                    // |--------|   |
-                                    // |        |   |
+        // |--------|   |
+        // |        |   |
     }
 
 
@@ -67,26 +67,23 @@ public class CategoryItem {
     }
 
     public static class ItemScaleSizeComputer implements ItemSizeComputer {
-        private float mScaleWH;
+        private float mAspectRatio;
 
         ItemScaleSizeComputer(float scale) {
-            mScaleWH = scale;
+            mAspectRatio = scale;
         }
 
         @Override
         public void onComputeSize(View view) {
             ViewGroup.LayoutParams params = view.getLayoutParams();
             int width = view.getMeasuredWidth();
-            params.height = (int) (width / mScaleWH);
+            params.height = (int) (width / mAspectRatio);
             view.setLayoutParams(params);
         }
     }
 
-    private static ItemSizeComputer m3x1Computer =
-            new ItemScaleSizeComputer(3.0f / 1.0f);
-
-    private static ItemSizeComputer m3x2Computer =
-            new ItemScaleSizeComputer(3.0f / 2.0f);
+    private static ItemSizeComputer m3x1Computer = new ItemScaleSizeComputer(3.0f / 1.0f);
+    private static ItemSizeComputer m3x2Computer = new ItemScaleSizeComputer(3.0f / 2.0f);
 
 
     public static enum ItemTagPos {
@@ -118,7 +115,7 @@ public class CategoryItem {
     public static class CategoryItemInfo {
         public boolean mHasDivider = false;
         public ItemLayoutInfo mLayoutInfo;
-        public List<CategoryInfo> mCategoryList = new ArrayList<CategoryInfo>();
+        public List<CategoryInfo> mCategoryList = new ArrayList<>();
 
         public void addItem(CategoryInfo info) {
             mCategoryList.add(info);
@@ -126,11 +123,8 @@ public class CategoryItem {
     }
 
 
-    private static Map<ItemType, ItemLayoutInfo> mLayoutInfoList =
-            new HashMap<ItemType, ItemLayoutInfo>();
-
-    private static Map<ItemType, ItemTagPos[]> mLayoutTagPosList =
-            new HashMap<ItemType, ItemTagPos[]>();
+    private static Map<ItemType, ItemLayoutInfo> mLayoutInfoList = new HashMap<>();
+    private static Map<ItemType, ItemTagPos[]> mLayoutTagPosList = new HashMap<>();
 
 
     static {
@@ -201,19 +195,16 @@ public class CategoryItem {
                 new ItemTagPos[]{ItemTagPos.Top});
 
         addTagPosInfo(ItemType.Vert_LOne_STwo_3x2,
-                new ItemTagPos[]{ItemTagPos.Top,
-                        ItemTagPos.BottomLeft, ItemTagPos.BottomLeft});
+                new ItemTagPos[]{ItemTagPos.Top, ItemTagPos.BottomLeft, ItemTagPos.BottomLeft});
 
         addTagPosInfo(ItemType.Vert_STwo_LOne_3x2,
-                new ItemTagPos[]{ItemTagPos.BottomLeft,
-                        ItemTagPos.BottomLeft, ItemTagPos.Bottom});
+                new ItemTagPos[]{ItemTagPos.BottomLeft, ItemTagPos.BottomLeft, ItemTagPos.Bottom});
 
         addTagPosInfo(ItemType.Vert_SOne_LTwo_3x2,
                 new ItemTagPos[]{ItemTagPos.Top, ItemTagPos.BottomLeft});
 
         addTagPosInfo(ItemType.Vert_LTwo_SOne_3x2,
-                new ItemTagPos[]{ItemTagPos.BottomLeft,
-                        ItemTagPos.BottomLeft, ItemTagPos.Top});
+                new ItemTagPos[]{ItemTagPos.BottomLeft, ItemTagPos.BottomLeft, ItemTagPos.Top});
     }
 
     public static ItemLayoutInfo getLayoutInfo(ItemType itemType) {
