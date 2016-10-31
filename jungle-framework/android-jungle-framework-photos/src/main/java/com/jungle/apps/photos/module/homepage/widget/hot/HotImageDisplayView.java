@@ -45,8 +45,7 @@ public class HotImageDisplayView extends ClickEffectView {
     }
 
     private void initLayout(Context context) {
-        View v = View.inflate(
-                context, R.layout.layout_hot_image_display, null);
+        View v = View.inflate(context, R.layout.layout_hot_image_display, null);
         init(v);
     }
 
