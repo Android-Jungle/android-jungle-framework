@@ -68,19 +68,7 @@ public class SettingItemView extends LinearLayout {
                     R.styleable.SettingItemView_showBottomDivider, true);
             int customizeLayoutResId = arr.getResourceId(
                     R.styleable.SettingItemView_customizeLayout, 0);
-            ColorStateList itemColor = arr.getColorStateList(
-                    R.styleable.SettingItemView_itemTextColor);
             Drawable leftIcon = arr.getDrawable(R.styleable.SettingItemView_itemLeftIcon);
-
-            if (itemColor != null) {
-                setItemTextColor(itemColor);
-            } else {
-                int color = arr.getColor(
-                        R.styleable.SettingItemView_itemTextColor, -1);
-                if (color != -1) {
-                    setItemTextColor(color);
-                }
-            }
 
             setLeftIcon(leftIcon);
             setItemText(itemText);

@@ -1,7 +1,6 @@
 package com.jungle.apps.photos.module.homepage;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -28,13 +27,11 @@ import com.jungle.base.app.BaseActivity;
 import com.jungle.base.event.Event;
 import com.jungle.base.event.EventListener;
 import com.jungle.base.manager.EventManager;
-import com.jungle.widgets.dialog.DialogUtils;
 import com.jungle.widgets.dialog.JungleDialog;
 import com.jungle.widgets.dialog.JungleToast;
 import com.jungle.widgets.view.AdjustBoundsImageView;
 import com.jungle.widgets.view.TabPageIndicator;
 import com.jungle.widgets.view.TabPageIndicatorView;
-
 
 public class HomepageActivity extends BaseActivity {
 
@@ -69,15 +66,6 @@ public class HomepageActivity extends BaseActivity {
                 PhotoEvent.HOT_PIC_UPDATED, mHotPicUpdatedListener);
         EventManager.getInstance().addListener(
                 PhotoEvent.HOT_PIC_UPDATED_CLICKED, mHotPicUpdateClickListener);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (mAdapter.mCategoryLayoutView != null) {
-            mAdapter.mCategoryLayoutView.doResume();
-        }
     }
 
     private void initActionBarInternal() {
@@ -143,38 +131,10 @@ public class HomepageActivity extends BaseActivity {
                         startActivityInternal(FavoriteActivity.class);
                     }
                 });
-
-        findViewById(R.id.user_background_view).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showUserInfo(false);
-                    }
-                });
-
-        findViewById(R.id.user_info_container).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showUserInfo(true);
-                    }
-                });
-    }
-
-    private void showUserInfo(boolean needLogin) {
-        closeDrawer();
-
-        if (LoginManager.getInstance().isLogin()) {
-            PhotoboundUserInfoDisplayActivity.startUserInfoDisplayActivity(
-                    HomepageActivity.this);
-        } else if (needLogin) {
-            doLoginInternal();
-        }
     }
 
     private void initPager() {
-        mTabIndicator = (TabPageIndicator) findViewById(
-                R.id.homepage_tab_indicator);
+        mTabIndicator = (TabPageIndicator) findViewById(R.id.homepage_tab_indicator);
         mViewPager = (ViewPager) findViewById(R.id.homepage_view_pager);
 
         mAdapter = new HomepageAdapter();
@@ -264,33 +224,6 @@ public class HomepageActivity extends BaseActivity {
         view.showNewIcon(show);
     }
 
-    private void dismissLoginDialog() {
-        if (mLoginDialog != null) {
-            mLoginDialog.dismiss();
-            mLoginDialog = null;
-        }
-    }
-
-    private void doLoginInternal() {
-        dismissLoginDialog();
-
-        mLoginDialog = DialogUtils.createFullyCustomizedDialog(
-                this, R.layout.dialog_login);
-
-        LoginView loginView = (LoginView) mLoginDialog.findViewById(R.id.login_view);
-        loginView.showQQLoginBtn(false);
-        loginView.showRegisterAccount(true);
-
-        mLoginDialog.setCustomizedBackground(android.R.color.transparent);
-        mLoginDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                mLoginDialog = null;
-            }
-        });
-
-        mLoginDialog.show();
-    }
 
     private static enum HomepageTabInfo {
         Category(R.string.homepage_tab_category_display, 0),

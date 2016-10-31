@@ -1,12 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+    xmlns:straw="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/homepage_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jungle.widgets.view.TabPageIndicator
+            android:id="@+id/homepage_tab_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/homepage_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/main_bkg_gray_color">
+
+        <LinearLayout
+            android:id="@+id/drawer_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/drawer_line_gray"/>
+
+            <com.jungle.apps.photos.module.homepage.widget.DrawerItemView
+                android:id="@+id/my_favorite_item"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:clickable="true"
+                android:background="@drawable/drawer_item_bkg"
+                straw:itemIcon="@drawable/favorite_item"
+                straw:itemDesc="@string/my_favorite_item"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/drawer_line_gray"/>
+
+            <com.jungle.apps.photos.module.homepage.widget.DrawerItemView
+                android:id="@+id/setting_item"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:clickable="true"
+                android:background="@drawable/drawer_item_bkg"
+                straw:itemIcon="@drawable/setting_icon"
+                straw:itemDesc="@string/setting_item_text"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/drawer_line_gray"/>
+
+            <com.jungle.apps.photos.module.homepage.widget.DrawerItemView
+                android:id="@+id/about_item"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:clickable="true"
+                android:background="@drawable/drawer_item_bkg"
+                straw:itemIcon="@drawable/about_icon"
+                straw:itemDesc="@string/about_item_text"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/drawer_line_gray"/>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.DrawerLayout>

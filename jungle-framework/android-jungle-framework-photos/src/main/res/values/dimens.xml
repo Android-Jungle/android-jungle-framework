@@ -11,4 +11,5 @@
     <dimen name="share_item_size">100dp</dimen>
     <dimen name="fav_item_image_width">120dp</dimen>
     <dimen name="fav_item_image_height">80dp</dimen>
+    <dimen name="drawer_item_padding">25dp</dimen>
 </resources>

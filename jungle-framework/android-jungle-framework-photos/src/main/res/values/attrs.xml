@@ -9,4 +9,9 @@
         <attr name="customizeLayout" format="reference"/>
         <attr name="viewTextColor" format="reference|color"/>
     </declare-styleable>
+
+    <declare-styleable name="DrawerItemView">
+        <attr name="itemDesc" format="reference|string"/>
+        <attr name="itemIcon" format="reference"/>
+    </declare-styleable>
 </resources>
