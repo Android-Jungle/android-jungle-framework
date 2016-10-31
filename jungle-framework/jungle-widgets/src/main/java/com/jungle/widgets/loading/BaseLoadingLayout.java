@@ -67,8 +67,6 @@ public abstract class BaseLoadingLayout extends FrameLayout {
             setBackgroundColor(getResources().getColor(android.R.color.white));
         }
 
-        setPageState(PageState.Invisible);
-
         if (isInEditMode()) {
             return;
         }

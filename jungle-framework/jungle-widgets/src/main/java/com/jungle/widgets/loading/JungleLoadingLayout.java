@@ -55,10 +55,6 @@ public class JungleLoadingLayout extends BaseLoadingLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        if (getBackground() == null) {
-            setBackgroundColor(getResources().getColor(android.R.color.white));
-        }
-
         View.inflate(context, R.layout.layout_loading_page_view, this);
         if (attrs != null) {
             TypedArray arr = context.obtainStyledAttributes(
@@ -177,6 +173,8 @@ public class JungleLoadingLayout extends BaseLoadingLayout {
                         }
                     }
                 });
+
+        setPageState(PageState.Invisible);
     }
 
     public void setLoadingDrawable(Drawable drawable) {
