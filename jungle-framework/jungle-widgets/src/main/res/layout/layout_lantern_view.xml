@@ -3,7 +3,7 @@
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.youngo.common.widgets.layout.FixedSpeedViewPager
+    <com.jungle.widgets.layout.FixedSpeedViewPager
         android:id="@+id/lantern_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

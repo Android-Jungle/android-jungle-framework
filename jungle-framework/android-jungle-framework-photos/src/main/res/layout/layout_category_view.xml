@@ -7,14 +7,14 @@
     android:layout_height="wrap_content"
     android:paddingBottom="2dp">
 
-    <com.halfstraw.photobound.module.category.widget.CategoryItemView
+    <com.jungle.apps.photos.module.category.widget.CategoryItemView
         android:id="@+id/category_first_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginRight="1dp"/>
 
-    <com.halfstraw.photobound.module.category.widget.CategoryItemView
+    <com.jungle.apps.photos.module.category.widget.CategoryItemView
         android:id="@+id/category_second_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -66,16 +66,6 @@
 
 -keepattributes *Annotation*
 
--keepclassmembers class * {
-    @com.halfstraw.kernel.protocol.HandleCmd public *;
-    @com.halfstraw.kernel.protocol.HandleCmdError public *;
-    @com.halfstraw.kernel.protocol.HandleCmd private *;
-    @com.halfstraw.kernel.protocol.HandleCmdError private *;
-    @com.halfstraw.kernel.protocol.HandleCmd protected *;
-    @com.halfstraw.kernel.protocol.HandleCmdError protected *;
-    @com.halfstraw.kernel.protocol.HandleCmd *;
-    @com.halfstraw.kernel.protocol.HandleCmdError *;
-}
 
 # Android System Depend.
 -keep public class * extends android.app.Activity
