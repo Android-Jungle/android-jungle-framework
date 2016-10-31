@@ -10,8 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import com.android.volley.Response;
@@ -152,28 +150,6 @@ public class ImageViewActivity extends PhotoBaseActivity {
         mImgViewerLayout.initImageViewer(mContentProvider, selectedId);
     }
 
-    private void showCommentListInternal() {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.comment_display_show);
-    }
-
-    private void hideCommentListInternal() {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.comment_display_hide);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-    }
-
-
     @Override
     protected boolean handleKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
@@ -183,7 +159,7 @@ public class ImageViewActivity extends PhotoBaseActivity {
             }
         }
 
-        return super.onKeyUp(keyCode, event);
+        return super.handleKeyUp(keyCode, event);
     }
 
     private FavoriteManager.OnFavoriteEventListener mFavoriteEventListener =
