@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="app_toolbar_height">48dp</dimen>
     <dimen name="category_display_divider_height">15dp</dimen>
     <dimen name="category_item_divider_offset">1.5dp</dimen>
     <dimen name="category_item_tag_top_height">30dp</dimen>

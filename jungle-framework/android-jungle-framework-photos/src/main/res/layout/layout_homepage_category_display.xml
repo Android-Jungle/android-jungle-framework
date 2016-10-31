@@ -2,14 +2,14 @@
 
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:straw="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.jungle.apps.photos.module.homepage.widget.category.CategoryScrollView
         android:id="@+id/category_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/RefreshViewStyle"
-        straw:ptrMode="pullFromStart">
+        app:ptrMode="pullFromStart">
 
         <LinearLayout
             android:layout_width="match_parent"

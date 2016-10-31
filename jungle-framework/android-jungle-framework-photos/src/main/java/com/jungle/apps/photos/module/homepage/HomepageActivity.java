@@ -26,6 +26,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -88,7 +89,9 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
 
     @Override
     protected HomepageToolbar createCustomizedToolbar() {
-        return new HomepageToolbar(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        return (HomepageToolbar) inflater.inflate(
+                R.layout.toolbar_homepage, mAppBarLayout, false);
     }
 
     private void initActionBarInternal() {

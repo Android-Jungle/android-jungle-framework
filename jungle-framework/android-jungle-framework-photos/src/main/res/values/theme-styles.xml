@@ -71,7 +71,4 @@
         <item name="contentInsetStart">0dp</item>
         <item name="contentInsetEnd">0dp</item>
     </style>
-
-    <dimen name="app_toolbar_height">48dp</dimen>
-    <color name="app_window_background">#fff</color>
 </resources>

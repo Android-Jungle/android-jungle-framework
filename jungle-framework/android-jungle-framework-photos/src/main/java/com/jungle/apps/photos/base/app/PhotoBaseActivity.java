@@ -24,6 +24,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -58,7 +59,9 @@ public class PhotoBaseActivity extends JungleSwipeBackBaseActivity<BaseToolbar> 
 
     @Override
     protected BaseToolbar createCustomizedToolbar() {
-        return new BaseToolbar(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        return (BaseToolbar) inflater.inflate(
+                R.layout.toolbar_base, mAppBarLayout, false);
     }
 
     protected void showTitleIcon(boolean show) {

@@ -2,7 +2,7 @@
 
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:straw="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/homepage_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -47,8 +47,8 @@
                 android:layout_height="54dp"
                 android:clickable="true"
                 android:background="@drawable/drawer_item_bkg"
-                straw:itemIcon="@drawable/favorite_item"
-                straw:itemDesc="@string/my_favorite_item"/>
+                app:itemIcon="@drawable/favorite_item"
+                app:itemDesc="@string/my_favorite_item"/>
 
             <View
                 android:layout_width="match_parent"
@@ -61,8 +61,8 @@
                 android:layout_height="54dp"
                 android:clickable="true"
                 android:background="@drawable/drawer_item_bkg"
-                straw:itemIcon="@drawable/setting_icon"
-                straw:itemDesc="@string/setting_item_text"/>
+                app:itemIcon="@drawable/setting_icon"
+                app:itemDesc="@string/setting_item_text"/>
 
             <View
                 android:layout_width="match_parent"
@@ -75,8 +75,8 @@
                 android:layout_height="54dp"
                 android:clickable="true"
                 android:background="@drawable/drawer_item_bkg"
-                straw:itemIcon="@drawable/about_icon"
-                straw:itemDesc="@string/about_item_text"/>
+                app:itemIcon="@drawable/about_icon"
+                app:itemDesc="@string/about_item_text"/>
 
             <View
                 android:layout_width="match_parent"
