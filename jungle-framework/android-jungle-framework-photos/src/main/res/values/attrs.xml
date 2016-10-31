@@ -14,4 +14,8 @@
         <attr name="itemDesc" format="reference|string"/>
         <attr name="itemIcon" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="NetworkTipsView">
+        <attr name="invalidTips" format="reference|string"/>
+    </declare-styleable>
 </resources>

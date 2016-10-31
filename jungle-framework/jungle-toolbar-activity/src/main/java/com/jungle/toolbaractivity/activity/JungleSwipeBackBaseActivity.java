@@ -31,8 +31,7 @@ import com.jungle.toolbaractivity.R;
 import com.jungle.toolbaractivity.layout.HorizontalSwipeBackLayout;
 import com.jungle.toolbaractivity.toolbar.JungleToolBar;
 
-public class JungleSwipeBackBaseActivity<T extends JungleToolBar>
-        extends JungleBaseActivity<T> {
+public class JungleSwipeBackBaseActivity<T extends JungleToolBar> extends JungleBaseActivity<T> {
 
     private HorizontalSwipeBackLayout mSwipeBackLayout;
     private Drawable mCustomizedBackground;

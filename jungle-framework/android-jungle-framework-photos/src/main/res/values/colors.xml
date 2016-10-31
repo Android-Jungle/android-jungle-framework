@@ -17,4 +17,6 @@
     <color name="tab_indicator_text_color">#333</color>
     <color name="progressbar_background">#88bbbbbb</color>
     <color name="progressbar_progress">@color/theme_purple</color>
+    <color name="yellow_warning">#60f1765a</color>
+    <color name="yellow_warning_pressed">#40f1765a</color>
 </resources>

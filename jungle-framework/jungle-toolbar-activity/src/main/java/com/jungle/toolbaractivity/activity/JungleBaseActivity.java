@@ -77,7 +77,7 @@ public class JungleBaseActivity<T extends JungleToolBar> extends BaseActivity {
     }
 
     protected View getContentViewWhenCreate(View view) {
-        return null;
+        return view;
     }
 
     protected ViewGroup getContentRootView() {

@@ -16,10 +16,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.halfstraw.widget.NetworkTipsView
+            <com.jungle.apps.photos.module.homepage.widget.NetworkTipsView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
 
             <com.jungle.widgets.view.JungleLanternView
                 android:id="@+id/homepage_lantern_view"

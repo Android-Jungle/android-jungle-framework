@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import com.android.volley.Response;
@@ -61,8 +60,6 @@ public class ImageViewActivity extends PhotoBaseActivity {
     private ImageOperateLayoutView mImgOperateLayout;
     private CategoryContentProvider mContentProvider;
     private GestureDetector mDetector;
-    private AlphaAnimation mHiddenAnimation = new AlphaAnimation(1.0f, 0.0f);
-    private AlphaAnimation mShowAnimation = new AlphaAnimation(0.0f, 1.0f);
     private int mTransparentColor = 0;
     private int mGrayOverlayColor = 0;
     private boolean mIsSelectItemFirstChanged = true;
