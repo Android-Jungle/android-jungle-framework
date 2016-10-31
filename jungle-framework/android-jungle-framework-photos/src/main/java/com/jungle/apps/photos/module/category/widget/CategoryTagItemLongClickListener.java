@@ -23,6 +23,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.jungle.apps.photos.R;
+import com.jungle.apps.photos.module.category.CategoryActivity;
+import com.jungle.apps.photos.module.category.data.manager.SearchCategoryManager;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.widgets.dialog.DialogUtils;
 import com.jungle.widgets.dialog.JungleDialog;
@@ -98,8 +100,8 @@ public abstract class CategoryTagItemLongClickListener implements View.OnLongCli
     }
 
     private void viewTagWithCategory(Context context, String category, String tag) {
-//        CategoryActivity.startCategoryActivity(
-//                context, tag,
-//                SearchCategoryManager.getInstance().getCategoryProvider(category, tag));
+        CategoryActivity.startCategoryActivity(
+                context, tag,
+                SearchCategoryManager.getInstance().getCategoryProvider(category, tag));
     }
 }

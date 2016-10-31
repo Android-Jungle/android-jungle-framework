@@ -24,6 +24,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.jungle.apps.photos.R;
+import com.jungle.apps.photos.base.component.AppUtils;
+import com.jungle.apps.photos.module.category.CategoryActivity;
+import com.jungle.apps.photos.module.category.data.manager.SearchCategoryManager;
 import com.jungle.apps.photos.module.homepage.data.HotTagAdapter;
 
 import java.util.ArrayList;
@@ -103,7 +106,7 @@ public class HotGroupDisplayView extends FrameLayout {
 
         final HotInfo info = mAdapter.getHotInfo();
         if (info == null) {
-            return ;
+            return;
         }
 
         mHotInfoView.setDisplayInfo(info.mName, info.mImgUrl);
@@ -121,12 +124,10 @@ public class HotGroupDisplayView extends FrameLayout {
                     }
 
                     if (!TextUtils.isEmpty(click)) {
-//                        CategoryActivity.startCategoryActivity(
-                        //                                getContext(),
-                        //                                click,
-                        //                                SearchCategoryManager.getInstance().getCategoryProvider(
-                        //                                        AppUtils.getMainCategory(),
-                        //                                        click));
+                        CategoryActivity.startCategoryActivity(
+                                getContext(), click,
+                                SearchCategoryManager.getInstance().getCategoryProvider(
+                                        AppUtils.getMainCategory(), click));
                     }
                 }
             });

@@ -40,8 +40,7 @@ public class HotLayoutView extends FrameLayout {
 
     private LinearLayout mContentContainer;
     private JungleLoadingLayout mLoadingPageView;
-    private List<HotGroupDisplayView.HotInfo> mHotInfoList =
-            new ArrayList<HotGroupDisplayView.HotInfo>();
+    private List<HotGroupDisplayView.HotInfo> mHotInfoList = new ArrayList<>();
 
 
     public HotLayoutView(Context context) {
@@ -121,8 +120,7 @@ public class HotLayoutView extends FrameLayout {
 
     private void buildHotViews() {
         for (HotGroupDisplayView.HotInfo info : mHotInfoList) {
-            HotGroupDisplayView view = new HotGroupDisplayView(
-                    getContext(), info.mImgGravity);
+            HotGroupDisplayView view = new HotGroupDisplayView(getContext(), info.mImgGravity);
             view.setAdapter(new HotTagsDisplayAdapter(info));
             mContentContainer.addView(view);
         }

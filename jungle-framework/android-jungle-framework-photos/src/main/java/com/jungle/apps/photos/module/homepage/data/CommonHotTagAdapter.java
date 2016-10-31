@@ -25,6 +25,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.jungle.apps.photos.R;
 import com.jungle.apps.photos.base.component.AppUtils;
+import com.jungle.apps.photos.module.category.CategoryActivity;
+import com.jungle.apps.photos.module.category.data.manager.SearchCategoryManager;
 import com.jungle.apps.photos.module.category.widget.CategoryTagItemLongClickListener;
 import com.jungle.apps.photos.module.misc.ColorList;
 
@@ -99,10 +101,9 @@ public class CommonHotTagAdapter implements HotTagAdapter {
             };
 
     private void viewTagWithCategory(String tag) {
-        //        CategoryActivity.startCategoryActivity(
-        //                mContext, tag,
-        //                SearchCategoryManager.getInstance().getCategoryProvider(
-        //                        AppUtils.getMainCategory(),
-        //                        tag));
+        CategoryActivity.startCategoryActivity(
+                mContext, tag,
+                SearchCategoryManager.getInstance().getCategoryProvider(
+                        AppUtils.getMainCategory(), tag));
     }
 }
