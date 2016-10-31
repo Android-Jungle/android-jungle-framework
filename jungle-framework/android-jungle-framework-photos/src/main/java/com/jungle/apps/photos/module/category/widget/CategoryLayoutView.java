@@ -13,19 +13,25 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jungle.apps.photos.R;
 import com.jungle.apps.photos.module.category.data.manager.CategoryManager;
+import com.jungle.apps.photos.module.category.provider.CategoryContentProvider;
+import com.jungle.apps.photos.module.category.provider.CategoryProviderManager;
 import com.jungle.apps.photos.module.imgviewer.ImageViewActivity;
 import com.jungle.base.manager.ThreadManager;
 import com.jungle.imageloader.ImageLoaderUtils;
 import com.jungle.widgets.dialog.JungleToast;
 import com.jungle.widgets.loading.JungleLoadingLayout;
 
-public class CategoryLayoutView extends FrameLayout implements CategoryView {
+public class CategoryLayoutView extends FrameLayout {
 
     private PullToRefreshListView mListView;
     private JungleLoadingLayout mLoadingPageView;
     private CategoryListAdapter mAdapter = new CategoryListAdapter();
-    private CategoryPresenter mPresenter = new CategoryPresenter(this);
     private CategoryItemView.ViewType mViewType = CategoryItemView.ViewType.Category;
+
+
+    private boolean mIsRefreshing = false;
+    private int mProviderId = 0;
+    private CategoryContentProvider mContentProvider;
 
 
     public CategoryLayoutView(Context context) {
@@ -60,10 +66,20 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
     }
 
     public void setProviderId(int providerId) {
-        mPresenter.setProviderId(providerId);
+        mProviderId = providerId;
+        mContentProvider = CategoryProviderManager.getInstance().getProvider(providerId);
+
+        if (mContentProvider.isFirstFetch() || mContentProvider.isEmpty()) {
+            mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Loading);
+            fetchCategory();
+        } else {
+            updateLoadingState(false);
+        }
+
+        mContentProvider.addEventListener(mContentListener);
         mListView.setAdapter(mAdapter);
 
-        if (mPresenter.isSupportFetchMore()) {
+        if (mContentProvider.isSupportFetchMore()) {
             mListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
             mListView.setOnRefreshListener(mRefreshListener);
         } else {
@@ -71,20 +87,40 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
         }
     }
 
+    private CategoryContentProvider.OnListener mContentListener =
+            new CategoryContentProvider.OnListener() {
+                @Override
+                public void onContentChanged() {
+                    updateLoadingState(false);
+                }
+
+                @Override
+                public void onFetchFailed() {
+                    updateLoadingState(true);
+                }
+            };
+
+    private void fetchCategory() {
+        mIsRefreshing = true;
+        mContentProvider.fetchMore();
+    }
+
     public void reloadData() {
-        mPresenter.reloadData();
-    }
-
-    @Override
-    public void setLoading() {
         mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Loading);
+        mContentProvider.clear();
+        fetchCategory();
+
+        notifyDataSetChanged();
     }
 
-    @Override
+    public void setRefreshing(boolean refreshing) {
+        mIsRefreshing = refreshing;
+    }
+
     public void updateLoadingState(boolean isFailed) {
-        if (mPresenter.isRefreshing()) {
+        if (mIsRefreshing) {
             mListView.onRefreshComplete();
-            mPresenter.setRefreshing(false);
+            setRefreshing(false);
         }
 
         if (isFailed) {
@@ -92,13 +128,12 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
                     JungleLoadingLayout.PageState.LoadingFailed);
         } else {
             mAdapter.notifyDataSetChanged();
-            mLoadingPageView.setPageState(mPresenter.isEmpty()
+            mLoadingPageView.setPageState(mContentProvider.isEmpty()
                     ? JungleLoadingLayout.PageState.Empty
                     : JungleLoadingLayout.PageState.Invisible);
         }
     }
 
-    @Override
     public void notifyDataSetChanged() {
         mAdapter.notifyDataSetChanged();
     }
@@ -111,8 +146,8 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
 
                 @Override
                 public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-                    if (mPresenter.isCanFetchMore()) {
-                        mPresenter.fetchCategory();
+                    if (mContentProvider.isCanFetchMore()) {
+                        fetchCategory();
                     } else {
                         ThreadManager.getInstance().postOnUIHandler(new Runnable() {
                             @Override
@@ -129,7 +164,7 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
             new JungleLoadingLayout.OnReloadListener() {
                 @Override
                 public void onNeedReload() {
-                    mPresenter.fetchCategory();
+                    fetchCategory();
                 }
             };
 
@@ -163,7 +198,7 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
 
         @Override
         public int getCount() {
-            return mPresenter.getItemCount() / 2;
+            return mContentProvider.getItemCount() / 2;
         }
 
         @Override
@@ -198,8 +233,8 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
             }
 
             holder.updateItem(
-                    mPresenter.getItem(position * 2),
-                    mPresenter.getItem(position * 2 + 1));
+                    mContentProvider.getItem(position * 2),
+                    mContentProvider.getItem(position * 2 + 1));
 
             return convertView;
         }
@@ -218,7 +253,7 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
                     public void onClick(View v) {
                         String id = (String) v.getTag();
                         ImageViewActivity.startImageViewActivity(
-                                getContext(), mPresenter.getProviderId(), id);
+                                getContext(), mProviderId, id);
                     }
                 };
     }
