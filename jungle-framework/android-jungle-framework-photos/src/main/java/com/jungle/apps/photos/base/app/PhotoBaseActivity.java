@@ -73,6 +73,20 @@ public class PhotoBaseActivity extends JungleSwipeBackBaseActivity<BaseToolbar> 
     protected void showTitle(boolean show) {
     }
 
+    @Override
+    public void setTitle(int titleId) {
+        super.setTitle(titleId);
+        TextView titleView = (TextView) getCustomizedToolbar().findViewById(R.id.actionbar_title_text);
+        titleView.setText(titleId);
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        super.setTitle(title);
+        TextView titleView = (TextView) getCustomizedToolbar().findViewById(R.id.actionbar_title_text);
+        titleView.setText(title);
+    }
+
     private void initToolbar() {
         setTitle(R.string.app_name);
 
