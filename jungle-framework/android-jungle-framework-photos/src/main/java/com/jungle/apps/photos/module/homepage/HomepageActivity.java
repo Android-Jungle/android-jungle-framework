@@ -10,30 +10,30 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.jungle.apps.photos.R;
 import com.jungle.apps.photos.base.component.PhotoEvent;
 import com.jungle.apps.photos.module.favorite.FavoriteActivity;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.apps.photos.module.homepage.widget.HomepageTabIndicatorView;
+import com.jungle.apps.photos.module.homepage.widget.HomepageToolbar;
 import com.jungle.apps.photos.module.homepage.widget.category.CategoryDisplayLayoutView;
 import com.jungle.apps.photos.module.homepage.widget.hot.HotLayoutView;
 import com.jungle.apps.photos.module.homepage.widget.personalcenter.HotRecommendLayoutView;
 import com.jungle.apps.photos.module.misc.AboutActivity;
 import com.jungle.apps.photos.module.settings.SettingActivity;
 import com.jungle.base.app.AppCore;
-import com.jungle.base.app.BaseActivity;
 import com.jungle.base.event.Event;
 import com.jungle.base.event.EventListener;
 import com.jungle.base.manager.EventManager;
+import com.jungle.toolbaractivity.activity.JungleBaseActivity;
 import com.jungle.widgets.dialog.JungleDialog;
 import com.jungle.widgets.dialog.JungleToast;
 import com.jungle.widgets.view.AdjustBoundsImageView;
 import com.jungle.widgets.view.TabPageIndicator;
 import com.jungle.widgets.view.TabPageIndicatorView;
 
-public class HomepageActivity extends BaseActivity {
+public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
 
     public static void start(Context context) {
         Intent intent = new Intent(context, HomepageActivity.class);
@@ -46,7 +46,7 @@ public class HomepageActivity extends BaseActivity {
     private ViewPager mViewPager;
     private TabPageIndicator mTabIndicator;
     private DrawerLayout mDrawerLayout;
-    private GeneralActionBar mGeneralActionBar;
+    private HomepageToolbar mToolbar;
     private ImageView mNavigateView;
     private JungleDialog mLoginDialog;
 
@@ -68,22 +68,18 @@ public class HomepageActivity extends BaseActivity {
                 PhotoEvent.HOT_PIC_UPDATED_CLICKED, mHotPicUpdateClickListener);
     }
 
+    @Override
+    protected HomepageToolbar createCustomizedToolbar() {
+        return new HomepageToolbar(this);
+    }
+
     private void initActionBarInternal() {
-        mGeneralActionBar = getCustomizedActionBar();
-        showTitleZone(false);
-
-        FrameLayout customizedZoneView = mGeneralActionBar.getCustomizedZoneView();
-        View view = View.inflate(this, R.layout.layout_homepage_actionbar, null);
-
-        customizedZoneView.addView(view, new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
-
-        mNavigateView = (ImageView) view.findViewById(R.id.navigate_view);
-        AdjustBoundsImageView iconView = (AdjustBoundsImageView) view.findViewById(R.id.title_icon);
+        mToolbar = getCustomizedToolbar();
+        mNavigateView = (ImageView) mToolbar.findViewById(R.id.navigate_view);
+        AdjustBoundsImageView iconView = (AdjustBoundsImageView) mToolbar.findViewById(R.id.title_icon);
         iconView.setImageResource(R.drawable.title_icon);
 
-        view.setOnClickListener(new View.OnClickListener() {
+        mNavigateView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchDrawer();
@@ -182,7 +178,7 @@ public class HomepageActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean handleKeyUp(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_UP) {
             long time = System.currentTimeMillis();
@@ -196,7 +192,7 @@ public class HomepageActivity extends BaseActivity {
             return true;
         }
 
-        return super.handleKeyUp(keyCode, event);
+        return super.onKeyDown(keyCode, event);
     }
 
     private EventListener mHotPicUpdatedListener = new EventListener() {

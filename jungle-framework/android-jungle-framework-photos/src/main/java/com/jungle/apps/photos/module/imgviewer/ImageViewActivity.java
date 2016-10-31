@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.jungle.apps.photos.R;
+import com.jungle.apps.photos.base.app.PhotoBaseActivity;
 import com.jungle.apps.photos.base.component.AppUtils;
 import com.jungle.apps.photos.base.manager.FileDownloadRequest;
 import com.jungle.apps.photos.base.manager.HttpRequestManager;
@@ -27,12 +28,11 @@ import com.jungle.apps.photos.module.favorite.data.pic.FavoriteEntity;
 import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
 import com.jungle.apps.photos.module.imgviewer.widget.ImageOperateLayoutView;
 import com.jungle.apps.photos.module.imgviewer.widget.ImageViewerLayoutView;
-import com.jungle.base.app.BaseActivity;
 import com.jungle.base.manager.ThreadManager;
 import com.jungle.share.ShareInfo;
 import com.jungle.widgets.dialog.JungleToast;
 
-public class ImageViewActivity extends BaseActivity {
+public class ImageViewActivity extends PhotoBaseActivity {
 
     private static final String PROVIDER_ID = "ProviderId";
     private static final String SELECTED_ID = "SelectedId";
@@ -72,7 +72,7 @@ public class ImageViewActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setOverLayActionBar(true);
+        setOverlayToolbar(true);
 
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -81,7 +81,7 @@ public class ImageViewActivity extends BaseActivity {
         showTitleIcon(false);
         showRightZone(true);
         setContentView(R.layout.activity_image_view);
-        setActionbarBackgroundColor(getResources().getColor(R.color.theme_purple));
+        setToolbarBackground(getResources().getColor(R.color.theme_purple));
 
         initView();
         initProvider();
@@ -113,7 +113,7 @@ public class ImageViewActivity extends BaseActivity {
 
         mImgOperateLayout.hideOperateLayoutWithoutAnim();
 
-        FrameLayout rightZoneView = getCustomizedActionBar().getRightZoneView();
+        FrameLayout rightZoneView = getCustomizedToolbar().getRightZoneView();
         View rightZone = View.inflate(this,
                 R.layout.view_image_viewer_rightzone, rightZoneView);
         mDownloadBtn = (ImageButton) rightZone.findViewById(R.id.title_download_btn);
@@ -173,25 +173,10 @@ public class ImageViewActivity extends BaseActivity {
         });
     }
 
-    @Override
-    protected void handleTitleClicked() {
-        if (!handleBack()) {
-            super.handleTitleClicked();
-        }
-    }
 
     @Override
-    protected void handleBackButtonClicked() {
-        if (!handleBack()) {
-            super.handleBackButtonClicked();
-        }
-    }
-
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_UP) {
-
+    protected boolean handleKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
             if (mImgOperateLayout.isShowing()) {
                 switchOperateLayout();
                 return true;
