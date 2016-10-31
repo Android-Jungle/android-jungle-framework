@@ -23,7 +23,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 /**
  * 可自动缩放调节大小的 ImageView.

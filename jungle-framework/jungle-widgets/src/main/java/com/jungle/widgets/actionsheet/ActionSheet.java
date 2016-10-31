@@ -30,7 +30,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class ActionSheet extends Dialog {
 

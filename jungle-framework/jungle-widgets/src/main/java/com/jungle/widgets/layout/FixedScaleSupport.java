@@ -21,7 +21,7 @@ package com.jungle.widgets.layout;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class FixedScaleSupport {
 

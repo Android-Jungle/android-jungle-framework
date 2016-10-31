@@ -24,13 +24,8 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
-/**
- * 支持自定义的索引选中 View.
- *
- * @author arnozhang
- */
 public class JungleIndexIndicatorView extends View {
 
     private int mIndexCount;

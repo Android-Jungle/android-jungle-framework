@@ -54,13 +54,11 @@ public abstract class CategoryTagItemLongClickListener implements View.OnLongCli
                 FavoriteTagManager mgr = FavoriteTagManager.getInstance();
                 if (mgr.isTagFavorited(tag)) {
                     if (!mgr.removeFavoriteTag(tag)) {
-                        JungleToast.makeText(context,
-                                R.string.cancel_favorite_tag_failed).show();
+                        JungleToast.makeText(context, R.string.cancel_favorite_tag_failed).show();
                     }
                 } else {
                     if (!mgr.addFavoriteTag(tag)) {
-                        JungleToast.makeText(context,
-                                R.string.add_to_favorite_tag_failed).show();
+                        JungleToast.makeText(context, R.string.add_to_favorite_tag_failed).show();
                     }
                 }
             }

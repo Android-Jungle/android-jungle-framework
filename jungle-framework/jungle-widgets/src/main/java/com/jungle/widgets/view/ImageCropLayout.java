@@ -31,7 +31,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.jungle.base.misc.JungleSize;
 import com.jungle.base.utils.ImageUtils;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 import com.jungle.widgets.layout.FixedScaleFrameLayout;
 
 public class ImageCropLayout extends FrameLayout {

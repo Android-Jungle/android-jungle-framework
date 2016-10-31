@@ -118,8 +118,7 @@ public class CategoryLayoutView extends FrameLayout implements CategoryView {
                             @Override
                             public void run() {
                                 mListView.onRefreshComplete();
-                                JungleToast.makeText(getContext(),
-                                        R.string.no_more_pic).show();
+                                JungleToast.makeText(getContext(), R.string.no_more_pic).show();
                             }
                         });
                     }

@@ -23,7 +23,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 import java.util.ArrayList;
 import java.util.List;

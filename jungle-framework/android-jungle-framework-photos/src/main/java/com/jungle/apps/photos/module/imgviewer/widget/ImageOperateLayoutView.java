@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 import com.jungle.apps.photos.R;
+import com.jungle.apps.photos.base.manager.ShareManager;
 import com.jungle.apps.photos.module.imgviewer.PhotoManager;
 import com.jungle.base.utils.FileUtils;
+import com.jungle.share.ShareInfo;
 import com.jungle.widgets.dialog.JungleToast;
 
 import java.util.HashSet;
@@ -35,7 +36,7 @@ public class ImageOperateLayoutView extends FrameLayout {
     private View mShareToQZone;
     private View mShareToWXFriend;
     private View mShareToWXFriendGroup;
-    private ShareManager.ShareInfo mShareInfo;
+    private ShareInfo mShareInfo;
     private Random mRandom = new Random(System.currentTimeMillis());
     private Set<Integer> mColorSet = new HashSet<Integer>();
     private OnVisibilityListener mVisibilityListener;
@@ -87,7 +88,7 @@ public class ImageOperateLayoutView extends FrameLayout {
         mVisibilityListener = listener;
     }
 
-    public void showOperateLayout(ShareManager.ShareInfo shareInfo) {
+    public void showOperateLayout(ShareInfo shareInfo) {
         mShareInfo = shareInfo;
         setVisibility(View.VISIBLE);
 
@@ -183,8 +184,7 @@ public class ImageOperateLayoutView extends FrameLayout {
 
         if (TextUtils.isEmpty(mShareInfo.mLocalPath)
                 || !FileUtils.isFileExist(mShareInfo.mLocalPath)) {
-            PhotoManager.getInstance().setWallPaper(
-                    getContext(), mShareInfo.mImageUrl);
+            PhotoManager.getInstance().setWallPaper(getContext(), mShareInfo.mImageUrl);
             return;
         }
 
@@ -199,27 +199,19 @@ public class ImageOperateLayoutView extends FrameLayout {
         Activity activity = (Activity) getContext();
         switch (id) {
             case R.id.share_to_qq:
-                ShareManager.getInstance().shareToQQ(
-                        activity,
-                        mShareInfo,
-                        mShareListener);
+                ShareManager.getInstance().shareToQQ(activity, mShareInfo, mShareListener);
                 break;
 
             case R.id.share_to_qzone:
-                ShareManager.getInstance().shareToQZone(
-                        activity,
-                        mShareInfo,
-                        mShareListener);
+                ShareManager.getInstance().shareToQZone(activity, mShareInfo, mShareListener);
                 break;
 
             case R.id.share_to_wx_friend:
-                ShareManager.getInstance().shareToWXFriend(
-                        activity, mShareInfo);
+                ShareManager.getInstance().shareToWXFriend(activity, mShareInfo, mShareListener);
                 break;
 
             case R.id.share_to_wx_friend_group:
-                ShareManager.getInstance().shareToWXFriendsGroup(
-                        activity, mShareInfo);
+                ShareManager.getInstance().shareToWXFriendsGroup(activity, mShareInfo, mShareListener);
                 break;
 
             default:
@@ -231,10 +223,7 @@ public class ImageOperateLayoutView extends FrameLayout {
             new ShareManager.OnShareListener() {
                 @Override
                 public void onSuccess() {
-                    Context context = getContext();
-                    JungleToast.makeText(context,
-                            context.getString(R.string.share_succeeded),
-                            Toast.LENGTH_SHORT).show();
+                    JungleToast.makeText(getContext(), R.string.share_succeeded).show();
                 }
 
                 @Override
@@ -249,7 +238,7 @@ public class ImageOperateLayoutView extends FrameLayout {
                         errorMsg += " - " + message;
                     }
 
-                    JungleToast.makeText(context, errorMsg, Toast.LENGTH_SHORT).show();
+                    JungleToast.makeText(context, errorMsg).show();
                 }
             };
 }

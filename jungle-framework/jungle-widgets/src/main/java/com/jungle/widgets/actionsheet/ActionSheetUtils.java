@@ -20,7 +20,7 @@ package com.jungle.widgets.actionsheet;
 
 import android.content.Context;
 import android.view.View;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 import java.util.ArrayList;
 import java.util.List;

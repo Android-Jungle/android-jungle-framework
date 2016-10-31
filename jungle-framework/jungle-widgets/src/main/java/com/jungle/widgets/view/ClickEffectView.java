@@ -24,7 +24,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 /**
  * 带额外点击效果的控件.(适用于 ImageView 等)

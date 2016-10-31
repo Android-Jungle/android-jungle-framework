@@ -29,7 +29,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class ClearableEditText extends EditText {
 

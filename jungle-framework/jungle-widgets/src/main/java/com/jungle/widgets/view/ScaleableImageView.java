@@ -33,7 +33,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import com.jungle.base.manager.ThreadManager;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class ScaleableImageView extends ImageView {
 

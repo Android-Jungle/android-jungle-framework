@@ -55,44 +55,40 @@ public class SettingActivity extends PhotoBaseActivity {
                     }
                 });
 
-        mClearCacheItem.setItemClickAction(
-                new SettingItemView.OnSettingItemClickListener() {
-                    @Override
-                    public void onItemClicked(SettingItemView settingItemView) {
-                        clearCache();
-                    }
-                });
+        mClearCacheItem.setItemClickAction(new SettingItemView.OnSettingItemClickListener() {
+            @Override
+            public void onItemClicked(SettingItemView settingItemView) {
+                clearCache();
+            }
+        });
 
-        mClearFavoritesItem.setItemClickAction(
-                new SettingItemView.OnSettingItemClickListener() {
-                    @Override
-                    public void onItemClicked(SettingItemView settingItemView) {
-                        DialogUtils.createDialog(SettingActivity.this,
-                                R.string.clear_favorites_confirm,
-                                R.string.cancel,
-                                R.string.ok,
-                                JungleDialog.mDismissListener,
-                                new JungleDialog.OnDialogBtnClickListener() {
-                                    @Override
-                                    public void onClick(JungleDialog dialog, JungleDialog.DialogBtn which) {
-                                        clearFavorites();
-                                        dialog.dismiss();
-                                    }
-                                }).setMsgMaxLines(2).show();
-                    }
-                }
-        );
+        mClearFavoritesItem.setItemClickAction(new SettingItemView.OnSettingItemClickListener() {
+            @Override
+            public void onItemClicked(SettingItemView settingItemView) {
+                DialogUtils.createDialog(SettingActivity.this,
+                        R.string.clear_favorites_confirm,
+                        R.string.cancel,
+                        R.string.ok,
+                        JungleDialog.mDismissListener,
+                        new JungleDialog.OnDialogBtnClickListener() {
+                            @Override
+                            public void onClick(JungleDialog dialog, JungleDialog.DialogBtn which) {
+                                clearFavorites();
+                                dialog.dismiss();
+                            }
+                        }).setMsgMaxLines(2).show();
+            }
+        });
 
-        mViewFavoritePathItem.setItemClickAction(
-                new SettingItemView.OnSettingItemClickListener() {
-                    @Override
-                    public void onItemClicked(SettingItemView settingItemView) {
-                        String wording = String.format(
-                                getString(R.string.favorite_path_wording),
-                                AppUtils.getFavouriteDirectory());
-                        JungleToast.makeText(SettingActivity.this, wording).show();
-                    }
-                });
+        mViewFavoritePathItem.setItemClickAction(new SettingItemView.OnSettingItemClickListener() {
+            @Override
+            public void onItemClicked(SettingItemView settingItemView) {
+                String wording = String.format(
+                        getString(R.string.favorite_path_wording),
+                        AppUtils.getFavouriteDirectory());
+                JungleToast.makeText(SettingActivity.this, wording).show();
+            }
+        });
     }
 
     private void updateDownloadWhenFavPicBtn() {
@@ -147,8 +143,7 @@ public class SettingActivity extends PhotoBaseActivity {
         AppUtils.cleanAppCacheInBackground(new Runnable() {
             @Override
             public void run() {
-                JungleToast.makeText(SettingActivity.this,
-                        R.string.clean_cache_complete).show();
+                JungleToast.makeText(getContext(), R.string.clean_cache_complete).show();
                 updateCacheSizeView();
             }
         });
@@ -164,8 +159,7 @@ public class SettingActivity extends PhotoBaseActivity {
                 ThreadManager.getInstance().postOnUIHandler(new Runnable() {
                     @Override
                     public void run() {
-                        JungleToast.makeText(SettingActivity.this,
-                                R.string.clean_favorites_complete).show();
+                        JungleToast.makeText(getContext(), R.string.clean_favorites_complete).show();
                         updateFavoritesSizeView();
                     }
                 });

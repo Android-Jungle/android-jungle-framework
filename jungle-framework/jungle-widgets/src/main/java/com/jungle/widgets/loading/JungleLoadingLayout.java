@@ -29,7 +29,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class JungleLoadingLayout extends BaseLoadingLayout {
 

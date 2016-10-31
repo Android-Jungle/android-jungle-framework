@@ -30,7 +30,7 @@ import android.widget.FrameLayout;
 import com.jungle.base.app.BaseActivity;
 import com.jungle.base.app.LifeCycleListener;
 import com.jungle.base.manager.ThreadManager;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 import com.jungle.widgets.layout.FixedSpeedViewPager;
 
 import java.util.HashMap;

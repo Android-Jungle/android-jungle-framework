@@ -24,7 +24,7 @@ import android.graphics.Region;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class ImageCropFrameLayout extends FrameLayout {
 

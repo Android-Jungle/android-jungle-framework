@@ -24,7 +24,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.jungle.imageloader.R;
+import com.jungle.widgets.R;
 
 public class JungleToast {
 

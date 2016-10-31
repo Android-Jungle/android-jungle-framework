@@ -14,7 +14,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.jungle.apps.photos.R;
@@ -30,6 +29,7 @@ import com.jungle.apps.photos.module.imgviewer.widget.ImageOperateLayoutView;
 import com.jungle.apps.photos.module.imgviewer.widget.ImageViewerLayoutView;
 import com.jungle.base.app.BaseActivity;
 import com.jungle.base.manager.ThreadManager;
+import com.jungle.share.ShareInfo;
 import com.jungle.widgets.dialog.JungleToast;
 
 public class ImageViewActivity extends BaseActivity {
@@ -153,13 +153,11 @@ public class ImageViewActivity extends BaseActivity {
     }
 
     private void showCommentListInternal() {
-        Animation animation = AnimationUtils.loadAnimation(
-                ImageViewActivity.this, R.anim.comment_display_show);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.comment_display_show);
     }
 
     private void hideCommentListInternal() {
-        Animation animation = AnimationUtils.loadAnimation(
-                ImageViewActivity.this, R.anim.comment_display_hide);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.comment_display_hide);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -218,8 +216,7 @@ public class ImageViewActivity extends BaseActivity {
 
                 @Override
                 public void onAddFavorite(String id) {
-                    JungleToast.makeText(ImageViewActivity.this,
-                            R.string.favorite_success).show();
+                    JungleToast.makeText(getContext(), R.string.favorite_success).show();
                     notifyChanged();
                 }
 
@@ -300,7 +297,7 @@ public class ImageViewActivity extends BaseActivity {
         }
 
         if (!mContentProvider.isCanFetchMore()) {
-            JungleToast.makeText(ImageViewActivity.this, R.string.no_more_pic).show();
+            JungleToast.makeText(getContext(), R.string.no_more_pic).show();
         } else {
             mContentProvider.fetchMore();
         }
@@ -352,19 +349,17 @@ public class ImageViewActivity extends BaseActivity {
                 return;
             }
 
+            Context context = getContext();
             if (isCurrFavorite()) {
                 if (!FavoriteManager.getInstance().cancelFavorite(item.mId)) {
-                    JungleToast.makeText(ImageViewActivity.this,
-                            R.string.cancel_favorite_failed).show();
+                    JungleToast.makeText(context, R.string.cancel_favorite_failed).show();
                 } else {
-                    JungleToast.makeText(ImageViewActivity.this,
-                            R.string.cancel_favorite_success).show();
+                    JungleToast.makeText(context, R.string.cancel_favorite_success).show();
                     updateCurrFavoriteState();
                     updateDownloadState();
                 }
             } else {
-                FavoriteManager.getInstance().addFavorite(
-                        ImageViewActivity.this, item, mFavoriteListener);
+                FavoriteManager.getInstance().addFavorite(context, item, mFavoriteListener);
             }
 
             if (mImgOperateLayout.isShowing()) {
@@ -377,8 +372,7 @@ public class ImageViewActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             if (isCurrDownloaded()) {
-                JungleToast.makeText(ImageViewActivity.this,
-                        R.string.download_succeeded, Toast.LENGTH_SHORT).show();
+                JungleToast.makeText(getContext(), R.string.download_succeeded).show();
             } else {
                 downloadCurrentImage();
             }
@@ -404,7 +398,7 @@ public class ImageViewActivity extends BaseActivity {
                         entity.mLocalPath = response;
 
                         FavoriteManager.getInstance().synchronizeEntity(entity);
-                        JungleToast.makeText(ImageViewActivity.this, R.string.download_succeeded).show();
+                        JungleToast.makeText(getContext(), R.string.download_succeeded).show();
 
                         updateDownloadState();
                     }
@@ -412,19 +406,19 @@ public class ImageViewActivity extends BaseActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        JungleToast.makeText(ImageViewActivity.this, R.string.download_failed).show();
+                        JungleToast.makeText(getContext(), R.string.download_failed).show();
                     }
                 });
         HttpRequestManager.getInstance().add(request);
     }
 
-    private ShareManager.ShareInfo getShareInfo() {
+    private ShareInfo getShareInfo() {
         CategoryManager.CategoryItem item = mImgViewerLayout.getCurrentItem();
         if (item == null) {
             return null;
         }
 
-        ShareManager.ShareInfo shareInfo = new ShareManager.ShareInfo();
+        ShareInfo shareInfo = new ShareInfo();
         shareInfo.mTitle = getString(R.string.share_title);
         shareInfo.mSummary = item.mTitle;
         shareInfo.mImageUrl = item.mSrcUrl;
@@ -449,16 +443,14 @@ public class ImageViewActivity extends BaseActivity {
                 @Override
                 public void onFavoriteFailed(String id) {
                     if (isSameItem(id)) {
-                        JungleToast.makeText(ImageViewActivity.this,
-                                R.string.favorite_failed).show();
+                        JungleToast.makeText(getContext(), R.string.favorite_failed).show();
                     }
                 }
 
                 @Override
                 public void onFavoriteCanceled(String id) {
                     if (isSameItem(id)) {
-                        JungleToast.makeText(ImageViewActivity.this,
-                                R.string.favorite_canceled).show();
+                        JungleToast.makeText(getContext(), R.string.favorite_canceled).show();
                     }
                 }
             };
