@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/hot_group_name"
@@ -20,10 +21,14 @@
         android:textColor="@color/white"
         android:background="@drawable/hot_group_name_bkg"/>
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/hot_img_view"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"/>
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImageScaleType="centerCrop"
+        app:failureImageScaleType="centerCrop"
+        app:placeholderImage="@drawable/default_image"
+        app:failureImage="@drawable/default_image"/>
 
 </LinearLayout>

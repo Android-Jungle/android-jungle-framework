@@ -42,25 +42,21 @@ public class CategoryDisplayView extends ClickEffectView {
 
     public CategoryDisplayView(Context context) {
         super(context);
-
         initLayout(context);
     }
 
     public CategoryDisplayView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         initLayout(context);
     }
 
     public CategoryDisplayView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
         initLayout(context);
     }
 
     private void initLayout(Context context) {
-        View v = (FrameLayout) View.inflate(
-                context, R.layout.layout_category_display, null);
+        View v = (FrameLayout) View.inflate(context, R.layout.layout_category_display, null);
         mCategoryTagText = (TextView) v.findViewById(R.id.category_display_title);
 
         init(v);
