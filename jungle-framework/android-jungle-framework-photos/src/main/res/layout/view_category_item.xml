@@ -13,8 +13,8 @@
         app:actualImageScaleType="centerCrop"
         app:placeholderImageScaleType="centerCrop"
         app:failureImageScaleType="centerCrop"
-        app:placeholderImage="@drawable/default_image"
-        app:failureImage="@drawable/default_image"/>
+        app:placeholderImage="@drawable/small_image_view_loading"
+        app:failureImage="@drawable/small_image_view_loading"/>
 
     <TextView
         android:id="@+id/category_description"
