@@ -18,6 +18,7 @@
 
 package com.jungle.imageloader;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -38,6 +39,10 @@ public class ImageLoaderUtils {
 
     private static ImageLoaderEngine mImageLoaderEngine;
 
+    public static void initImageLoader(Context context, String imgCachePath) {
+        getEngine().initImageLoader(context, imgCachePath);
+    }
+
 
     public interface ImageLoadListener {
         void onSuccess(Uri uri, Bitmap bitmap);
@@ -45,7 +50,7 @@ public class ImageLoaderUtils {
         void onFailed(int retCode);
     }
 
-    private static ImageLoaderEngine getEngine() {
+    public static ImageLoaderEngine getEngine() {
         if (mImageLoaderEngine == null) {
             mImageLoaderEngine = new FrescoImageLoaderEngine();
         }

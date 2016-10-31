@@ -18,12 +18,15 @@
 
 package com.jungle.imageloader;
 
+import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import com.jungle.base.misc.JungleSize;
 
 public interface ImageLoaderEngine {
+
+    void initImageLoader(Context context, String imgCachePath);
 
     void prefetchToDiskCache(Uri uri);
 

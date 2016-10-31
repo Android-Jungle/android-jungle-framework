@@ -100,7 +100,7 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
         AdjustBoundsImageView iconView = (AdjustBoundsImageView) mToolbar.findViewById(R.id.title_icon);
         iconView.setImageResource(R.drawable.title_icon);
 
-        mNavigateView.setOnClickListener(new View.OnClickListener() {
+        mToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchDrawer();

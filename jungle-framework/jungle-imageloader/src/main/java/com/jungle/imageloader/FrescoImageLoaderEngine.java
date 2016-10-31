@@ -18,12 +18,15 @@
 
 package com.jungle.imageloader;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
+import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.common.references.CloseableReference;
+import com.facebook.common.util.ByteConstants;
 import com.facebook.common.util.UriUtil;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -33,6 +36,7 @@ import com.facebook.drawee.view.DraweeView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.core.ImagePipeline;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.ImageInfo;
@@ -44,9 +48,36 @@ import com.jungle.base.misc.JungleSize;
 import com.jungle.base.utils.ImageUtils;
 import com.jungle.base.utils.MiscUtils;
 
+import java.io.File;
 import java.util.concurrent.Executor;
 
 public class FrescoImageLoaderEngine implements ImageLoaderEngine {
+
+    @Override
+    public void initImageLoader(Context context, String imgCachePath) {
+        ImagePipelineConfig config = getFrescoConfig(context, imgCachePath);
+        if (config != null) {
+            Fresco.initialize(context, config);
+        } else {
+            Fresco.initialize(context);
+        }
+    }
+
+    protected ImagePipelineConfig getFrescoConfig(Context context, String imgCachePath) {
+        DiskCacheConfig diskCache = DiskCacheConfig
+                .newBuilder(context)
+                .setBaseDirectoryPath(new File(imgCachePath))
+                .setBaseDirectoryName("imgcache")
+                .setMaxCacheSize(64 * ByteConstants.MB)
+                .setMaxCacheSizeOnLowDiskSpace(10 * ByteConstants.MB)
+                .setMaxCacheSizeOnVeryLowDiskSpace(2 * ByteConstants.MB)
+                .build();
+
+        return ImagePipelineConfig.newBuilder(context)
+                .setMainDiskCacheConfig(diskCache)
+                .setDownsampleEnabled(true)
+                .build();
+    }
 
     @Override
     public void prefetchToDiskCache(Uri uri) {

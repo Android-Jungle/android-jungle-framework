@@ -23,6 +23,8 @@ import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseApplication;
+import com.jungle.base.utils.FileUtils;
+import com.jungle.imageloader.ImageLoaderUtils;
 
 public class PhotoAppCore extends AppCore {
 
@@ -47,5 +49,10 @@ public class PhotoAppCore extends AppCore {
         PhotosEntityManager.getInstance();
         FavoriteManager.getInstance();
         FavoriteTagManager.getInstance();
+        ImageLoaderUtils.initImageLoader(getApplication(), getImageCacheDirectory());
+    }
+
+    protected String getImageCacheDirectory() {
+        return FileUtils.getExternalCachePath();
     }
 }
