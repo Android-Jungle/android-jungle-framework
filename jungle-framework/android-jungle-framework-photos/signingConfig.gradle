@@ -51,7 +51,7 @@ def loadFromSwingDialog(signing) {
             panel() {
                 vbox() {
                     label(text: 'Store File: ')
-                    def defaultStoreFile = 'youngo_app.keystore'
+                    def defaultStoreFile = 'photos_app.keystore'
                     def storeFile = textField(
                             text: defaultStoreFile,
                             selectionStart: 0,
