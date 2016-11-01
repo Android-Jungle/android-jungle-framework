@@ -200,8 +200,7 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_UP) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
             long time = System.currentTimeMillis();
             if (time - mLastBackKeyUpTime <= 800) {
                 exitApp();
