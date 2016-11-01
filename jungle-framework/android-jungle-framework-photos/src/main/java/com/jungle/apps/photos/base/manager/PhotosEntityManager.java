@@ -21,6 +21,7 @@ package com.jungle.apps.photos.base.manager;
 import android.database.sqlite.SQLiteDatabase;
 import com.jungle.apps.photos.module.favorite.data.pic.FavoriteEntity;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagEntity;
+import com.jungle.apps.photos.module.search.data.SearchHistoryEntity;
 import com.jungle.base.app.AppCore;
 import com.jungle.base.manager.AppManager;
 import com.jungle.base.utils.FileUtils;
@@ -48,6 +49,7 @@ public class PhotosEntityManager implements AppManager {
 
                 supporter.createTable(FavoriteEntity.class);
                 supporter.createTable(FavoriteTagEntity.class);
+                supporter.createTable(SearchHistoryEntity.class);
             }
 
             @Override
