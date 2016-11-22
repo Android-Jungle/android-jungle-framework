@@ -46,10 +46,8 @@ public class AppCore implements Component {
 
     protected boolean mIsStarted = false;
     protected static BaseApplication mApplication;
-    protected Map<Class<? extends AppManager>, AppManager> mManagerList =
-            new HashMap<Class<? extends AppManager>, AppManager>();
-    protected Map<Class<? extends AppManager>, AppManager> mRealManagerList =
-            new HashMap<Class<? extends AppManager>, AppManager>();
+    protected Map<Class<? extends AppManager>, AppManager> mManagerList = new HashMap<>();
+    protected Map<Class<? extends AppManager>, AppManager> mRealManagerList = new HashMap<>();
 
 
     public AppCore(BaseApplication app) {
@@ -57,7 +55,7 @@ public class AppCore implements Component {
     }
 
     public static AppCore getInstance() {
-        return mApplication != null ? mApplication.getAppCore() : null;
+        return mApplication.getAppCore();
     }
 
     public static BaseApplication getApplication() {
