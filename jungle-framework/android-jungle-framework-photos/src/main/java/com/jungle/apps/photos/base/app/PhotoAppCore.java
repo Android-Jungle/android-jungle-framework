@@ -18,8 +18,6 @@
 
 package com.jungle.apps.photos.base.app;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
 import com.jungle.apps.photos.base.manager.PhotosEntityManager;
 import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
@@ -28,7 +26,6 @@ import com.jungle.base.app.BaseApplication;
 import com.jungle.base.utils.FileUtils;
 import com.jungle.base.utils.NetworkUtils;
 import com.jungle.imageloader.ImageLoaderUtils;
-import com.jungle.share.ShareHelper;
 
 public class PhotoAppCore extends AppCore {
 
@@ -55,22 +52,6 @@ public class PhotoAppCore extends AppCore {
         FavoriteManager.getInstance();
         FavoriteTagManager.getInstance();
         ImageLoaderUtils.initImageLoader(getApplication(), getImageCacheDirectory());
-        ShareHelper.getInstance().setShareImageLoader(new ShareHelper.ShareImageLoader() {
-            @Override
-            public void loadImage(String url, final Callback callback) {
-                ImageLoaderUtils.loadImage(url, new ImageLoaderUtils.ImageLoadListener() {
-                    @Override
-                    public void onSuccess(Uri uri, Bitmap bitmap) {
-                        callback.onSuccess(bitmap);
-                    }
-
-                    @Override
-                    public void onFailed(int retCode) {
-                        callback.onFailed(retCode);
-                    }
-                });
-            }
-        });
     }
 
     protected String getImageCacheDirectory() {

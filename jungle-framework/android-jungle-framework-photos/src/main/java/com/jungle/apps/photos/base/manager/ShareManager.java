@@ -18,8 +18,11 @@
 
 package com.jungle.apps.photos.base.manager;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
 import com.jungle.base.app.AppCore;
 import com.jungle.base.manager.AppManager;
+import com.jungle.imageloader.ImageLoaderUtils;
 import com.jungle.share.ShareHelper;
 
 public class ShareManager extends ShareHelper implements AppManager {
@@ -31,6 +34,22 @@ public class ShareManager extends ShareHelper implements AppManager {
 
     @Override
     public void onCreate() {
+        setShareImageLoader(new ShareHelper.ShareImageLoader() {
+            @Override
+            public void loadImage(String url, final Callback callback) {
+                ImageLoaderUtils.loadImage(url, new ImageLoaderUtils.ImageLoadListener() {
+                    @Override
+                    public void onSuccess(Uri uri, Bitmap bitmap) {
+                        callback.onSuccess(bitmap);
+                    }
+
+                    @Override
+                    public void onFailed(int retCode) {
+                        callback.onFailed(retCode);
+                    }
+                });
+            }
+        });
     }
 
     @Override
