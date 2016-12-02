@@ -285,9 +285,21 @@ public abstract class CategoryManager implements AppManager {
         CategoryItem item = new CategoryItem();
         item.mTitle = JsonUtils.safeGetString(itemInfo, "fromPageTitleEnc");
         item.mThumbUrl = JsonUtils.safeGetString(itemInfo, "thumbURL");
-        item.mSrcUrl = JsonUtils.safeGetString(itemInfo, "middleURL");
-        item.mId = CategoryStrategy.generateImageId(item.mSrcUrl);
 
+        if (itemInfo.has("replaceUrl")) {
+            try {
+                JSONArray array = itemInfo.getJSONArray("replaceUrl");
+                item.mSrcUrl = array.getJSONObject(0).getString("ObjURL");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (TextUtils.isEmpty(item.mSrcUrl)) {
+            item.mSrcUrl = JsonUtils.safeGetString(itemInfo, "middleURL");
+        }
+
+        item.mId = CategoryStrategy.generateImageId(item.mSrcUrl);
         if (TextUtils.isEmpty(item.mThumbUrl)) {
             item.mThumbUrl = item.mSrcUrl;
         }
