@@ -22,6 +22,7 @@
                 android:id="@+id/actionbar_back_btn"
                 android:background="@android:color/transparent"
                 android:src="@drawable/actionbar_back_btn"
+                android:clickable="false"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"/>
@@ -30,6 +31,7 @@
                 android:id="@+id/actionbar_title_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:clickable="false"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:paddingTop="5dp"
@@ -39,7 +41,7 @@
             <TextView
                 style="@style/ToolbarTitle"
                 android:id="@+id/actionbar_title_text"
-                android:clickable="true"
+                android:clickable="false"
                 android:gravity="center_vertical"
                 android:maxWidth="@dimen/action_bar_text_max_width"
                 android:paddingLeft="5dp"
