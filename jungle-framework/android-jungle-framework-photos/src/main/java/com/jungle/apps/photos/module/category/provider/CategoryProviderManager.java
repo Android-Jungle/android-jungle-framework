@@ -38,8 +38,7 @@ public class CategoryProviderManager implements AppManager {
 
 
     private int mCurrCookie = 0;
-    private SparseArray<CategoryContentProvider> mProviderList =
-            new SparseArray<CategoryContentProvider>();
+    private SparseArray<CategoryContentProvider> mProviderList = new SparseArray<>();
 
 
     @Override
