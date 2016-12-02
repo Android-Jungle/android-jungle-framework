@@ -32,6 +32,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.jungle.apps.photos.R;
 import com.jungle.apps.photos.base.component.AppUtils;
@@ -90,7 +91,7 @@ public class PhotoBaseActivity extends JungleSwipeBackBaseActivity<BaseToolbar> 
     private void initToolbar() {
         setTitle(R.string.app_name);
 
-        FrameLayout rightZoneView = getCustomizedToolbar().getRightZoneView();
+        LinearLayout rightZoneView = getCustomizedToolbar().getRightZoneView();
         View.inflate(this, R.layout.view_actionbar_right_zone, rightZoneView);
 
         findViewById(R.id.action_search_btn).setOnClickListener(

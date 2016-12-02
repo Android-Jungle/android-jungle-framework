@@ -47,8 +47,8 @@ public class BaseToolbar extends JungleToolBar {
         View.inflate(context, R.layout.layout_base_toolbar, this);
     }
 
-    public FrameLayout getRightZoneView() {
-        return (FrameLayout) findViewById(R.id.actionbar_right_zone);
+    public LinearLayout getRightZoneView() {
+        return (LinearLayout) findViewById(R.id.actionbar_right_zone);
     }
 
     public FrameLayout getCustomizedZoneView() {

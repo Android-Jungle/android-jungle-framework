@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.jungle.apps.photos.R;
@@ -126,7 +127,7 @@ public class ImageViewActivity extends PhotoBaseActivity {
 
         mImgOperateLayout.hideOperateLayoutWithoutAnim();
 
-        FrameLayout rightZoneView = getCustomizedToolbar().getRightZoneView();
+        LinearLayout rightZoneView = getCustomizedToolbar().getRightZoneView();
         View rightZone = View.inflate(this,
                 R.layout.view_image_viewer_rightzone, rightZoneView);
         mDownloadBtn = (ImageButton) rightZone.findViewById(R.id.title_download_btn);
