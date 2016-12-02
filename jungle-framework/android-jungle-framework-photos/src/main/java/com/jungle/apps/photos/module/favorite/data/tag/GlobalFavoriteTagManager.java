@@ -54,7 +54,7 @@ public class GlobalFavoriteTagManager extends FavoriteTagManager {
         FavoriteTagEntity entity = new FavoriteTagEntity();
         entity.mTag = tag;
 
-        if (getORMSupporter().update(entity)) {
+        if (getORMSupporter().replace(entity)) {
             doAddFavoriteTag(tag);
             return true;
         }
@@ -73,6 +73,6 @@ public class GlobalFavoriteTagManager extends FavoriteTagManager {
     }
 
     @Override
-    public void fetchFavoritedTags() {
+    public void fetchFavoriteTags() {
     }
 }

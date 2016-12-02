@@ -55,7 +55,7 @@ public abstract class FavoriteTagManager implements AppManager {
 
     public abstract boolean removeFavoriteTag(String tag);
 
-    public abstract void fetchFavoritedTags();
+    public abstract void fetchFavoriteTags();
 
 
     @Override

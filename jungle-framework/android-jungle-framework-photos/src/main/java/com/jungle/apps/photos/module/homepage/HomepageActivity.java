@@ -75,7 +75,7 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
         initDrawer();
         initPager();
 
-        FavoriteTagManager.getInstance().fetchFavoritedTags();
+        FavoriteTagManager.getInstance().fetchFavoriteTags();
     }
 
     @Override

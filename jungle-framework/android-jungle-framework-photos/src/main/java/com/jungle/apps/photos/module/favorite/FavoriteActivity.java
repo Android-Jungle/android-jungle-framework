@@ -25,7 +25,7 @@ import com.jungle.apps.photos.module.favorite.widget.FavoriteLayoutView;
 
 public class FavoriteActivity extends PhotoBaseActivity {
 
-    FavoriteLayoutView mFavoriteView;
+    private FavoriteLayoutView mFavoriteView;
 
 
     @Override

@@ -43,7 +43,7 @@ public class SearchHistoryManager {
     public void saveHistory() {
         ORMSupporter supporter = getORMSupporter();
         for (SearchHistoryEntity entity : mSearchHistoryList) {
-            supporter.update(entity);
+            supporter.replace(entity);
         }
     }
 
@@ -70,7 +70,7 @@ public class SearchHistoryManager {
     }
 
     public void updateHistoryItem(SearchHistoryEntity entity) {
-        getORMSupporter().update(entity);
+        getORMSupporter().replace(entity);
     }
 
     public boolean removeHistoryItem(String searchKey) {
@@ -98,6 +98,6 @@ public class SearchHistoryManager {
             entity = new SearchHistoryEntity(searchKey);
         }
 
-        supporter.update(entity);
+        supporter.replace(entity);
     }
 }

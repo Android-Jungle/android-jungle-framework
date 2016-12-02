@@ -124,7 +124,7 @@ public abstract class FavoriteManager implements AppManager {
     }
 
     public void synchronizeEntity(FavoriteEntity entity) {
-        getORMSupporter().update(entity);
+        getORMSupporter().replace(entity);
         mCachedFavoriteEntities.put(entity.mGuid, entity);
     }
 
