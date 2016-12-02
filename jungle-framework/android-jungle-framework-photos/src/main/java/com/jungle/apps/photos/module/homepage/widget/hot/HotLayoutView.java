@@ -62,7 +62,7 @@ public class HotLayoutView extends FrameLayout {
         View.inflate(context, R.layout.layout_hot_view, this);
         mContentContainer = (LinearLayout) findViewById(R.id.hot_content_container);
         mLoadingPageView = (JungleLoadingLayout) findViewById(R.id.loading_page);
-        mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Loading);
+        mLoadingPageView.setLoading();
 
         loadLocalHotList();
     }
@@ -75,7 +75,7 @@ public class HotLayoutView extends FrameLayout {
 
     private void updateLayout(String json) {
         if (TextUtils.isEmpty(json)) {
-            mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Empty);
+            mLoadingPageView.setEmpty();
             return;
         }
 
@@ -115,7 +115,7 @@ public class HotLayoutView extends FrameLayout {
         }
 
         buildHotViews();
-        mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Invisible);
+        mLoadingPageView.setInvisible();
     }
 
     private void buildHotViews() {

@@ -71,7 +71,6 @@ public abstract class CategoryContentProvider
         mDefaultCategoryName = categoryName;
     }
 
-
     public boolean isEmpty() {
         return getItemCount() == 0;
     }

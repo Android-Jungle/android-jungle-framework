@@ -33,9 +33,6 @@ import com.jungle.widgets.R;
 
 public class JungleLoadingLayout extends BaseLoadingLayout {
 
-    private PageState mPageState = null;
-
-
     public JungleLoadingLayout(Context context) {
         super(context);
 

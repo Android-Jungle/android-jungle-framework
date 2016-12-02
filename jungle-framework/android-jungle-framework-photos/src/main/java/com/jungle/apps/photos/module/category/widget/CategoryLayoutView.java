@@ -88,7 +88,7 @@ public class CategoryLayoutView extends FrameLayout {
         mContentProvider = CategoryProviderManager.getInstance().getProvider(providerId);
 
         if (mContentProvider.isFirstFetch() || mContentProvider.isEmpty()) {
-            mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Loading);
+            mLoadingPageView.setLoading();
             fetchCategory();
         } else {
             updateLoadingState(false);
@@ -124,7 +124,7 @@ public class CategoryLayoutView extends FrameLayout {
     }
 
     public void reloadData() {
-        mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Loading);
+        mLoadingPageView.setLoading();
         mContentProvider.clear();
         fetchCategory();
 
@@ -142,8 +142,7 @@ public class CategoryLayoutView extends FrameLayout {
         }
 
         if (isFailed) {
-            mLoadingPageView.setPageState(
-                    JungleLoadingLayout.PageState.LoadingFailed);
+            mLoadingPageView.setEmpty();
         } else {
             mAdapter.notifyDataSetChanged();
             mLoadingPageView.setPageState(mContentProvider.isEmpty()

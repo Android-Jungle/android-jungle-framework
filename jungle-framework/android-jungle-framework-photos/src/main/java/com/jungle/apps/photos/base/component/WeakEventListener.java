@@ -25,7 +25,7 @@ import java.util.List;
 
 public class WeakEventListener<T> {
 
-    private List<WeakReference<T>> mEventListenerList = new LinkedList();
+    private List<WeakReference<T>> mEventListenerList = new LinkedList<>();
 
 
     public WeakEventListener() {
@@ -43,7 +43,7 @@ public class WeakEventListener<T> {
             }
         }
 
-        this.mEventListenerList.add(new WeakReference(l));
+        this.mEventListenerList.add(new WeakReference<T>(l));
     }
 
     public void removeEventListener(T l) {

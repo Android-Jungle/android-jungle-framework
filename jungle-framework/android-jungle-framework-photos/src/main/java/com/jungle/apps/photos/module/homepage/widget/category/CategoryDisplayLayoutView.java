@@ -86,7 +86,7 @@ public class CategoryDisplayLayoutView extends FrameLayout {
         mCategoryContainer = (LinearLayout) findViewById(R.id.category_container);
         mLanternView = (JungleLanternView) findViewById(R.id.homepage_lantern_view);
         mLoadingPageView = (JungleLoadingLayout) findViewById(R.id.loading_page);
-        mLoadingPageView.setPageState(JungleLoadingLayout.PageState.Loading);
+        mLoadingPageView.setLoading();
 
         mScrollView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ScrollView>() {
             @Override
