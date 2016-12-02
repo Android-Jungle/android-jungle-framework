@@ -36,6 +36,7 @@ public class BaseApplication extends Application {
         super.onCreate();
 
         mApplication = this;
+        initAppCore();
 
         NetworkUtils.initializeNetworkUtils(this);
         EventManager.getInstance().notify(JungleEvent.APP_INITIALIZED);
