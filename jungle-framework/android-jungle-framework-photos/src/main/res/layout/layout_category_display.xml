@@ -23,6 +23,8 @@
         android:layout_gravity="left|bottom"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:textColor="@color/white"
