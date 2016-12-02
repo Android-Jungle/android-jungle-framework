@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/setting_item_bkg"
-            app:showBottomDivider="false"
+            app:showBottomDivider="true"
             app:showDetailIcon="false"
             app:itemText="@string/view_favorite_path"/>
 

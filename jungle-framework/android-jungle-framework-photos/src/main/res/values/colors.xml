@@ -5,12 +5,12 @@
     <color name="gray_overlay_color">#a0888888</color>
     <color name="category_item_tag_top_color">#e0188eee</color>
     <color name="photos_tool_bar">@color/theme_purple</color>
-    <color name="divider_line_color">#888</color>
+    <color name="divider_line_color">#ddd</color>
     <color name="drawer_line_gray">#70808080</color>
     <color name="drawer_item_seled_bkg">#77606493</color>
     <color name="homepage_title_zone_pressed">#22f7f7f7</color>
     <color name="general_pressed_bkg_color">#34808080</color>
-    <color name="main_bkg_gray_color">#fafafa</color>
+    <color name="main_bkg_gray_color">#efefef</color>
     <color name="refresh_background">#333</color>
     <color name="gray">#888</color>
     <color name="theme_purple">#404473</color>
