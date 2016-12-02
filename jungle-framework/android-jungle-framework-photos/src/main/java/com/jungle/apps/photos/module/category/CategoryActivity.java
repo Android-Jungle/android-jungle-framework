@@ -61,9 +61,4 @@ public class CategoryActivity extends PhotoBaseActivity {
         mCategoryLayoutView = (CategoryLayoutView) findViewById(R.id.category_view);
         mCategoryLayoutView.setProviderId(providerId);
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }

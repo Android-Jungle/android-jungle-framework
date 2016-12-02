@@ -7,6 +7,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/app_toolbar_height"
         android:background="#e0e4e4e4">
 
         <LinearLayout
