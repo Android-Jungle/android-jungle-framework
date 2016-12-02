@@ -36,8 +36,6 @@ public class BaseApplication extends Application {
         super.onCreate();
 
         mApplication = this;
-        mAppCore = createAppCore();
-        mAppCore.onCreate();
 
         NetworkUtils.initializeNetworkUtils(this);
         EventManager.getInstance().notify(JungleEvent.APP_INITIALIZED);
@@ -49,6 +47,19 @@ public class BaseApplication extends Application {
         NetworkUtils.unInitializeNetworkUtils(this);
 
         mApplication = null;
+    }
+
+    protected void initAppCore() {
+        mAppCore = createAppCore();
+        mAppCore.onCreate();
+
+        if (mAppCore.isStarted()) {
+            return;
+        }
+
+        mAppCore.start();
+        while (!mAppCore.isStarted()) {
+        }
     }
 
     protected AppCore createAppCore() {

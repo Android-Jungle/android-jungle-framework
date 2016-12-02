@@ -86,22 +86,10 @@ public class BaseActivity extends AppCompatActivity {
         return this;
     }
 
-    protected void initAppCore() {
-        AppCore core = AppCore.getInstance();
-        if (core.isStarted()) {
-            return;
-        }
-
-        core.start();
-        while (!core.isStarted()) {
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initAppCore();
         notifyLifeCycleChange(LifeChangeType.Create);
         AppLifeManager.getInstance().activityCreated(this);
     }
