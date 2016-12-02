@@ -26,6 +26,7 @@ import com.jungle.apps.photos.R;
 import com.jungle.apps.photos.base.app.PhotoBaseActivity;
 import com.jungle.apps.photos.base.component.AppUtils;
 import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
+import com.jungle.apps.photos.module.misc.AboutActivity;
 import com.jungle.base.manager.ThreadManager;
 import com.jungle.base.utils.FileUtils;
 import com.jungle.widgets.dialog.DialogUtils;
@@ -42,6 +43,7 @@ public class SettingActivity extends PhotoBaseActivity {
     private SettingItemView mClearCacheItem;
     private SettingItemView mClearFavoritesItem;
     private SettingItemView mViewFavoritePathItem;
+    private SettingItemView mAboutAppItem;
     private int mDevelopmentTriggerCount = 0;
 
 
@@ -52,10 +54,11 @@ public class SettingActivity extends PhotoBaseActivity {
         setTitle(R.string.setting_item_text);
         setContentView(R.layout.activity_settings);
 
-        mClearCacheItem = (SettingItemView) findViewById(R.id.clear_cache);
-        mClearFavoritesItem = (SettingItemView) findViewById(R.id.clear_favorites);
-        mViewFavoritePathItem = (SettingItemView) findViewById(R.id.view_favorite_path);
-        mDownloadImgWhenFavBtn = (ToggleButton) findViewById(R.id.setting_enable_switch);
+        mAboutAppItem = findView(R.id.about_app);
+        mClearCacheItem = findView(R.id.clear_cache);
+        mClearFavoritesItem = findView(R.id.clear_favorites);
+        mViewFavoritePathItem = findView(R.id.view_favorite_path);
+        mDownloadImgWhenFavBtn = findView(R.id.setting_enable_switch);
 
         initItemViews();
     }
@@ -72,6 +75,13 @@ public class SettingActivity extends PhotoBaseActivity {
                         AppUtils.saveDownloadWhenFavPicBtn(isChecked);
                     }
                 });
+
+        mAboutAppItem.setItemClickAction(new SettingItemView.OnSettingItemClickListener() {
+            @Override
+            public void onItemClicked(SettingItemView settingItemView) {
+                startActivityInternal(AboutActivity.class);
+            }
+        });
 
         mClearCacheItem.setItemClickAction(new SettingItemView.OnSettingItemClickListener() {
             @Override
