@@ -94,7 +94,7 @@ public class ImageViewActivity extends PhotoBaseActivity {
         showTitleIcon(false);
         showRightZone(true);
         setContentView(R.layout.activity_image_view);
-        setToolbarBackground(getResources().getColor(R.color.theme_purple));
+        setToolbarBackground(R.color.theme_purple);
 
         initView();
         initProvider();
