@@ -45,8 +45,7 @@ public abstract class CategoryManager implements AppManager {
 
     public static enum MgrType {
         ForNormal(1),
-        ForSearch(2),
-        ForHotRecommend(3);
+        ForSearch(2);
 
         public int mRawType;
 
@@ -59,8 +58,6 @@ public abstract class CategoryManager implements AppManager {
                 return ForNormal;
             } else if (rawType == ForSearch.mRawType) {
                 return ForSearch;
-            } else if (rawType == ForHotRecommend.mRawType) {
-                return ForHotRecommend;
             }
 
             return null;
@@ -82,7 +79,7 @@ public abstract class CategoryManager implements AppManager {
 
     public static enum CategoryType {
         Fetched,
-        Favorited,
+        Favorite,
     }
 
 
@@ -92,9 +89,6 @@ public abstract class CategoryManager implements AppManager {
         public String mThumbUrl;
         public String mSrcUrl;
         public String mLocalPath;
-        public List<String> mTags = new ArrayList<String>();
-        public int mCommentCount;
-        public int mPraiseCount;
     }
 
 
@@ -111,8 +105,7 @@ public abstract class CategoryManager implements AppManager {
         public CategoryType mCategoryType = CategoryType.Fetched;
         public String mCategory;
         public String mTag;
-        public ArrayList<CategoryItem> mCategoryItems =
-                new ArrayList<CategoryItem>();
+        public ArrayList<CategoryItem> mCategoryItems = new ArrayList<>();
 
         int mCurrFetchIndex;
         int mTotalCount;
@@ -140,8 +133,7 @@ public abstract class CategoryManager implements AppManager {
     }
 
 
-    protected Map<String, CategoryInfo> mCategoryList =
-            new HashMap<String, CategoryInfo>();
+    protected Map<String, CategoryInfo> mCategoryList = new HashMap<>();
 
 
     public abstract MgrType getCategoryType();
@@ -199,13 +191,13 @@ public abstract class CategoryManager implements AppManager {
     }
 
     public void fetchCategory(String category, String key, int count,
-            OnFetchResultListener l) {
-        fetchCategory(category, key, -1, count, l);
+            OnFetchResultListener listener) {
+        fetchCategory(category, key, -1, count, listener);
     }
 
     public void fetchCategory(
             String category, String key, int startIndex, int count,
-            OnFetchResultListener l) {
+            OnFetchResultListener listener) {
 
         int realFetchIndex = 0;
         int realFetchCount = count;
@@ -214,13 +206,13 @@ public abstract class CategoryManager implements AppManager {
         if (startIndex == -1) {
             realFetchIndex = info.mCurrFetchIndex;
         } else if (info.isEnd()) {
-            l.onSuccess(0, info);
+            listener.onSuccess(0, info);
             return;
 
         } else {
             int realNeedCount = startIndex + count;
             if (realNeedCount <= info.mCurrFetchIndex) {
-                l.onSuccess(0, info);
+                listener.onSuccess(0, info);
                 return;
             } else {
                 realFetchCount = realNeedCount - info.mCurrFetchIndex;
@@ -230,26 +222,24 @@ public abstract class CategoryManager implements AppManager {
         String url = generateFetchUrl(
                 category, key, realFetchIndex, realFetchCount);
         if (TextUtils.isEmpty(url)) {
-            l.onError(info);
+            listener.onError(info);
             return;
         }
 
-        fetchCategoryInternal(getCategoryParser(), info, url, l);
+        fetchCategoryInternal(getCategoryParser(), info, url, listener);
     }
 
     protected static class CategoryParser {
-        private String mItemsField;
 
-        public CategoryParser(String itemsField) {
-            mItemsField = itemsField;
+        public CategoryParser() {
         }
 
         public List<CategoryItem> parseCategory(JSONObject json, CategoryInfo info) {
-            int max = JsonUtils.safeGetInt(json, "maxEnd");
+            int max = JsonUtils.safeGetInt(json, "displayNum");
             info.mTotalCount = Math.max(max, info.mTotalCount);
 
-            List<CategoryItem> resultList = new ArrayList<CategoryItem>();
-            JSONArray items = JsonUtils.safeGetArray(json, mItemsField);
+            List<CategoryItem> resultList = new ArrayList<>();
+            JSONArray items = JsonUtils.safeGetArray(json, "data");
             if (items != null) {
                 parseCategoryArray(items, resultList);
             }
@@ -270,7 +260,9 @@ public abstract class CategoryManager implements AppManager {
                 obj = items.get(i);
                 if (obj == null) {
                     continue;
-                } else if (obj instanceof JSONArray) {
+                }
+
+                if (obj instanceof JSONArray) {
                     JSONArray arr = (JSONArray) obj;
                     fetchedCount += parseCategoryArray(arr, resultList);
                 } else if (obj instanceof JSONObject) {
@@ -291,33 +283,17 @@ public abstract class CategoryManager implements AppManager {
     }
 
     private static CategoryItem parseCategoryItem(JSONObject itemInfo) {
-        try {
-            CategoryItem item = new CategoryItem();
-            item.mTitle = JsonUtils.safeGetString(itemInfo, "title");
-            item.mThumbUrl = JsonUtils.safeGetString(itemInfo, "thumbUrl");
-            item.mSrcUrl = JsonUtils.safeGetString(itemInfo, "pic_url");
-            item.mPraiseCount = JsonUtils.safeGetInt(itemInfo, "praise_count");
-            item.mCommentCount = JsonUtils.safeGetInt(itemInfo, "comment_count");
-            item.mId = CategoryStrategy.generateImageId(item.mSrcUrl);
+        CategoryItem item = new CategoryItem();
+        item.mTitle = JsonUtils.safeGetString(itemInfo, "fromPageTitleEnc");
+        item.mThumbUrl = JsonUtils.safeGetString(itemInfo, "thumbURL");
+        item.mSrcUrl = JsonUtils.safeGetString(itemInfo, "middleURL");
+        item.mId = CategoryStrategy.generateImageId(item.mSrcUrl);
 
-            if (TextUtils.isEmpty(item.mThumbUrl)) {
-                item.mThumbUrl = item.mSrcUrl;
-            }
-
-            JSONArray tags = JsonUtils.safeGetArray(itemInfo, "tags");
-            if (tags != null) {
-                int tagCount = tags.length();
-                for (int j = 0; j < tagCount; ++j) {
-                    item.mTags.add(tags.getString(j));
-                }
-            }
-
-            return item;
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (TextUtils.isEmpty(item.mThumbUrl)) {
+            item.mThumbUrl = item.mSrcUrl;
         }
 
-        return null;
+        return item;
     }
 
     protected void fetchCategoryInternal(

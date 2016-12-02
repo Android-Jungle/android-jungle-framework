@@ -36,7 +36,7 @@ public class SearchHistoryManager {
     public void loadHistory() {
         mSearchHistoryList = getORMSupporter().query(SearchHistoryEntity.class);
         if (mSearchHistoryList == null) {
-            mSearchHistoryList = new ArrayList<SearchHistoryEntity>();
+            mSearchHistoryList = new ArrayList<>();
         }
     }
 

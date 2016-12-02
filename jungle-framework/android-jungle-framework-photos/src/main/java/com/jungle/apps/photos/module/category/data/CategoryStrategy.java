@@ -25,11 +25,18 @@ public class CategoryStrategy {
 
     public static final int DEFAULT_FETCH_COUNT = 20;
 
-    public static final String CATEGORY_BASE_URL =
-            "http://www.jungle.com/photobound/content/get_pic_list?channel_id=%s&app_version=%d&category=%s&tag=%s&start=%d&len=%d";
+    public static final String BASE_URL =
+            "http://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&is=&fp=result&queryWord=%s&cl=2&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=-1&z=0&ic=0&word=%s&pn=%d&rn=%d";
 
-    public static final String SEARCH_BASE_URL =
-            "http://www.jungle.com/photobound/content/search_pic?channel_id=%s&app_version=%d&query=%s&start=%d&len=%d";
+
+    public static String getCategoryUrl(String category, String tag, int index, int count) {
+        String key = String.format("%s+%s", category, tag);
+        return getSearchUrl(key, index, count);
+    }
+
+    public static String getSearchUrl(String searchKey, int index, int count) {
+        return String.format(BASE_URL, searchKey, (index + 1) * count, count);
+    }
 
 
     public static String generateImageId(String url) {

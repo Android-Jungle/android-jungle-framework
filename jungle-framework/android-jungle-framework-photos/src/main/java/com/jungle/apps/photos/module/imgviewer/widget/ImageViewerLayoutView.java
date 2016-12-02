@@ -189,7 +189,7 @@ public class ImageViewerLayoutView extends FrameLayout {
 
             Bitmap bitmap = null;
             CategoryManager.CategoryInfo info = mContentProvider.getCategoryInfo();
-            if (info.mCategoryType == CategoryManager.CategoryType.Favorited) {
+            if (info.mCategoryType == CategoryManager.CategoryType.Favorite) {
                 if (FileUtils.isFileExist(item.mLocalPath)) {
                     bitmap = ImageUtils.decodeSampledBitmapFromFile(item.mLocalPath);
                 }

@@ -149,8 +149,7 @@ public class NetworkUtils {
 
     private static boolean mNetTypeInitialized = false;
     private static NetworkUtils.NetType mCurrNetType = NetworkUtils.NetType.None;
-    private static List<WeakReference<NetworkStateListener>> mNetworkStateListener =
-            new LinkedList<WeakReference<NetworkStateListener>>();
+    private static List<WeakReference<NetworkStateListener>> mNetworkStateListener = new LinkedList<>();
 
 
     public static NetType getNetworkType() {

@@ -56,7 +56,7 @@ public class ImageOperateLayoutView extends FrameLayout {
     private View mShareToWXFriendGroup;
     private ShareInfo mShareInfo;
     private Random mRandom = new Random(System.currentTimeMillis());
-    private Set<Integer> mColorSet = new HashSet<Integer>();
+    private Set<Integer> mColorSet = new HashSet<>();
     private OnVisibilityListener mVisibilityListener;
     private int mHidingViewCount = 0;
 

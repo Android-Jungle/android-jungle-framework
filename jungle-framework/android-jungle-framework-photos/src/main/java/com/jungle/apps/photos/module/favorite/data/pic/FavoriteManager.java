@@ -104,7 +104,7 @@ public abstract class FavoriteManager implements AppManager {
         }
 
         if (!found) {
-            mFavoriteEventList.add(new WeakReference<OnFavoriteEventListener>(l));
+            mFavoriteEventList.add(new WeakReference<>(l));
         }
     }
 
@@ -250,7 +250,7 @@ public abstract class FavoriteManager implements AppManager {
     private CategoryManager.CategoryInfo generateCategoryInfo() {
         CategoryManager.CategoryInfo info =
                 new CategoryManager.CategoryInfo(null, null);
-        info.mCategoryType = CategoryManager.CategoryType.Favorited;
+        info.mCategoryType = CategoryManager.CategoryType.Favorite;
         return info;
     }
 

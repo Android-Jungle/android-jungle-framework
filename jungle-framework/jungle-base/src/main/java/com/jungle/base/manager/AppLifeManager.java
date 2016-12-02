@@ -79,11 +79,11 @@ public class AppLifeManager implements AppManager {
             }
         }
 
-        mValidActivityList.add(new DeepWeakReference<Activity>(activity));
+        mValidActivityList.add(new DeepWeakReference<>(activity));
     }
 
     public void activityDestroyed(Activity activity) {
-        mValidActivityList.remove(new DeepWeakReference<Activity>(activity));
+        mValidActivityList.remove(new DeepWeakReference<>(activity));
     }
 
     public Activity getCurrentActivity() {

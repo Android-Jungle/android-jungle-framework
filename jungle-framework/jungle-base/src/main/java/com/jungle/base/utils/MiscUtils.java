@@ -472,7 +472,7 @@ public final class MiscUtils {
                 context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> runningList = manager.getRunningAppProcesses();
 
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         for (ActivityManager.RunningAppProcessInfo info : runningList) {
             if (info.processName.contains(pkgName)) {
                 result.add(info.pid);

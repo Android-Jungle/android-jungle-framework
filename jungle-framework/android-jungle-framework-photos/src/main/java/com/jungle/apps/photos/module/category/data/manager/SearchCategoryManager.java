@@ -20,22 +20,18 @@ package com.jungle.apps.photos.module.category.data.manager;
 
 import com.jungle.apps.photos.module.category.data.CategoryStrategy;
 import com.jungle.base.app.AppCore;
-import com.jungle.base.utils.VersionUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class SearchCategoryManager extends CategoryManager {
 
-    private static final String SEARCH_ITEMS_FIELD = "all_items";
-
     public static SearchCategoryManager getInstance() {
         return AppCore.getInstance().getManager(SearchCategoryManager.class);
     }
 
 
-    private CategoryParser mSearchCategoryParser =
-            new CategoryParser(SEARCH_ITEMS_FIELD);
+    private CategoryParser mSearchCategoryParser = new CategoryParser();
 
     public MgrType getCategoryType() {
         return MgrType.ForSearch;
@@ -44,14 +40,11 @@ public class SearchCategoryManager extends CategoryManager {
     @Override
     protected String generateFetchUrl(
             String category, String key, int fetchIndex, int count) {
+
         try {
             String keyEncode = null;
             keyEncode = URLEncoder.encode(key, "UTF-8");
-
-            return String.format(CategoryStrategy.SEARCH_BASE_URL,
-                    VersionUtils.getChannelId(),
-                    VersionUtils.getAppVersionCode(),
-                    keyEncode, fetchIndex, count);
+            return CategoryStrategy.getSearchUrl(keyEncode, fetchIndex, count);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

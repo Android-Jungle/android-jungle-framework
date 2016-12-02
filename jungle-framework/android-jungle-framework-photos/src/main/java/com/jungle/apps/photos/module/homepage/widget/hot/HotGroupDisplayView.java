@@ -46,7 +46,7 @@ public class HotGroupDisplayView extends FrameLayout {
         String mImgUrl;
         String mClickTag;
         int mImgGravity = HotGroupDisplayView.ImageGravity.Left;
-        List<String> mTagsList = new ArrayList<String>();
+        List<String> mTagsList = new ArrayList<>();
     }
 
 

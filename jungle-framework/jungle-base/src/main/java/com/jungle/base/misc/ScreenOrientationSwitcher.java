@@ -46,12 +46,12 @@ public class ScreenOrientationSwitcher extends OrientationEventListener {
 
     public ScreenOrientationSwitcher(Context context) {
         super(context);
-        mContextRef = new WeakReference<Context>(context);
+        mContextRef = new WeakReference<>(context);
     }
 
     public ScreenOrientationSwitcher(Context context, int rate) {
         super(context, rate);
-        mContextRef = new WeakReference<Context>(context);
+        mContextRef = new WeakReference<>(context);
     }
 
     public void setChangeListener(OnChangeListener listener) {

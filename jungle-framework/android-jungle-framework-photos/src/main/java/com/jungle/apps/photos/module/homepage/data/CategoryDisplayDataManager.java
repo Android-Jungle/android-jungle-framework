@@ -40,11 +40,8 @@ public class CategoryDisplayDataManager {
     private static final String HAS_DIVIDER = "has_divider";
 
 
-    private List<CategoryItem.CategoryInfo> mLanternList =
-            new ArrayList<CategoryItem.CategoryInfo>();
-
-    private List<CategoryItem.CategoryItemInfo> mCategoryList =
-            new ArrayList<CategoryItem.CategoryItemInfo>();
+    private List<CategoryItem.CategoryInfo> mLanternList = new ArrayList<>();
+    private List<CategoryItem.CategoryItemInfo> mCategoryList = new ArrayList<>();
 
 
     public CategoryDisplayDataManager() {

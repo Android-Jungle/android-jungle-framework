@@ -244,7 +244,7 @@ public class BaseActivity extends AppCompatActivity {
             return;
         }
 
-        mLifeCycleListener.add(new WeakReference<LifeCycleListener>(listener));
+        mLifeCycleListener.add(new WeakReference<>(listener));
     }
 
     public void removeLifeCycleListener(LifeCycleListener listener) {

@@ -129,7 +129,7 @@ public class AppUtils {
      * 获取可以当作缓存清理的目录列表.
      */
     public static List<String> getCanCleanCacheDirectoryList() {
-        List<String> dirList = new ArrayList<String>();
+        List<String> dirList = new ArrayList<>();
         dirList.add(getImageCacheDirectory());
         dirList.add(getWallPaperDirectory());
         dirList.add(CrashManager.getDefaultDumpPath());

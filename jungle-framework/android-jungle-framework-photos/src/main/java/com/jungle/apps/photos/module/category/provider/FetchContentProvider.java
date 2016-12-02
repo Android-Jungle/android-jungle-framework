@@ -27,6 +27,7 @@ public class FetchContentProvider extends CategoryContentProvider {
     private String mKey;
     private CategoryManager mCategoryMgr;
 
+
     public FetchContentProvider(CategoryManager.CategoryInfo info,
             CategoryManager mgr, String key) {
         super(info);

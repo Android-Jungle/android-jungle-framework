@@ -89,7 +89,8 @@ public class FlowLayout extends ViewGroup {
     }
 
 
-    List<Integer> mRowHeightList = new ArrayList<Integer>();
+    private List<Integer> mRowHeightList = new ArrayList<>();
+
 
     public FlowLayout(Context context) {
         super(context);
