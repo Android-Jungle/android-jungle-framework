@@ -56,6 +56,13 @@ public class PhotoBaseActivity extends JungleSwipeBackBaseActivity<BaseToolbar> 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initToolbar();
+
+        findViewById(R.id.actionbar_title_zone).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
