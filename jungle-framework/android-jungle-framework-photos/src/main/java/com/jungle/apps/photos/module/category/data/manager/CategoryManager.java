@@ -138,8 +138,7 @@ public abstract class CategoryManager implements AppManager {
 
     public abstract MgrType getCategoryType();
 
-    protected abstract CategoryInfo createDefaultCategoryInfo(
-            String category, String key);
+    protected abstract CategoryInfo createDefaultCategoryInfo(String category, String key);
 
     protected abstract CategoryParser getCategoryParser();
 

@@ -43,6 +43,7 @@ public class NormalCategoryManager extends CategoryManager {
     @Override
     protected String generateFetchUrl(
             String category, String tag, int fetchIndex, int count) {
+
         if (TextUtils.isEmpty(category)) {
             category = AppUtils.getMainCategory();
         }
@@ -62,8 +63,7 @@ public class NormalCategoryManager extends CategoryManager {
     }
 
     @Override
-    protected CategoryInfo createDefaultCategoryInfo(
-            String category, String key) {
+    protected CategoryInfo createDefaultCategoryInfo(String category, String key) {
         return new CategoryInfo(category, key);
     }
 

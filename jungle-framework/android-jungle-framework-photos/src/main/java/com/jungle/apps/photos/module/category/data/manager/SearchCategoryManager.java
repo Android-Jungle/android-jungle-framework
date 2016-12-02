@@ -53,8 +53,7 @@ public class SearchCategoryManager extends CategoryManager {
     }
 
     @Override
-    protected CategoryInfo createDefaultCategoryInfo(
-            String category, String key) {
+    protected CategoryInfo createDefaultCategoryInfo(String category, String key) {
         return new CategoryInfo(category, key);
     }
 

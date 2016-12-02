@@ -28,8 +28,10 @@ public class FetchContentProvider extends CategoryContentProvider {
     private CategoryManager mCategoryMgr;
 
 
-    public FetchContentProvider(CategoryManager.CategoryInfo info,
+    public FetchContentProvider(
+            CategoryManager.CategoryInfo info,
             CategoryManager mgr, String key) {
+
         super(info);
 
         mKey = key;
@@ -70,8 +72,7 @@ public class FetchContentProvider extends CategoryContentProvider {
     private CategoryManager.OnFetchResultListener mCategoryFetchListener =
             new CategoryManager.OnFetchResultListener() {
                 @Override
-                public void onSuccess(int fetchedCount,
-                        CategoryManager.CategoryInfo info) {
+                public void onSuccess(int fetchedCount, CategoryManager.CategoryInfo info) {
                     mIsFirstFetch = false;
                     notifyContentChanged();
                 }
