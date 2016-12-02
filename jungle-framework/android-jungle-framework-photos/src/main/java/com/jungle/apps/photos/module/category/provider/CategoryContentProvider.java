@@ -67,7 +67,7 @@ public abstract class CategoryContentProvider
         return mDefaultCategoryName;
     }
 
-    public void SetDefaultCategoryName(String categoryName) {
+    public void setDefaultCategoryName(String categoryName) {
         mDefaultCategoryName = categoryName;
     }
 

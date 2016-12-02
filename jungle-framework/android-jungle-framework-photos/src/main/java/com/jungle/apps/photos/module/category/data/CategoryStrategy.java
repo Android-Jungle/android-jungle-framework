@@ -31,9 +31,6 @@ public class CategoryStrategy {
     public static final String SEARCH_BASE_URL =
             "http://www.jungle.com/photobound/content/search_pic?channel_id=%s&app_version=%d&query=%s&start=%d&len=%d";
 
-    public static final String HOT_RECOMMEND_BASE_URL =
-            "http://www.jungle.com/photobound/content/get_recommendlist?channel_id=%s&app_version=%d&start=%d&len=%d";
-
 
     public static String generateImageId(String url) {
         if (TextUtils.isEmpty(url)) {

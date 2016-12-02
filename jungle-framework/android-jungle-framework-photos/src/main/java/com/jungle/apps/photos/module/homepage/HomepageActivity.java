@@ -31,20 +31,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.jungle.apps.photos.R;
-import com.jungle.apps.photos.base.component.PhotoEvent;
 import com.jungle.apps.photos.module.favorite.FavoriteActivity;
 import com.jungle.apps.photos.module.favorite.data.tag.FavoriteTagManager;
 import com.jungle.apps.photos.module.homepage.widget.HomepageTabIndicatorView;
 import com.jungle.apps.photos.module.homepage.widget.HomepageToolbar;
 import com.jungle.apps.photos.module.homepage.widget.category.CategoryDisplayLayoutView;
 import com.jungle.apps.photos.module.homepage.widget.hot.HotLayoutView;
-import com.jungle.apps.photos.module.homepage.widget.personalcenter.HotRecommendLayoutView;
 import com.jungle.apps.photos.module.misc.AboutActivity;
 import com.jungle.apps.photos.module.settings.SettingActivity;
 import com.jungle.base.app.AppCore;
-import com.jungle.base.event.Event;
-import com.jungle.base.event.EventListener;
-import com.jungle.base.manager.EventManager;
 import com.jungle.toolbaractivity.activity.JungleBaseActivity;
 import com.jungle.widgets.dialog.JungleDialog;
 import com.jungle.widgets.dialog.JungleToast;
@@ -81,10 +76,6 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
         initPager();
 
         FavoriteTagManager.getInstance().fetchFavoritedTags();
-        EventManager.getInstance().addListener(
-                PhotoEvent.HOT_PIC_UPDATED, mHotPicUpdatedListener);
-        EventManager.getInstance().addListener(
-                PhotoEvent.HOT_PIC_UPDATED_CLICKED, mHotPicUpdateClickListener);
     }
 
     @Override
@@ -158,22 +149,6 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
         mViewPager.setAdapter(mAdapter);
         mTabIndicator.setViewPager(mViewPager);
         mTabIndicator.setAdapter(mIndicatorAdapter);
-        mTabIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == HomepageTabInfo.HotRecommend.mPosition) {
-                    showHotRecommendNewIcon(false);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
     }
 
     private void switchDrawer() {
@@ -215,36 +190,10 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
         return super.onKeyDown(keyCode, event);
     }
 
-    private EventListener mHotPicUpdatedListener = new EventListener() {
-        @Override
-        public void onEvent(Event event, Object data) {
-            showHotRecommendNewIcon(true);
-
-            HotRecommendLayoutView recommendView = mAdapter.mHotRecommendLayoutView;
-            if (recommendView != null) {
-                recommendView.updateRecommend();
-            }
-        }
-    };
-
-    private EventListener mHotPicUpdateClickListener = new EventListener() {
-        @Override
-        public void onEvent(Event event, Object data) {
-            mViewPager.setCurrentItem(HomepageTabInfo.HotRecommend.mPosition);
-        }
-    };
-
-    private void showHotRecommendNewIcon(boolean show) {
-        HomepageTabIndicatorView view = (HomepageTabIndicatorView)
-                mTabIndicator.getIndicatorView(HomepageTabInfo.HotRecommend.mPosition);
-        view.showNewIcon(show);
-    }
-
 
     private static enum HomepageTabInfo {
         Category(R.string.homepage_tab_category_display, 0),
-        Hot(R.string.homepage_tab_hot, 1),
-        HotRecommend(R.string.homepage_hot_recommend, 2);
+        Hot(R.string.homepage_tab_hot, 1);
 
         int mTitleResId;
         int mPosition;
@@ -259,8 +208,6 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
                 return HomepageTabInfo.Category;
             } else if (position == HomepageTabInfo.Hot.mPosition) {
                 return HomepageTabInfo.Hot;
-            } else if (position == HomepageTabInfo.HotRecommend.mPosition) {
-                return HomepageTabInfo.HotRecommend;
             }
 
             return null;
@@ -288,7 +235,6 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
 
         private CategoryDisplayLayoutView mCategoryLayoutView;
         private HotLayoutView mHotLayoutView;
-        private HotRecommendLayoutView mHotRecommendLayoutView;
 
 
         @Override
@@ -333,12 +279,6 @@ public class HomepageActivity extends JungleBaseActivity<HomepageToolbar> {
                 }
 
                 v = mHotLayoutView;
-            } else if (position == HomepageTabInfo.HotRecommend.ordinal()) {
-                if (mHotRecommendLayoutView == null) {
-                    mHotRecommendLayoutView = new HotRecommendLayoutView(context);
-                }
-
-                v = mHotRecommendLayoutView;
             }
 
             if (v != null) {
