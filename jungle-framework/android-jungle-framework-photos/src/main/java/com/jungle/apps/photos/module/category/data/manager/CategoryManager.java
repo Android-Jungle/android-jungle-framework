@@ -298,10 +298,10 @@ public abstract class CategoryManager implements AppManager {
 
     protected void fetchCategoryInternal(
             final CategoryParser parser, final CategoryInfo info,
-            String url, final OnFetchResultListener l) {
+            String url, final OnFetchResultListener listener) {
 
         if (TextUtils.isEmpty(url)) {
-            l.onError(info);
+            listener.onError(info);
             return;
         }
 
@@ -322,7 +322,7 @@ public abstract class CategoryManager implements AppManager {
                                     info.notifyUpdatedEvent();
                                 }
 
-                                l.onSuccess(fetchedCount, info);
+                                listener.onSuccess(fetchedCount, info);
                             }
                         });
                     }
@@ -333,7 +333,7 @@ public abstract class CategoryManager implements AppManager {
                         ThreadManager.getInstance().postOnUIHandler(new Runnable() {
                             @Override
                             public void run() {
-                                l.onError(info);
+                                listener.onError(info);
                             }
                         });
                     }

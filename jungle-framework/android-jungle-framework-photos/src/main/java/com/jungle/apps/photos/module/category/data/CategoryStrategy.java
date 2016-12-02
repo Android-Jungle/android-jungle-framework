@@ -35,7 +35,7 @@ public class CategoryStrategy {
     }
 
     public static String getSearchUrl(String searchKey, int index, int count) {
-        return String.format(BASE_URL, searchKey, (index + 1) * count, count);
+        return String.format(BASE_URL, searchKey, searchKey, (index + 1) * count, count);
     }
 
 
