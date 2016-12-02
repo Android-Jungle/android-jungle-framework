@@ -18,6 +18,8 @@
 
 package com.jungle.apps.photos.module.favorite.widget;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -53,6 +55,8 @@ import com.jungle.widgets.dialog.DialogUtils;
 import com.jungle.widgets.dialog.JungleDialog;
 import com.jungle.widgets.dialog.JungleToast;
 import com.jungle.widgets.loading.JungleLoadingLayout;
+
+import java.util.Set;
 
 public class FavoriteLayoutView extends FrameLayout {
 
@@ -283,24 +287,31 @@ public class FavoriteLayoutView extends FrameLayout {
     }
 
     private void downloadFavImage(final ItemHolder holder, final FavoriteEntity entity) {
-        String favDir = AppUtils.getFavouritePicFile(entity.mId);
-        FileDownloadRequest request = new FileDownloadRequest(entity.mSrcUrl, favDir,
-                new Response.Listener<String>() {
+        MiscUtils.requestRuntimePermission(
+                (Activity) getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                new MiscUtils.OnPermissionRequestListener() {
                     @Override
-                    public void onResponse(String response) {
-                        entity.mLocalPath = response;
-                        FavoriteManager.getInstance().synchronizeEntity(entity);
-                        JungleToast.makeText(getContext(), R.string.download_succeeded).show();
-                        holder.updateSize(entity);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        JungleToast.makeText(getContext(), R.string.download_failed).show();
+                    public void onResult(Set<String> grantedPermissions) {
+                        String favDir = AppUtils.getFavouritePicFile(entity.mId);
+                        FileDownloadRequest request = new FileDownloadRequest(entity.mSrcUrl, favDir,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        entity.mLocalPath = response;
+                                        FavoriteManager.getInstance().synchronizeEntity(entity);
+                                        JungleToast.makeText(getContext(), R.string.download_succeeded).show();
+                                        holder.updateSize(entity);
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        JungleToast.makeText(getContext(), R.string.download_failed).show();
+                                    }
+                                });
+                        HttpRequestManager.getInstance().add(request);
                     }
                 });
-        HttpRequestManager.getInstance().add(request);
     }
 
     private void cancelFavorite(final FavoriteEntity entity) {

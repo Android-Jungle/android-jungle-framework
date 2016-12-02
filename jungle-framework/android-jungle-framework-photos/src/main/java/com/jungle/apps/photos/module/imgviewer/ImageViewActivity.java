@@ -18,6 +18,8 @@
 
 package com.jungle.apps.photos.module.imgviewer;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,8 +47,11 @@ import com.jungle.apps.photos.module.favorite.data.pic.FavoriteManager;
 import com.jungle.apps.photos.module.imgviewer.widget.ImageOperateLayoutView;
 import com.jungle.apps.photos.module.imgviewer.widget.ImageViewerLayoutView;
 import com.jungle.base.manager.ThreadManager;
+import com.jungle.base.utils.MiscUtils;
 import com.jungle.share.ShareInfo;
 import com.jungle.widgets.dialog.JungleToast;
+
+import java.util.Set;
 
 public class ImageViewActivity extends PhotoBaseActivity {
 
@@ -366,27 +371,34 @@ public class ImageViewActivity extends PhotoBaseActivity {
             return;
         }
 
-        String favDir = AppUtils.getFavouritePicFile(item.mId);
-        FileDownloadRequest request = new FileDownloadRequest(item.mSrcUrl, favDir,
-                new Response.Listener<String>() {
+        MiscUtils.requestRuntimePermission(
+                (Activity) getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                new MiscUtils.OnPermissionRequestListener() {
                     @Override
-                    public void onResponse(String response) {
-                        FavoriteEntity entity = FavoriteManager.getInstance().getFavoriteEntity(item.mId);
-                        entity.mLocalPath = response;
+                    public void onResult(Set<String> grantedPermissions) {
+                        String favDir = AppUtils.getFavouritePicFile(item.mId);
+                        FileDownloadRequest request = new FileDownloadRequest(item.mSrcUrl, favDir,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        FavoriteEntity entity = FavoriteManager.getInstance().getFavoriteEntity(item.mId);
+                                        entity.mLocalPath = response;
 
-                        FavoriteManager.getInstance().synchronizeEntity(entity);
-                        JungleToast.makeText(getContext(), R.string.download_succeeded).show();
+                                        FavoriteManager.getInstance().synchronizeEntity(entity);
+                                        JungleToast.makeText(getContext(), R.string.download_succeeded).show();
 
-                        updateDownloadState();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        JungleToast.makeText(getContext(), R.string.download_failed).show();
+                                        updateDownloadState();
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        JungleToast.makeText(getContext(), R.string.download_failed).show();
+                                    }
+                                });
+                        HttpRequestManager.getInstance().add(request);
                     }
                 });
-        HttpRequestManager.getInstance().add(request);
     }
 
     private ShareInfo getShareInfo() {

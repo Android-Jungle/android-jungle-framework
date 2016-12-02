@@ -18,12 +18,15 @@
 
 package com.jungle.apps.photos.module.favorite.data.pic;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.jungle.apps.photos.base.component.AppUtils;
 import com.jungle.apps.photos.base.manager.FileDownloadRequest;
+import com.jungle.apps.photos.base.manager.HttpRequestManager;
 import com.jungle.apps.photos.module.category.data.manager.CategoryManager;
 import com.jungle.apps.photos.module.category.provider.CategoryContentProvider;
 import com.jungle.apps.photos.module.category.provider.CategoryProviderManager;
@@ -32,6 +35,7 @@ import com.jungle.base.app.AppCore;
 import com.jungle.base.manager.AppManager;
 import com.jungle.base.manager.ThreadManager;
 import com.jungle.base.utils.FileUtils;
+import com.jungle.base.utils.MiscUtils;
 import com.jungle.simpleorm.supporter.ORMSupporter;
 
 import java.lang.ref.WeakReference;
@@ -40,6 +44,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class FavoriteManager implements AppManager {
 
@@ -200,18 +205,26 @@ public abstract class FavoriteManager implements AppManager {
         }
 
         if (AppUtils.isDownloadWhenFavPic()) {
-            String favDir = AppUtils.getFavouritePicFile(item.mId);
-            FileDownloadRequest request = new FileDownloadRequest(item.mSrcUrl, favDir,
-                    new Response.Listener<String>() {
+            MiscUtils.requestRuntimePermission(
+                    (Activity) context, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    new MiscUtils.OnPermissionRequestListener() {
                         @Override
-                        public void onResponse(String response) {
-                            doAddFavorite(item, response);
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            listener.onFavoriteFailed(item.mId);
+                        public void onResult(Set<String> grantedPermissions) {
+                            String favDir = AppUtils.getFavouritePicFile(item.mId);
+                            FileDownloadRequest request = new FileDownloadRequest(item.mSrcUrl, favDir,
+                                    new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            doAddFavorite(item, response);
+                                        }
+                                    },
+                                    new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            listener.onFavoriteFailed(item.mId);
+                                        }
+                                    });
+                            HttpRequestManager.getInstance().add(request);
                         }
                     });
         } else {
