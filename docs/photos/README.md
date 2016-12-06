@@ -1,6 +1,6 @@
 # photos
 
-[photos](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/photos)是使用 jungle-framework 开发出的一款图片浏览软件。截图如下：
+[photos](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/photos) 是使用 jungle-framework 开发出的一款图片浏览软件。截图如下：
 
 |||
 |---|---|
