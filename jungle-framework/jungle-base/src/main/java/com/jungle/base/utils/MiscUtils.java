@@ -49,6 +49,7 @@ import android.util.DisplayMetrics;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.URLUtil;
 import com.jungle.base.R;
 import com.jungle.base.app.AppCore;
 import com.jungle.base.app.BaseActivity;
@@ -245,7 +246,7 @@ public final class MiscUtils {
 
         final String HTTP_TAG = "http://";
         url = url.trim();
-        if (url.indexOf(HTTP_TAG) != 0) {
+        if (!URLUtil.isNetworkUrl(url)) {
             url = HTTP_TAG + url;
         }
 

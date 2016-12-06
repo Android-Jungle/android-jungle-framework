@@ -91,4 +91,6 @@
     <string name="download_failed">下载失败</string>
     <string name="about_item_text">关于</string>
     <string name="network_invalid_tips">连接超时，请检查你的网络设置。</string>
+    <string name="arnozhang_github">https://github.com/arnozhang</string>
+    <string name="arnozhang">Arno Zhang丶</string>
 </resources>

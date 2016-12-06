@@ -19,8 +19,10 @@
 package com.jungle.apps.photos.module.misc;
 
 import android.os.Bundle;
+import android.view.View;
 import com.jungle.apps.photos.R;
 import com.jungle.apps.photos.base.app.PhotoBaseActivity;
+import com.jungle.base.utils.MiscUtils;
 
 public class AboutActivity extends PhotoBaseActivity {
 
@@ -29,5 +31,11 @@ public class AboutActivity extends PhotoBaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_about);
+        findViewById(R.id.author_zone).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MiscUtils.openUrlByBrowser(getContext(), getString(R.string.arnozhang_github));
+            }
+        });
     }
 }
