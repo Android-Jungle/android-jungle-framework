@@ -4,5 +4,5 @@
 
 |||
 |---|---|
-|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/homepage.png?raw=true)|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/hot.png?raw=true)|
-|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/share.png?raw=true)|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/left-bar.png?raw=true)|
+|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/homepage.jpg?raw=true)|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/hot.jpg?raw=true)|
+|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/share.jpg?raw=true)|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/left-bar.jpg?raw=true)|
