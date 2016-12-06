@@ -20,7 +20,7 @@
 |[jungle-toolbaractivity](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-toolbaractivity)|提供 Toolbar 样式的基础 Activity，包括可右滑返回的 Activity 实现|
 |[jungle-imageloader](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-imageloader)|图片加载库——提供 ImageLoaderUtils 系列接口加载图片。<br>目前图片加载引擎使用 [Fresco](https://github.com/facebook/fresco)。（可自由切换其他图片加载库）|
 |[jungle-widgets](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/jungle-widgets)|提供各种基础的 Widgets——各种 MessageBox & Dialog、模拟的 ActionSheet 等等|
-|android-jungle-framework-photos|基于上述库实现的一款图片浏览类 App|
+|[android-jungle-framework-photos](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/photos)|基于上述库实现的一款图片浏览类 App|
 
 <br>
 
@@ -45,6 +45,14 @@
 
 各模块具体功能及接口参考对应的文档。
 
+### 4、示例
+
+[android-jungle-framework-photos](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/photos)是使用 jungle-framework 开发出的一款图片浏览软件。截图如下：
+
+|||
+|---|---|
+|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/homepage.png?raw=true)|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/hot.png?raw=true)|
+|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/share.png?raw=true)|![](https://github.com/arnozhang/android-jungle-framework/blob/master/docs/photos/images/left-bar.png?raw=true)|
 
 ## License
 
