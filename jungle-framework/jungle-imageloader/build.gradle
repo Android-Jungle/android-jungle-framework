@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.1"
 
     defaultConfig {
         minSdkVersion 9
@@ -26,3 +26,6 @@ dependencies {
     compile 'com.facebook.fresco:animated-gif:0.14.1'
     compile project(':jungle-base')
 }
+
+
+apply from: '../bintrayUpload.gradle'

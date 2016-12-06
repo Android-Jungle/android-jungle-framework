@@ -12,7 +12,30 @@
 - 可用来**快速**搭建一款 App，以达到实现 & 验证需求的目的；
 - 也可作为较大项目 App 的基础组件。
 
-### 3、模块
+### 3、使用方法
+
+```
+# 只使用 Application、AppCore、各种 Manager、各种 Utils
+#
+compile 'com.jungle.base:android-jungle-base:1.0'
+
+
+# 只使用 ImageLoader
+#
+compile 'com.jungle.imageloader:android-jungle-imageloader:1.0'
+
+
+# 使用带 ToolBar、右滑返回功能的 BaseActivity
+#
+compile 'com.jungle.toolbaractivity:android-jungle-toolbaractivity:1.0'
+
+
+# 使用各种 Widgets 组件：如 Dialog、ActionSheet、LoadingLayout 等等
+#
+compile 'com.jungle.widgets:android-jungle-widgets:1.0'
+```
+
+### 4、模块
 
 |library|功能|
 |---|---|
@@ -45,7 +68,7 @@
 
 各模块具体功能及接口参考对应的文档。
 
-### 4、示例
+### 5、示例
 
 [android-jungle-framework-photos](https://github.com/arnozhang/android-jungle-framework/tree/master/docs/photos) 是使用 jungle-framework 开发出的一款图片浏览软件。截图如下：
 
