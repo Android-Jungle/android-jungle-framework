@@ -25,6 +25,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -36,6 +37,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PublicKey;
@@ -153,6 +156,32 @@ public class HttpsUtils {
                 return new X509Certificate[0];
             }
         };
+    }
+
+    public static TrustManager[] createTrustManagerByCerts(Certificate... certs) {
+        try {
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keyStore.load(null, null);
+
+            for (int i = 0; i < certs.length; ++i) {
+                keyStore.setCertificateEntry("ca_" + String.valueOf(i), certs[i]);
+            }
+
+            TrustManagerFactory factory = TrustManagerFactory.getInstance(
+                    TrustManagerFactory.getDefaultAlgorithm());
+            factory.init(keyStore);
+            return factory.getTrustManagers();
+        } catch (KeyStoreException e) {
+            e.printStackTrace();
+        } catch (CertificateException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public static SSLContext getSslContext(PublicKey publicKey) {
