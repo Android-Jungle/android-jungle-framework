@@ -56,6 +56,7 @@ compile 'com.jungle.widgets:android-jungle-widgets:1.0'
 |[jungle-mediaplayer](https://github.com/arnozhang/android-jungle-mediaplayer)|提供 MediaPlayer、AudioRecorder 等等多媒体播放 & 录制组件。<br>这个项目独立发布，请参考具体项目文档|
 |[jungle-simple-ORM](https://github.com/arnozhang/android-simple-ORM)|简易的 ORM 框架，利用**反射**机制来做数据 Load & Save。<br>这个项目独立发布，请参考具体项目文档|
 |[jungle-share](https://github.com/arnozhang/android-jungle-share)|封装提供 QQ、QZone、WX、Weibo 等第三方分享接口|
+|[android-major-https](https://github.com/arnozhang/android-major-https)|提供简洁易用的 Http 接口，并且支持 Https。可以进行证书校验、域名验证等等来确保安全性|
 
 <br>
 
